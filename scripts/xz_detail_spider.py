@@ -36,24 +36,29 @@ LIST_STEP = int(os.getenv("XZ_LIST_STEP", "15"))
 EMPTY_PAGE_STOP = int(os.getenv("XZ_EMPTY_PAGE_STOP", "3"))
 
 DEFAULT_SECTION_HEADINGS = [
-    "课程统计",
-    "开设院校",
-    "薪酬指数",
-    "升学指数",
-    "学习投入意愿",
-    "就业指数",
-    "就业去向",
-    "深造与就业",
     "专业介绍",
-    "培养目标",
-    "核心课程",
-    "课程说明",
+    "统计信息",
+    "专业满意度",
+    "学习投入意愿",
+    "学长学姐有话说",
+    "开设院校",
+    "课程统计",
+    "开设课程",
+    "升学路径",
+    "升学情况",
+    "升学指数",
+    "从业情况",
+    "薪酬指数",
+    "已毕业学生主要就业省份",
+    "专业能力",
+    "资质证书",
 ]
 
 TAB_TEXTS = [
     "基本信息",
     "开设院校",
     "课程统计",
+    "开设课程",
     "薪酬指数",
     "升学指数",
     "学习投入意愿",
@@ -211,14 +216,10 @@ def fetch_subcategory(session: requests.Session):
             "json": obj,
         }
         save_json(OUTPUT_ROOT / "discovery" / "subcategory.json", result)
-        if SAVE_HTML:
-            save_text(OUTPUT_ROOT / "discovery" / "subcategory.txt", text)
+        save_text(OUTPUT_ROOT / "discovery" / "subcategory.txt", text)
         return result
     except Exception as e:
-        result = {
-            "url": SUBCATEGORY_URL,
-            "error": repr(e),
-        }
+        result = {"url": SUBCATEGORY_URL, "error": repr(e)}
         save_json(OUTPUT_ROOT / "discovery" / "subcategory.json", result)
         return result
 
@@ -227,22 +228,18 @@ def parse_list_page_json(text: str):
     obj = try_parse_json_text(text)
     if not isinstance(obj, dict):
         return None
-
     data = obj.get("data")
     if not isinstance(data, dict):
         return None
-
     page_array = data.get("pageArray")
     if not isinstance(page_array, list):
         return None
-
     return obj
 
 
 def discover_detail_urls_by_list():
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
     session = make_session()
-
     subcategory_info = fetch_subcategory(session)
 
     discovered_rows = []
@@ -266,11 +263,7 @@ def discover_detail_urls_by_list():
         try:
             text, resp = fetch_text(session, LIST_URL, params=params)
         except Exception as e:
-            pages.append({
-                "page_no": page_no + 1,
-                "start": start,
-                "error": repr(e),
-            })
+            pages.append({"page_no": page_no + 1, "start": start, "error": repr(e)})
             consecutive_no_new += 1
             if consecutive_no_new >= EMPTY_PAGE_STOP:
                 break
@@ -367,14 +360,14 @@ def discover_detail_urls_by_list():
 
         if obj:
             data = obj.get("data", {})
-            total_page = data.get("totalPage")
-            next_start = data.get("startOfNextPage")
-            is_next = data.get("isNextPageAvailable")
-            if total_page and page_no + 1 >= int(total_page):
+            tp = data.get("totalPage")
+            ns = data.get("startOfNextPage")
+            nxt = data.get("isNextPageAvailable")
+            if tp and page_no + 1 >= int(tp):
                 break
-            if is_next is False:
+            if nxt is False:
                 break
-            if next_start is not None and int(next_start) <= start:
+            if ns is not None and int(ns) <= start:
                 break
 
     discovery = {
@@ -392,18 +385,18 @@ def discover_detail_urls_by_list():
 
 
 def auto_scroll(page):
-    for _ in range(6):
-        page.mouse.wheel(0, 1800)
-        page.wait_for_timeout(600)
-    page.mouse.wheel(0, -100000)
-    page.wait_for_timeout(400)
+    for _ in range(8):
+        page.mouse.wheel(0, 2200)
+        page.wait_for_timeout(700)
+    page.mouse.wheel(0, -200000)
+    page.wait_for_timeout(500)
 
 
 def wait_ready(page):
     page.wait_for_selector("body", timeout=30000)
     page.wait_for_timeout(1800)
     auto_scroll(page)
-    page.wait_for_timeout(1200)
+    page.wait_for_timeout(1500)
 
 
 def extract_basic_info(lines, body_text, url, page_title):
@@ -433,7 +426,7 @@ def extract_basic_info(lines, body_text, url, page_title):
         major_class = clean_text(m.group(1))
 
     return {
-        "name": name or page_title.replace("_专业洞察", "").replace("专业洞察", "").strip(),
+        "name": name or page_title.replace("_专业洞察_学职平台", "").replace("_专业洞察", "").replace("专业洞察", "").strip(),
         "level": level,
         "code": code,
         "discipline": discipline,
@@ -452,31 +445,62 @@ def collect_tab_links(page):
         href = a.get_attribute("href") or ""
         if not text or not href:
             continue
+        full = urljoin(page.url, href)
         if text in TAB_TEXTS:
-            links.append({"text": text, "href": urljoin(page.url, href)})
+            links.append({"text": text, "href": full})
     return unique_keep_order(links, key_func=lambda x: (x["text"], x["href"]))
 
 
-def detect_headings(lines, page):
+def collect_school_links(page):
+    items = []
+    try:
+        anchors = page.locator("a").evaluate_all(
+            """
+            els => els.map(a => {
+              const text = (a.innerText || '').replace(/\\s+/g, ' ').trim();
+              const href = a.href || a.getAttribute('href') || '';
+              return {text, href};
+            }).filter(x => x.text && x.href && x.href.includes('schoolInfoMain--schId-'))
+            """
+        )
+        for item in anchors:
+            name = clean_text(item.get("text", ""))
+            href = clean_text(item.get("href", ""))
+            if name and href:
+                items.append({"school_name": name, "school_url": href})
+    except Exception:
+        pass
+    return unique_keep_order(items, key_func=lambda x: (x["school_name"], x["school_url"]))
+
+
+def extract_tables(page):
+    try:
+        tables = page.locator("table").evaluate_all(
+            """
+            els => {
+              const clean = s => (s || '').replace(/\\u00a0/g, ' ').replace(/\\s+/g, ' ').trim();
+              return els.map((table, idx) => {
+                const rows = [...table.querySelectorAll('tr')].map(tr => {
+                  return [...tr.querySelectorAll('th,td')]
+                    .map(td => clean(td.innerText))
+                    .filter(Boolean);
+                }).filter(r => r.length > 0);
+                return {index: idx + 1, rows};
+              }).filter(t => t.rows.length > 0);
+            }
+            """
+        )
+        return tables
+    except Exception:
+        return []
+
+
+def detect_headings(lines):
     found = []
     for line in lines:
         if line in DEFAULT_SECTION_HEADINGS:
             found.append(line)
-
-    try:
-        candidates = page.locator("h1,h2,h3,h4,h5,h6,.title,.tit,.section-title,.module-title").evaluate_all(
-            """
-            els => els.map(el => (el.innerText || '').replace(/\\s+/g, ' ').trim()).filter(Boolean)
-            """
-        )
-        for item in candidates:
-            t = clean_text(item)
-            if t and len(t) <= 30:
-                found.append(t)
-    except Exception:
-        pass
-
-    return unique_keep_order([x for x in found if x], key_func=lambda x: x)
+    return unique_keep_order(found, key_func=lambda x: x)
 
 
 def extract_section(lines, heading, stop_headings):
@@ -506,251 +530,53 @@ def extract_section(lines, heading, stop_headings):
     }
 
 
-def parse_score_votes(line):
-    line = clean_text(line)
-    m = re.search(r"([0-5](?:\.\d+)?)\s*([0-9]+)人", line)
-    if not m:
-        return None
-    return {
-        "score": float(m.group(1)),
-        "votes": int(m.group(2)),
-        "raw": line,
-    }
-
-
-def parse_course_stats(section):
-    result = {
-        "present": section["present"],
-        "raw_text": section["raw_text"],
-        "courses": [],
-    }
-    if not section["present"]:
-        return result
-
-    skip_words = [
-        "我要补充课程",
-        "高校综合课程",
-        "课程说明",
-        "课程名称",
-        "喜欢就点个赞",
-        "课程难易度",
-        "课程实用性",
-    ]
-    lines = [x for x in section["lines"] if not any(k in x for k in skip_words)]
-
-    i = 0
-    while i < len(lines):
-        name = lines[i]
-        if i + 3 >= len(lines):
-            break
-        likes = lines[i + 1]
-        difficulty = lines[i + 2]
-        usefulness = lines[i + 3]
-
-        if re.fullmatch(r"\d+", likes):
-            diff = parse_score_votes(difficulty)
-            usef = parse_score_votes(usefulness)
-            if diff and usef:
-                result["courses"].append({
-                    "course_name": name,
-                    "likes": int(likes),
-                    "difficulty": diff,
-                    "usefulness_for_growth": usef,
-                })
-                i += 4
-                continue
-        i += 1
-
-    return result
-
-
-def collect_school_anchor_map(page):
-    anchors = page.locator("a")
-    out = []
-    for i in range(anchors.count()):
-        a = anchors.nth(i)
-        text = clean_text(a.inner_text())
-        href = a.get_attribute("href") or ""
-        if not text or not href:
-            continue
-        href = urljoin(page.url, href)
-        if "gaokao.chsi.com.cn/sch/schoolInfoMain--schId-" in href and SCHOOL_NAME_RE.search(text):
-            out.append({"school_name": text, "school_url": href})
-    return unique_keep_order(out, key_func=lambda x: (x["school_name"], x["school_url"]))
-
-
-def parse_offering_schools(section, page):
-    result = {
-        "present": section["present"],
-        "raw_text": section["raw_text"],
-        "summary": {
-            "national_total": None,
-            "province_counts": [],
-            "school_type_tags": [],
-        },
-        "school_rows": [],
-    }
-    if not section["present"]:
-        return result
-
-    lines = section["lines"]
-    joined = " ".join(lines)
-
-    m = re.search(r"全国\((\d+)\)", joined)
-    if m:
-        result["summary"]["national_total"] = int(m.group(1))
-
-    province_counts = []
-    for line in lines[:40]:
-        for m in re.finditer(r"([\u4e00-\u9fa5]+)\((\d+)\)", line):
-            province = m.group(1)
-            count = int(m.group(2))
-            if province != "全国":
-                province_counts.append({"province": province, "count": count})
-    result["summary"]["province_counts"] = unique_keep_order(
-        province_counts,
-        key_func=lambda x: (x["province"], x["count"])
-    )
-
-    tags = []
-    for line in lines[:40]:
-        if "本科高校" in line or "专科高校" in line or "双一流" in line:
-            tags.append(line)
-    result["summary"]["school_type_tags"] = unique_keep_order(tags, key_func=lambda x: x)
-
-    school_url_map = {x["school_name"]: x["school_url"] for x in collect_school_anchor_map(page)}
-
-    i = 0
-    while i < len(lines):
-        name = lines[i]
-        if not SCHOOL_NAME_RE.search(name):
-            i += 1
-            continue
-
-        metrics = []
-        j = i + 1
-        while j < len(lines) and len(metrics) < 6:
-            parsed = parse_score_votes(lines[j])
-            if parsed:
-                metrics.append(parsed)
-                j += 1
-                continue
-            if SCHOOL_NAME_RE.search(lines[j]) or lines[j] in DEFAULT_SECTION_HEADINGS:
-                break
-            j += 1
-
-        row = {
-            "school_name": name,
-            "school_url": school_url_map.get(name, ""),
-            "metrics": metrics,
-        }
-        if len(metrics) >= 1:
-            row["recommend_index"] = metrics[0]
-        if len(metrics) >= 2:
-            row["major_satisfaction"] = metrics[1]
-        if len(metrics) >= 3:
-            row["overall"] = metrics[2]
-        if len(metrics) >= 4:
-            row["conditions"] = metrics[3]
-        if len(metrics) >= 5:
-            row["teaching"] = metrics[4]
-        if len(metrics) >= 6:
-            row["employment"] = metrics[5]
-
-        result["school_rows"].append(row)
-        i = j if j > i else i + 1
-
-    return result
-
-
 def extract_showimg_items(page):
-    items = page.locator("img").evaluate_all(
-        """
-        imgs => imgs.map((img, idx) => {
-            const src = img.currentSrc || img.src || '';
-            if (!src.includes('/xzpt/survey/cdn/showimg/')) return null;
-
-            function clean(s) {
-                return (s || '').replace(/\\s+/g, ' ').trim();
-            }
-
-            function nearestHeading(el) {
-                let node = el;
-                for (let d = 0; node && d < 8; d++, node = node.parentElement) {
-                    const h = node.querySelector('h1,h2,h3,h4,h5,h6,.title,.tit,.section-title,.module-title,.sub-title');
-                    if (h) {
-                        const t = clean(h.innerText);
-                        if (t) return t;
-                    }
-                }
-                return '';
-            }
-
-            function containerText(el) {
-                const box = el.closest('section,article,div,li,figure') || el.parentElement;
-                return clean(box ? box.innerText : '').slice(0, 800);
-            }
-
-            return {
-                dom_index: idx,
-                src,
-                alt: clean(img.alt),
-                title: clean(img.title),
-                width: img.naturalWidth || img.width || 0,
-                height: img.naturalHeight || img.height || 0,
-                section_guess: nearestHeading(img),
-                container_text: containerText(img)
-            };
-        }).filter(Boolean)
-        """
-    )
-    return unique_keep_order(items, key_func=lambda x: x["src"])
+    try:
+        items = page.locator("img").evaluate_all(
+            """
+            imgs => imgs.map((img, idx) => {
+                const src = img.currentSrc || img.src || '';
+                if (!src.includes('/xzpt/survey/cdn/showimg/')) return null;
+                const clean = s => (s || '').replace(/\\s+/g, ' ').trim();
+                return {
+                    dom_index: idx,
+                    src,
+                    alt: clean(img.alt),
+                    title: clean(img.title),
+                    width: img.naturalWidth || img.width || 0,
+                    height: img.naturalHeight || img.height || 0
+                };
+            }).filter(Boolean)
+            """
+        )
+        return unique_keep_order(items, key_func=lambda x: x["src"])
+    except Exception:
+        return []
 
 
 def infer_chart_section(item):
-    text = (item.get("section_guess", "") + " " + item.get("container_text", "")).strip()
-    if "薪酬指数" in text:
+    text = (item.get("title", "") + " " + item.get("alt", "")).strip()
+    if "薪酬" in text:
         return "薪酬指数"
-    if "升学指数" in text:
+    if "升学" in text:
         return "升学指数"
-    if "学习投入意愿" in text:
-        return "学习投入意愿"
-    if "就业省份" in text:
-        return "已毕业学生主要就业省份"
-    if "就业指数" in text:
-        return "就业指数"
-    return item.get("section_guess", "") or "图表"
+    return "图表"
 
 
-def extract_section_descriptions(lines, headings):
-    result = {}
-    for h in headings:
-        result[h] = extract_section(lines, h, headings)
-    return result
-
-
-def download_chart_images(items, detail_dir, referer, lines, headings):
+def download_chart_images(items, detail_dir, referer):
     image_dir = detail_dir / "images"
     image_dir.mkdir(parents=True, exist_ok=True)
 
-    descriptions = extract_section_descriptions(lines, headings)
     saved = []
-
     for idx, item in enumerate(items, start=1):
-        section = infer_chart_section(item)
-        desc = descriptions.get(section, {"lines": [], "raw_text": ""})
         rec = {
             "index": idx,
-            "section": section,
+            "section": infer_chart_section(item),
             "src": item["src"],
             "alt": item.get("alt", ""),
             "title": item.get("title", ""),
             "width": item.get("width", 0),
             "height": item.get("height", 0),
-            "section_guess": item.get("section_guess", ""),
-            "container_text": item.get("container_text", ""),
-            "description_lines": desc.get("lines", []),
-            "description_text": desc.get("raw_text", ""),
         }
 
         if DOWNLOAD_IMAGES:
@@ -791,31 +617,262 @@ def collect_key_links(page):
     return unique_keep_order(links, key_func=lambda x: (x["text"], x["href"]))
 
 
-def scrape_detail(context, item):
-    detail_url = item["detail_url"]
-    spec_id = item["spec_id"]
-    meta = item.get("meta", {})
-    detail_dir = OUTPUT_ROOT / "details" / safe_name(spec_id)
+def walk_json(obj):
+    if isinstance(obj, dict):
+        yield obj
+        for v in obj.values():
+            yield from walk_json(v)
+    elif isinstance(obj, list):
+        for item in obj:
+            yield from walk_json(item)
 
-    page = context.new_page()
-    page.goto(detail_url, wait_until="domcontentloaded", timeout=60000)
-    wait_ready(page)
 
-    html = page.content()
-    body_text = page.locator("body").inner_text(timeout=30000)
-    lines = normalize_lines(body_text)
-    page_title = clean_text(page.title())
-    headings = detect_headings(lines, page)
+def attach_response_collector(page, api_dir: Path):
+    api_dir.mkdir(parents=True, exist_ok=True)
+    payloads = []
+    seen = set()
+
+    def on_response(resp):
+        try:
+            url = resp.url
+            if "xz.chsi.com.cn" not in url:
+                return
+            if not any(k in url for k in [".action", ".do"]):
+                return
+            if resp.status != 200:
+                return
+            text = resp.text()
+            obj = try_parse_json_text(text)
+            if obj is None:
+                return
+            key = (url, md5(text.encode("utf-8")).hexdigest())
+            if key in seen:
+                return
+            seen.add(key)
+            rec = {
+                "index": len(payloads) + 1,
+                "url": url,
+                "status_code": resp.status,
+                "resource_type": resp.request.resource_type,
+                "json": obj,
+            }
+            payloads.append(rec)
+            save_json(api_dir / f"{rec['index']:02d}.json", rec)
+        except Exception:
+            pass
+
+    page.on("response", on_response)
+    return payloads
+
+
+def parse_courses_from_tables(tables):
+    courses = []
+
+    for table in tables:
+        rows = table.get("rows", [])
+        if not rows:
+            continue
+        header = rows[0]
+        joined_header = " | ".join(header)
+
+        if "课程名称" not in joined_header:
+            continue
+
+        if len(header) >= 4 and ("课程难易度" in joined_header or "课程实用性" in joined_header):
+            for row in rows[1:]:
+                if not row:
+                    continue
+                name = clean_text(row[0]) if len(row) > 0 else ""
+                if not name or "暂无数据" in name or name == "课程名称":
+                    continue
+                courses.append({
+                    "course_name": name,
+                    "likes": clean_text(row[1]) if len(row) > 1 else "",
+                    "difficulty": clean_text(row[2]) if len(row) > 2 else "",
+                    "practicality": clean_text(row[3]) if len(row) > 3 else "",
+                    "source": "table_course_eval",
+                })
+        elif len(header) >= 2 and "课程类型" in joined_header:
+            for row in rows[1:]:
+                if not row:
+                    continue
+                name = clean_text(row[0]) if len(row) > 0 else ""
+                if not name or "暂无数据" in name or name == "课程名称":
+                    continue
+                courses.append({
+                    "course_name": name,
+                    "course_type": clean_text(row[1]) if len(row) > 1 else "",
+                    "source": "table_course_type",
+                })
+
+    return unique_keep_order(courses, key_func=lambda x: x.get("course_name", ""))
+
+
+def parse_courses_from_api(api_payloads):
+    courses = []
+
+    for payload in api_payloads:
+        obj = payload.get("json")
+        if obj is None:
+            continue
+        for node in walk_json(obj):
+            name = clean_text(
+                node.get("kcmc")
+                or node.get("courseName")
+                or node.get("kc")
+                or ""
+            )
+            if not name:
+                continue
+            courses.append({
+                "course_name": name,
+                "course_type": clean_text(node.get("type") or node.get("lb") or ""),
+                "likes": node.get("praise"),
+                "difficulty": clean_text(node.get("difficulty") or ""),
+                "practicality": clean_text(node.get("practicality") or ""),
+                "credit": clean_text(node.get("xf") or ""),
+                "source": "api",
+                "raw": node,
+            })
+
+    return unique_keep_order(courses, key_func=lambda x: x.get("course_name", ""))
+
+
+def parse_schools_from_tables(tables, school_links):
+    link_map = {x["school_name"]: x["school_url"] for x in school_links}
+    schools = []
+
+    for table in tables:
+        rows = table.get("rows", [])
+        if not rows:
+            continue
+        header = rows[0]
+        joined_header = " | ".join(header)
+        if "院校名称" not in joined_header:
+            continue
+
+        for row in rows[1:]:
+            if not row:
+                continue
+            name = clean_text(row[0]) if len(row) > 0 else ""
+            if not name or name in {"院校名称", "搜索无结果", "暂无数据"}:
+                continue
+            if "搜索无结果" in name:
+                continue
+
+            schools.append({
+                "school_name": name,
+                "school_url": link_map.get(name, ""),
+                "columns": row[1:],
+                "source": "table",
+            })
+
+    if not schools:
+        for item in school_links:
+            schools.append({
+                "school_name": item["school_name"],
+                "school_url": item["school_url"],
+                "columns": [],
+                "source": "link_only",
+            })
+
+    return unique_keep_order(schools, key_func=lambda x: x.get("school_name", ""))
+
+
+def parse_schools_from_api(api_payloads, school_links):
+    link_map = {x["school_name"]: x["school_url"] for x in school_links}
+    schools = []
+
+    for payload in api_payloads:
+        obj = payload.get("json")
+        if obj is None:
+            continue
+        for node in walk_json(obj):
+            name = clean_text(
+                node.get("yxmc")
+                or node.get("schoolName")
+                or node.get("school_name")
+                or ""
+            )
+            if not name or not SCHOOL_NAME_RE.search(name):
+                continue
+
+            schools.append({
+                "school_name": name,
+                "school_url": link_map.get(name, ""),
+                "recommend_index": node.get("zytjRank"),
+                "recommend_votes": node.get("zytjCount"),
+                "school_type": clean_text(node.get("bxxz") or ""),
+                "source": "api",
+                "raw": node,
+            })
+
+    return unique_keep_order(schools, key_func=lambda x: x.get("school_name", ""))
+
+
+def merge_courses(dom_courses, api_courses):
+    merged = {}
+    for item in api_courses + dom_courses:
+        name = clean_text(item.get("course_name", ""))
+        if not name:
+            continue
+        if name not in merged:
+            merged[name] = dict(item)
+        else:
+            base = merged[name]
+            for k, v in item.items():
+                if k not in base or base[k] in ("", None, [], {}):
+                    base[k] = v
+    return list(merged.values())
+
+
+def merge_schools(dom_schools, api_schools):
+    merged = {}
+    for item in api_schools + dom_schools:
+        name = clean_text(item.get("school_name", ""))
+        if not name:
+            continue
+        if name not in merged:
+            merged[name] = dict(item)
+        else:
+            base = merged[name]
+            for k, v in item.items():
+                if k not in base or base[k] in ("", None, [], {}):
+                    base[k] = v
+    return list(merged.values())
+
+
+def summarize_school_section(body_text):
+    result = {
+        "national_total": None,
+        "province_counts": [],
+        "school_type_tags": [],
+    }
+    m = re.search(r"全国\((\d+)\)", body_text)
+    if m:
+        result["national_total"] = int(m.group(1))
+
+    province_counts = []
+    for m in re.finditer(r"([\u4e00-\u9fa5]{2,10})\((\d+)\)", body_text):
+        province = m.group(1)
+        count = int(m.group(2))
+        if province != "全国":
+            province_counts.append({"province": province, "count": count})
+    result["province_counts"] = unique_keep_order(
+        province_counts,
+        key_func=lambda x: (x["province"], x["count"])
+    )
+
+    for tag in ["本科高校", "专科高校", "双一流", "民办", "公办"]:
+        if tag in body_text:
+            result["school_type_tags"].append(tag)
+    result["school_type_tags"] = unique_keep_order(result["school_type_tags"], key_func=lambda x: x)
+    return result
+
+
+def build_sections(lines):
+    headings = detect_headings(lines)
     stop_headings = unique_keep_order(DEFAULT_SECTION_HEADINGS + headings, key_func=lambda x: x)
-
-    if SAVE_HTML:
-        save_text(detail_dir / "page.html", html)
-    save_text(detail_dir / "page.txt", body_text)
-
-    basic = extract_basic_info(lines, body_text, detail_url, page_title)
-    if meta:
-        basic["list_meta"] = meta
-
     sections = {}
     for heading in stop_headings:
         sec = extract_section(lines, heading, stop_headings)
@@ -825,30 +882,126 @@ def scrape_detail(context, item):
                 "line_count": len(sec["lines"]),
                 "lines": sec["lines"],
             }
+    return headings, stop_headings, sections
 
-    course_stats = parse_course_stats(extract_section(lines, "课程统计", stop_headings))
-    offering_schools = parse_offering_schools(extract_section(lines, "开设院校", stop_headings), page)
+
+def choose_working_url(context, item):
+    candidates = [item["detail_url"]] + item.get("all_urls", [])
+    candidates = unique_keep_order([x for x in candidates if x], key_func=lambda x: x)
+
+    test_page = context.new_page()
+    try:
+        for url in candidates:
+            try:
+                test_page.goto(url, wait_until="domcontentloaded", timeout=45000)
+                test_page.wait_for_selector("body", timeout=15000)
+                title = clean_text(test_page.title())
+                body = clean_text(test_page.locator("body").inner_text(timeout=15000))[:300]
+                if title and "{{" not in title and ("专业洞察" in title or body):
+                    return url
+            except Exception:
+                continue
+        return item["detail_url"]
+    finally:
+        test_page.close()
+
+
+def scrape_detail(context, item):
+    working_url = choose_working_url(context, item)
+    spec_id = item["spec_id"]
+    meta = item.get("meta", {})
+    detail_dir = OUTPUT_ROOT / "details" / safe_name(spec_id)
+    api_dir = detail_dir / "api"
+
+    page = context.new_page()
+    api_payloads = attach_response_collector(page, api_dir)
+
+    page.goto(working_url, wait_until="domcontentloaded", timeout=60000)
+    wait_ready(page)
+
+    html = page.content()
+    body_text = page.locator("body").inner_text(timeout=30000)
+    lines = normalize_lines(body_text)
+    page_title = clean_text(page.title())
+
+    if SAVE_HTML:
+        save_text(detail_dir / "page.html", html)
+    save_text(detail_dir / "page.txt", body_text)
+
+    basic = extract_basic_info(lines, body_text, working_url, page_title)
+    if meta:
+        basic["list_meta"] = meta
+
+    headings, stop_headings, sections = build_sections(lines)
+
+    tables = extract_tables(page)
+    school_links = collect_school_links(page)
+    tab_links = collect_tab_links(page)
+    key_links = collect_key_links(page)
+
+    dom_courses = parse_courses_from_tables(tables)
+    api_courses = parse_courses_from_api(api_payloads)
+    merged_courses = merge_courses(dom_courses, api_courses)
+
+    dom_schools = parse_schools_from_tables(tables, school_links)
+    api_schools = parse_schools_from_api(api_payloads, school_links)
+    merged_schools = merge_schools(dom_schools, api_schools)
+
     chart_items = extract_showimg_items(page)
-    charts = download_chart_images(chart_items, detail_dir, detail_url, lines, stop_headings)
+    charts = download_chart_images(chart_items, detail_dir, working_url)
+
+    school_summary = summarize_school_section(body_text)
 
     requires_login_sections = []
     if "学习投入意愿" in body_text and ("登录" in body_text or "登录后" in body_text):
         requires_login_sections.append("学习投入意愿")
 
+    network_json_summaries = []
+    for rec in api_payloads:
+        obj = rec.get("json")
+        top_keys = []
+        if isinstance(obj, dict):
+            top_keys = list(obj.keys())[:20]
+        network_json_summaries.append({
+            "index": rec["index"],
+            "url": rec["url"],
+            "status_code": rec["status_code"],
+            "resource_type": rec["resource_type"],
+            "top_keys": top_keys,
+        })
+
     result = {
         "fetched_at": iso_now(),
-        "url": detail_url,
+        "url": working_url,
         "spec_id": basic["spec_id"],
         "page_title": page_title,
         "basic": basic,
         "detected_headings": stop_headings,
         "sections": sections,
-        "course_stats": course_stats,
-        "offering_schools": offering_schools,
+        "tables": tables,
+        "courses": {
+            "count": len(merged_courses),
+            "items": merged_courses,
+            "sources": {
+                "dom_count": len(dom_courses),
+                "api_count": len(api_courses),
+            },
+        },
+        "offering_schools": {
+            "count": len(merged_schools),
+            "summary": school_summary,
+            "items": merged_schools,
+            "sources": {
+                "dom_count": len(dom_schools),
+                "api_count": len(api_schools),
+                "school_link_count": len(school_links),
+            },
+        },
         "charts": charts,
-        "tab_links": collect_tab_links(page),
-        "key_links": collect_key_links(page),
+        "tab_links": tab_links,
+        "key_links": key_links,
         "requires_login_sections": requires_login_sections,
+        "network_json_summaries": network_json_summaries,
         "raw_files": {
             "html": (detail_dir / "page.html").as_posix() if SAVE_HTML else "",
             "text": (detail_dir / "page.txt").as_posix(),
@@ -890,7 +1043,7 @@ def main():
         )
 
         context = browser.new_context(
-            viewport={"width": 1440, "height": 2200},
+            viewport={"width": 1440, "height": 2400},
             locale="zh-CN",
             timezone_id="Asia/Shanghai",
             user_agent=(
@@ -903,25 +1056,25 @@ def main():
         try:
             all_results = []
             for idx, item in enumerate(details, start=1):
-                detail_url = item["detail_url"]
                 spec_id = item["spec_id"]
                 try:
                     result = scrape_detail(context, item)
                     all_results.append({
                         "index": idx,
                         "spec_id": spec_id,
-                        "detail_url": detail_url,
+                        "detail_url": result.get("url", item["detail_url"]),
                         "ok": True,
                         "page_title": result.get("page_title", ""),
-                        "courses": len(result.get("course_stats", {}).get("courses", [])),
-                        "schools": len(result.get("offering_schools", {}).get("school_rows", [])),
+                        "courses": result.get("courses", {}).get("count", 0),
+                        "schools": result.get("offering_schools", {}).get("count", 0),
                         "charts": result.get("charts", {}).get("count", 0),
+                        "network_json": len(result.get("network_json_summaries", [])),
                     })
                 except PlaywrightTimeoutError as e:
                     all_results.append({
                         "index": idx,
                         "spec_id": spec_id,
-                        "detail_url": detail_url,
+                        "detail_url": item["detail_url"],
                         "ok": False,
                         "error": repr(e),
                     })
@@ -929,7 +1082,7 @@ def main():
                     all_results.append({
                         "index": idx,
                         "spec_id": spec_id,
-                        "detail_url": detail_url,
+                        "detail_url": item["detail_url"],
                         "ok": False,
                         "error": repr(e),
                     })
