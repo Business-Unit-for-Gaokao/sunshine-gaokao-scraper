@@ -14,7 +14,6 @@ env:
 jobs:
   run-script:
     runs-on: ubuntu-latest
-    timeout-minutes: 720
 
     steps:
       - name: Checkout
