@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   actions: write
 
 env:
@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -36,11 +36,37 @@ jobs:
         run: |
           python scripts/xz_spider.py
 
+      - name: Sync outputs into repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/xz
+          rsync -av --delete output/xz/ data/xz/
+
       - name: Show outputs
         if: always()
         run: |
-          echo "===== output tree ====="
-          find output -maxdepth 4 -type f | sort || true
+          echo "===== repo tree ====="
+          find data/xz -maxdepth 4 -type f | sort || true
+
+      - name: Configure git
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add data/xz/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "🤖 Update XZ spider outputs - $(date +%Y-%m-%d)"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push origin HEAD:"${GITHUB_REF_NAME}"
+          fi
 
       - name: Upload artifact
         if: always()
