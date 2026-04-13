@@ -1,0 +1,956 @@
+{
+  "url": "https://xz.chsi.com.cn/speciality/index.action",
+  "fetched_at": "2026-04-13 08:16:55",
+  "page_title_guess": "专业洞察_学职平台",
+  "template_tokens": [
+    "{{'Type' + (storyList[curStoryIndex].index+1) + ' ' +storyList[curStoryIndex].type}}",
+    "{{'“' + storyList[curStoryIndex].label + '”'}}",
+    "{{Number(item.evlNum).toLocaleString()}}",
+    "{{errors.first(item.id)}}",
+    "{{evaluateText1}}",
+    "{{evaluateText2}}",
+    "{{index+1}}",
+    "{{item.cc}}",
+    "{{item.content}}",
+    "{{item.desc}}",
+    "{{item.mlmc}}",
+    "{{item.name}}",
+    "{{item.text3}}",
+    "{{item.value}}",
+    "{{item.xk}}",
+    "{{item.year}}",
+    "{{item.yxmc}}",
+    "{{item.zymc}}",
+    "{{item2.alias}}",
+    "{{item2.content}}",
+    "{{jsrw.count}}",
+    "{{jsrw.successText}}",
+    "{{resultJson.lbtVo.jztsVo.evlNum}}",
+    "{{resultJson.lbtVo.jztsVo.myd.toFixed(1)}}",
+    "{{resultJson.lbtVo.jztsVo.zymc}}",
+    "{{storyList[curStoryIndex+1].title}}",
+    "{{storyList[curStoryIndex-1].title}}",
+    "{{storyList[curStoryIndex].cnt - 1}}",
+    "{{storyList[curStoryIndex].cnt}}",
+    "{{storyList[curStoryIndex].label}}",
+    "{{storyList[curStoryIndex].nj }}",
+    "{{storyList[curStoryIndex].nj}}",
+    "{{storyList[curStoryIndex].title}}",
+    "{{storyList[curStoryIndex].type}}",
+    "{{taskTitle == 'ZYDC_ZYYXKC' ? '其他院校课程' : '专业学习投入情况'}}",
+    "{{zy.title}}",
+    "{{zy.zymc}}"
+  ],
+  "template_token_count": 37,
+  "vue_like_paths": [
+    "_this.evaluateText1",
+    "_this.evaluateText2",
+    "_this.jsrw.count",
+    "_this.jsrw.isSuccess",
+    "_this.jsrw.show",
+    "_this.jsrw.successText",
+    "_this.jsrw.successUrl",
+    "_this.storyList",
+    "item.cc",
+    "item.class",
+    "item.content",
+    "item.desc",
+    "item.evlNum",
+    "item.evlValue",
+    "item.hasMultAnswer",
+    "item.id",
+    "item.inputValue",
+    "item.key",
+    "item.mlmc",
+    "item.name",
+    "item.optionVoList",
+    "item.specId",
+    "item.text3",
+    "item.type",
+    "item.value",
+    "item.value.indexOf",
+    "item.xk",
+    "item.year",
+    "item.yxmc",
+    "item.zymc",
+    "item2.alias",
+    "item2.content",
+    "item2.key",
+    "item2.type",
+    "jsrw.count",
+    "jsrw.isSuccess",
+    "jsrw.show",
+    "jsrw.successText",
+    "jsrw.successUrl",
+    "resultJson.hasUserSpec",
+    "resultJson.lbtVo.jztsVo",
+    "resultJson.lbtVo.jztsVo.evlNum",
+    "resultJson.lbtVo.jztsVo.ml",
+    "resultJson.lbtVo.jztsVo.myd",
+    "resultJson.lbtVo.jztsVo.myd.toFixed",
+    "resultJson.lbtVo.jztsVo.specId",
+    "resultJson.lbtVo.jztsVo.suggestList.length",
+    "resultJson.lbtVo.jztsVo.suggestList.slice",
+    "resultJson.lbtVo.jztsVo.xk",
+    "resultJson.lbtVo.jztsVo.zymc",
+    "resultJson.recSpecList",
+    "storyList.length",
+    "this.jsrw.show",
+    "this.resultJson.hasUserSpec",
+    "this.resultJson.lbtVo",
+    "this.resultJson.lbtVo.zyjdMlList",
+    "this.storyList",
+    "zy.specId",
+    "zy.title",
+    "zy.zymc"
+  ],
+  "action_candidates": [
+    "http://www.chsi.com.cn/about/contact.shtml",
+    "https://account.chsi.com.cn/account/preregister.action?from=ixy-login",
+    "https://beian.miit.gov.cn",
+    "https://chesicc.chsi.com.cn/",
+    "https://cn.bing.com/search",
+    "https://gaokao.chsi.com.cn/",
+    "https://hm.baidu.com/hm.js?9941ee4f9005f2fbc48431bf71f05647",
+    "https://my.chsi.com.cn/",
+    "https://my.chsi.com.cn/archive/index.jsp",
+    "https://my.chsi.com.cn/archive/index.jsp#txjd",
+    "https://t1.chei.com.cn/chsi/images/jgwab.svg",
+    "https://t1.chei.com.cn/common/antv/g2/g2-4.1.17.min.js",
+    "https://t1.chei.com.cn/common/ch/browser/not-ie.min.js",
+    "https://t1.chei.com.cn/common/ch/chicon/iconfont.css",
+    "https://t1.chei.com.cn/common/ch/iconfont.css",
+    "https://t1.chei.com.cn/common/js/api-1.0.4.js",
+    "https://t1.chei.com.cn/common/js/lodash.min.js",
+    "https://t1.chei.com.cn/common/js/vue-plugins/vee-validate.min.js",
+    "https://t1.chei.com.cn/common/js/vue-plugins/vue-lazyload.js",
+    "https://t1.chei.com.cn/common/js/vue-plugins/zh_CN.js",
+    "https://t1.chei.com.cn/common/js/vue/2.6.10/vue.min.js",
+    "https://t1.chei.com.cn/common/plugins/swiper/5.2.0/swiper.min.css",
+    "https://t1.chei.com.cn/common/plugins/swiper/5.2.0/swiper.min.js",
+    "https://t1.chei.com.cn/common/vue-plugins/iview4.4.0/js/iview.min.js",
+    "https://t1.chei.com.cn/common/vue-plugins/viewer/css/viewer.min.css",
+    "https://t1.chei.com.cn/common/vue-plugins/viewer/js/v-viewer.min.js",
+    "https://t1.chei.com.cn/common/vue-plugins/viewer/js/viewer.min.js",
+    "https://t1.chei.com.cn/common/wap/js/wap.min.js",
+    "https://t1.chei.com.cn/xz/assets/common/js/fp.umd.min.js",
+    "https://t1.chei.com.cn/xz/assets/web/css/app-3.0.8.css",
+    "https://t1.chei.com.cn/xz/assets/web/images/dcwj-img.png",
+    "https://t1.chei.com.cn/xz/assets/web/images/xzzt-detail-share.png",
+    "https://t1.chei.com.cn/xz/favicon.ico",
+    "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/",
+    "https://t2.chei.com.cn/common/images/icon-search.svg)",
+    "https://t2.chei.com.cn/xz/assets/common/js/lottie.js",
+    "https://t2.chei.com.cn/xz/assets/web/images/",
+    "https://t3.chei.com.cn/xz/assets/wap/lib/dcwj.json",
+    "https://t3.chei.com.cn/xz/assets/web/images/xz-ewm.jpg",
+    "https://t3.chei.com.cn/xz/assets/web/images/zydc-index-bg.jpg",
+    "https://t3.chei.com.cn/xzpt/survey/cdn/showimg/",
+    "https://t4.chei.com.cn/xz/assets/web/js/app-3.0.1.js",
+    "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202009747",
+    "https://www.chsi.com.cn/",
+    "https://www.chsi.com.cn/about/copyright.shtml",
+    "https://www.chsi.com.cn/xlcx/",
+    "https://www.chsi.com.cn/xlcx/bgcx.jsp",
+    "https://www.chsi.com.cn/xlrz/index2.jsp",
+    "https://www.chsi.com.cn/xwcx/",
+    "https://www.gatzs.com.cn/",
+    "https://www.gfbzb.gov.cn/",
+    "https://www.googletagmanager.com/gtag/js?id=UA-100524-14",
+    "https://www.ncss.cn/",
+    "https://xz.chsi.com.cn/",
+    "https://xz.chsi.com.cn/Dropdo",
+    "https://xz.chsi.com.cn/about.action",
+    "https://xz.chsi.com.cn/ajax/changeaccessmodel.action",
+    "https://xz.chsi.com.cn/ajax/getuserstatus.action",
+    "https://xz.chsi.com.cn/ajax/statistics.action",
+    "https://xz.chsi.com.cn/cp/report/index.action",
+    "https://xz.chsi.com.cn/cp/survey/sydc/save.action",
+    "https://xz.chsi.com.cn/cp/survey/yhdy/show.action?visitorId=",
+    "https://xz.chsi.com.cn/home.action",
+    "https://xz.chsi.com.cn/jyzdk/index.action",
+    "https://xz.chsi.com.cn/login.action",
+    "https://xz.chsi.com.cn/occucase/index.action",
+    "https://xz.chsi.com.cn/occupation/index.action",
+    "https://xz.chsi.com.cn/showoriorg.action",
+    "https://xz.chsi.com.cn/speciality/detail.action?specId=",
+    "https://xz.chsi.com.cn/speciality/document.do",
+    "https://xz.chsi.com.cn/speciality/index.action",
+    "https://xz.chsi.com.cn/speciality/list.action",
+    "https://xz.chsi.com.cn/speciality/subcategory.action",
+    "https://xz.chsi.com.cn/speciality/window.do",
+    "https://xz.chsi.com.cn/survey/index.action",
+    "https://xz.chsi.com.cn/task/taskback.action",
+    "https://xz.chsi.com.cn/video/index.action",
+    "https://xz.chsi.com.cn/xz/zyts/202108/20210812/2097299778.html",
+    "https://xz.chsi.com.cn/xz/zyts/202504/20250425/2293378308.html",
+    "https://xz.chsi.com.cn/xz/zyts/202504/20250425/2293378311.html",
+    "https://xz.chsi.com.cn/xz/zyts/202601/20260116/2247736163.html",
+    "https://xz.chsi.com.cn/zt/sygs/evaluate.action",
+    "https://xz.chsi.com.cn/zt/sygs/sjfsnj.action",
+    "https://xz.chsi.com.cn/zt/sygs/sjztlx.action",
+    "https://xz.chsi.com.cn/zt/sygs/syjsxx.action",
+    "https://xz.chsi.com.cn/zthz/index.action",
+    "https://yz.chsi.com.cn/"
+  ],
+  "action_candidate_count": 87,
+  "action_query_params": [
+    {
+      "url": "https://account.chsi.com.cn/account/preregister.action?from=ixy-login",
+      "key": "from",
+      "value": "ixy-login"
+    },
+    {
+      "url": "https://hm.baidu.com/hm.js?9941ee4f9005f2fbc48431bf71f05647",
+      "key": "9941ee4f9005f2fbc48431bf71f05647",
+      "value": ""
+    },
+    {
+      "url": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202009747",
+      "key": "recordcode",
+      "value": "11010202009747"
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=UA-100524-14",
+      "key": "id",
+      "value": "UA-100524-14"
+    },
+    {
+      "url": "https://xz.chsi.com.cn/cp/survey/yhdy/show.action?visitorId=",
+      "key": "visitorId",
+      "value": ""
+    },
+    {
+      "url": "https://xz.chsi.com.cn/speciality/detail.action?specId=",
+      "key": "specId",
+      "value": ""
+    }
+  ],
+  "inline_data_candidates": [
+    {
+      "pattern": "resultJson\\s*[:=]\\s*(\\{.*?\\})",
+      "preview": "{\"lbtVo\":{\"jztsVo\":null,\"zyjdMlList\":[{\"picId\":\"oeq1qub6y2w9hr4t\",\"zyjdList\":[{\"specId\":\"ipfawg5cg4jwxpzj\",\"title\":\"既非“无冕之王”，亦非“新闻民工”\",\"zyjdId\":\"lo3pcsyoj2etd09j\",\"zymc\":\"新闻学\"}",
+      "length": 176
+    }
+  ],
+  "script_blocks_meta": [
+    {
+      "index": 1,
+      "src": "https://t1.chei.com.cn/common/wap/js/wap.min.js",
+      "length": 0
+    },
+    {
+      "index": 2,
+      "src": "https://t1.chei.com.cn/common/js/vue/2.6.10/vue.min.js",
+      "length": 0
+    },
+    {
+      "index": 3,
+      "src": "",
+      "length": 289
+    },
+    {
+      "index": 4,
+      "src": "https://www.googletagmanager.com/gtag/js?id=UA-100524-14",
+      "length": 0
+    },
+    {
+      "index": 5,
+      "src": "",
+      "length": 555
+    },
+    {
+      "index": 6,
+      "src": "",
+      "length": 751
+    },
+    {
+      "index": 7,
+      "src": "",
+      "length": 11984
+    },
+    {
+      "index": 8,
+      "src": "https://t1.chei.com.cn/common/plugins/swiper/5.2.0/swiper.min.js",
+      "length": 0
+    },
+    {
+      "index": 9,
+      "src": "https://t2.chei.com.cn/xz/assets/common/js/lottie.js",
+      "length": 0
+    },
+    {
+      "index": 10,
+      "src": "https://t1.chei.com.cn/common/vue-plugins/iview4.4.0/js/iview.min.js",
+      "length": 0
+    },
+    {
+      "index": 11,
+      "src": "https://t1.chei.com.cn/common/js/lodash.min.js",
+      "length": 0
+    },
+    {
+      "index": 12,
+      "src": "https://t1.chei.com.cn/common/antv/g2/g2-4.1.17.min.js",
+      "length": 0
+    },
+    {
+      "index": 13,
+      "src": "https://t1.chei.com.cn/common/vue-plugins/viewer/js/viewer.min.js",
+      "length": 0
+    },
+    {
+      "index": 14,
+      "src": "https://t1.chei.com.cn/common/vue-plugins/viewer/js/v-viewer.min.js",
+      "length": 0
+    },
+    {
+      "index": 15,
+      "src": "https://t1.chei.com.cn/common/js/api-1.0.4.js",
+      "length": 0
+    },
+    {
+      "index": 16,
+      "src": "https://t4.chei.com.cn/xz/assets/web/js/app-3.0.1.js",
+      "length": 0
+    },
+    {
+      "index": 17,
+      "src": "https://t1.chei.com.cn/common/js/vue-plugins/vue-lazyload.js",
+      "length": 0
+    },
+    {
+      "index": 18,
+      "src": "https://t1.chei.com.cn/xz/assets/common/js/fp.umd.min.js",
+      "length": 0
+    },
+    {
+      "index": 19,
+      "src": "https://t1.chei.com.cn/common/ch/browser/not-ie.min.js",
+      "length": 0
+    },
+    {
+      "index": 20,
+      "src": "",
+      "length": 996
+    },
+    {
+      "index": 21,
+      "src": "",
+      "length": 5713
+    },
+    {
+      "index": 22,
+      "src": "",
+      "length": 2355
+    },
+    {
+      "index": 23,
+      "src": "",
+      "length": 3896
+    },
+    {
+      "index": 24,
+      "src": "https://t1.chei.com.cn/common/js/vue-plugins/vee-validate.min.js",
+      "length": 0
+    },
+    {
+      "index": 25,
+      "src": "https://t1.chei.com.cn/common/js/vue-plugins/zh_CN.js",
+      "length": 0
+    },
+    {
+      "index": 26,
+      "src": "",
+      "length": 6799
+    },
+    {
+      "index": 27,
+      "src": "",
+      "length": 6124
+    }
+  ],
+  "script_keyword_hits": [
+    {
+      "script_index": 6,
+      "src": "",
+      "matched_keywords": [
+        "search",
+        "query"
+      ],
+      "preview": "\r\ndocument.addEventListener('DOMContentLoaded', function () {\r\n    const searchInput = document.querySelector('.search-input');\r\n    const realQuery = document.querySelector('.realQuery');\r\n    const searchForm = document.querySelector('.site-search');\r\n\r\n    // 提交表单前处理搜索词\r\n    if (searchForm) {\r\n        searchForm.addEventListener('submit', function (e) {\r\n            e.preventDefault(); // 阻止默认提交\r\n\r\n            const val = searchInput.value.trim();\r\n\r\n            if (!val) {\r\n                alert(\"请输入关键词\");\r\n                return;\r\n            }\r\n\r\n            // 设置 realQuery 的值为关键词 + site:xxx\r\n            realQuery.value = val + ' site:xz.chsi.com.cn';\r\n\r\n            // 手动提交表单\r\n            searchForm.submit();\r\n        });\r\n    }\r\n});\r\n"
+    },
+    {
+      "script_index": 7,
+      "src": "",
+      "matched_keywords": [
+        "list"
+      ],
+      "preview": "\r\n    var mixin = {\r\n        data: function () {\r\n            return {\r\n                activeNav: 'zydc',\r\n                surveyFrom: 'xzpt_pc_zydc',\r\n                zydcCarousel: 0,\r\n                phbType: '1',\r\n                lbtVoList: [],\r\n                ccList: [],\r\n                mlList: [],\r\n                xkList: [],\r\n                cc: '',\r\n                ml: '',\r\n                xk: '',\r\n                zy: '',\r\n                start: 0,\r\n                pageCount: 15,\r\n                total: 0,\r\n                curPage: 1,\r\n                list: [],\r\n                autoplay: true,\r\n                zymydLabel: function(h) {\r\n                    return h('Tooltip', {\r\n                        props: {\r\n                            transfer: true,\r\n                            theme: 'light',\r\n                            placement: 'top',\r\n                            maxWidth: '400',\r\n                            content: '专业满意度说明：\\n1. 由普通本专科学生对本校本专业的办学条件、教学质量、就业情况以及综合情况进行实名投票得出（通过实名注册的学生才具有投票资格）。\\n2. 投票结果仅代表学生对本专业的个人意见。\\n3. 系统自动显示投票数较多的部分专业，投票人数较少的专业暂时不显示。'\r\n                        }\r\n                    },[\r\n                        h('span', '专业满意度'),\r\n                        h('Icon', {\r\n                            props: {\r\n                                type: 'ios-information-circle-outline'\r\n                            },\r\n                            style: {\r\n                                marginLeft: '8px'\r\n                            }\r\n                        })\r\n                    ])\r\n                },\r\n                zytjLabel: function(h) {\r\n                    return h('Tooltip', {\r\n                        props: {\r\n                            transfer: true,\r\n                            theme: 'light',\r\n                            placement: 'top',\r\n                            maxWidth: '400',\r\n                            content: '专业推荐说明：\\n1. 由普通本专科学生根据本校各专业办学情况，推荐优势专业或特色专业（通过实名注册的学生才具有推荐资格）。\\n2. 推荐结果仅代表学生对本校相关专业的推荐意见，不代表官方的专业排名，不同院校间不宜做直接比较。\\n3. 推荐的专业范围包括所有在校学生所学专业和上年度新增的招生专业。\\n4. 系统自动显示推荐票数较多且推荐指数较高的部分专业，投票人数较少的高校暂时不显示或只显示少量专业。'\r\n                        }\r\n                    },[\r\n                        h('span', '专业推荐指数'),\r\n                        h('Icon', {\r\n                            props: {\r\n                                type: 'ios-information-circle-outline'\r\n                            },\r\n                            style: {\r\n                                marginLeft: '8px'\r\n                            }\r\n                        })\r\n                    ])\r\n                },\r\n                xjzyLabel: function(h) {\r\n                    return h('Tooltip', {\r\n                        props: {\r\n                            transfer: true,\r\n                            theme: 'light',\r\n                            placement: 'top',\r\n                            maxWidth: '400',\r\n                            content: '相关专业说明：\\n与你所学专业门类（专业大类）相同或相近的专业。'\r\n                        }\r\n                    },[\r"
+    },
+    {
+      "script_index": 22,
+      "src": "",
+      "matched_keywords": [
+        "api",
+        "jsrw",
+        "task"
+      ],
+      "preview": "\r\n    Vue.component('jsrw-component', {\r\n        props: {\r\n            hasTask: {\r\n                type: Boolean,\r\n                default: false\r\n            },\r\n            taskTitle: {\r\n                type: String,\r\n                default: ''\r\n            },\r\n            userTaskId: {\r\n                type: String,\r\n                default: ''\r\n            },\r\n            isWap: {\r\n                type: Boolean,\r\n                default: false\r\n            }\r\n        },\r\n        data: function () {\r\n            return {\r\n                jsrw: {\r\n                    show: false,\r\n                    count: 10,\r\n                    isSuccess: false,\r\n                    successUrl: '',\r\n                    successText: ''\r\n                }\r\n            }\r\n        },\r\n        methods: {\r\n            handleJsrw: function() {\r\n                this.jsrw.show = true;\r\n                var _this = this;\r\n                var timer = setInterval(function() {\r\n                    _this.jsrw.count--;\r\n                    if (_this.jsrw.count == 0) {\r\n                        clearInterval(timer);\r\n                        api.syncAjax('post','/task/taskback.action',{\r\n                            data: {\r\n                                \"cprmcsrf\": 'f46afe4a9f95633dbe269d3baf7efa3c',\r\n                                userTaskId: _this.userTaskId\r\n                            }\r\n                        }).then(function(res){\r\n                            if (res.flag) {\r\n                                _this.jsrw.show = false;\r\n                                _this.jsrw.successUrl = res.data.taskBackUrl;\r\n                                _this.jsrw.successText = res.data.title == 'ZYDC_ZYYXKC' ? '去添加院校' : '去查看专业学习投入情况';\r\n                                _this.jsrw.isSuccess = true;\r\n                            }else {\r\n                                if (_this.isWap) {\r\n                                    _this.$toast.fail(res.msg);\r\n                                } else {\r\n                                    _this.$Message.warning(res.msg);\r\n                                }\r\n                            }\r\n                        })\r\n                    }\r\n                }, 1000);\r\n            }\r\n        },\r\n        mounted: function() {\r\n            this.handleJsrw();\r\n        },\r\n        template: '#jsrw-component'\r\n    })\r\n"
+    },
+    {
+      "script_index": 23,
+      "src": "",
+      "matched_keywords": [
+        "api",
+        "detail"
+      ],
+      "preview": "\r\n    Vue.component('xzzt-detail-modal', {\r\n        props: {\r\n            flag: {\r\n                type: String,\r\n                default: ''\r\n            },\r\n            storyList: {\r\n                type: Array,\r\n                default: []\r\n            },\r\n            id: {\r\n                type: String,\r\n                default: ''\r\n            },\r\n            visitorId: {\r\n                type: String,\r\n                default: ''\r\n            }\r\n        },\r\n        data: function () {\r\n            return {\r\n                curStoryIndex: -1,\r\n                evaluateList: [\r\n                    { key: 'YQF', value: '有启发', class: 'emoji-yqf', text3: '在故事上达成了共识' },\r\n                    { key: 'YTG', value: '有同感', class: 'emoji-ytg', text3: '拥有了情感上的共鸣' },\r\n                    { key: 'YBB', value: '一般般', class: 'emoji-ybb', text3: '' }\r\n                ],\r\n                evaluateText1: '',\r\n                evaluateText2: '',\r\n                share: false,\r\n                tipModal: false,\r\n                modal: true,\r\n                timer: null\r\n            }\r\n        },\r\n        methods: {\r\n            close: function() {\r\n                this.$emit('close-detail');\r\n            },\r\n            jumpStory: function(id) {\r\n                this.curStoryIndex = _.findIndex(this.storyList, function(o) {return o.id == id});\r\n                this.sendStatistics(id);\r\n            },\r\n            jumpPre: function() {\r\n                this.curStoryIndex--;\r\n                this.sendStatistics(this.storyList[this.curStoryIndex].id);\r\n                this.share = false;\r\n            },\r\n            jumpNext: function() {\r\n                this.curStoryIndex++;\r\n                this.sendStatistics(this.storyList[this.curStoryIndex].id);\r\n                this.share = false;\r\n            },\r\n            handleEvaluate: function(key) {\r\n                if (this.storyList[this.curStoryIndex].evaluate) {\r\n                    return false;\r\n                }\r\n                var _this = this;\r\n                api.syncAjax(\"post\", \"/zt/sygs/evaluate.action\", {\r\n                    data: {\r\n                        visitorId: _this.visitorId,\r\n                        resId: _this.storyList[_this.curStoryIndex].id,\r\n                        evaType: key\r\n                    }\r\n                }).then(function (res) {\r\n                    if (res.flag) {\r\n                        _this.storyList[_this.curStoryIndex].evaluate = res.data.evaluate;\r\n                        _this.storyList[_this.curStoryIndex].cnt = res.data.cnt;\r\n                        _this.evaluateText1 = res.data.text1;\r\n                        _this.evaluateText2 = res.data.text2;\r\n                        _this.tipModal = true;\r\n                        _this.timer = setTimeout(function() {\r\n                            _this.tipModal = false;\r\n                        }, 5000);\r\n                    } else {\r\n                        _this.$Message.warning(res.msg);\r\n                    }\r\n           "
+    },
+    {
+      "script_index": 26,
+      "src": "",
+      "matched_keywords": [
+        "query"
+      ],
+      "preview": "\r\n    //校验配置\r\n    VeeValidate.Validator.localize('zh_CN');\r\n    VeeValidate.Validator.localize({\r\n        zh_CN: {\r\n            messages: {\r\n                required: function (field) {\r\n                    return \"该题为必填项，请填写完整后再提交。\";\r\n                }\r\n            }\r\n        }\r\n    });\r\n    Vue.use(VeeValidate);\r\n    Vue.component('xzzt-wj-modal', {\r\n        props: {\r\n            finished: {\r\n                type: Boolean,\r\n                default: false\r\n            },\r\n            questionVoList: {\r\n                type: Array,\r\n                default: []\r\n            },\r\n            randomStr: {\r\n                type: String,\r\n                default: ''\r\n            },\r\n            visitorId: {\r\n                type: String,\r\n                default: ''\r\n            }\r\n        },\r\n        data: function () {\r\n            return {\r\n                modal: true\r\n            }\r\n        },\r\n        methods: {\r\n            close: function() {\r\n                this.$emit('close-wj');\r\n            },\r\n            cancel: function() {\r\n                this.$emit('close-wj');\r\n                if (!this.finished) {\r\n                    var index = -1;\r\n                    for(var i = 0; i < this.questionVoList.length; i++) {\r\n                        var ele = this.questionVoList[i];\r\n                        if (!ele.value) {\r\n                            index = i;\r\n                            break;\r\n                        }\r\n                    }\r\n\r\n                    gaTrackerOutboundLink({\r\n                        eventCategory: '用户最后填写的调查题目序号',\r\n                        eventAction: 'click',\r\n                        eventLabel: index == -1 ? this.questionVoList.length : index\r\n                    })\r\n                }\r\n            },\r\n            handleChange: function(index) {\r\n                this.$set(this.questionVoList[index], 'inputValue', '');\r\n            },\r\n            getPlaceholder: function(key1, key2) {\r\n                if (key1 == 'xzptsydc2023_4') {\r\n                    var res = '';\r\n                    switch(key2) {\r\n                        case 'xzptsydc2023_4_2':\r\n                            res = '您不确定的主要原因是？';\r\n                            break;\r\n                        case 'xzptsydc2023_4_3':\r\n                            res = '您比较不愿意的主要原因是？';\r\n                            break;\r\n                        case 'xzptsydc2023_4_4':\r\n                            res = '您不愿意的主要原因是？';\r\n                            break;\r\n                        default:\r\n                            res = '';\r\n                            break;\r\n                    }\r\n                    return res;\r\n                } else {\r\n                    return '';\r\n                }\r\n            },\r\n            scrollToFirstError() {\r\n                this.$nextTick(function () {\r\n                    var element = window.document.querySelectorAll(\"*[class~=error-border]\")[0];\r\n                    if (element) {\r\n                        element.scrollIntoV"
+    },
+    {
+      "script_index": 27,
+      "src": "",
+      "matched_keywords": [
+        "axios",
+        "api",
+        "task"
+      ],
+      "preview": "\r\n            Vue.use(VueLazyload, {\r\n                attempt: 1\r\n            });\r\n            api.pollingOptions = {\r\n                resType: 'json',\r\n                taskUrl: '', //默认：''，不会进入轮询\r\n                pollingUrl: '', //默认：''，不会进入轮询\r\n                pollingLimit: 10, // 请求的最大次数，默认：10次\r\n                pollingDelay: 1000, // 正常轮询时，请求延迟毫秒数，默认：1000毫秒\r\n                delayGaps: 300, // 轮询请求间隔递增毫秒数，默认：0毫秒（建议不要超过1000）\r\n            };\r\n            // api 统一配置\r\n            api.axiosConfig = {\r\n                headers: {\r\n                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'\r\n                }, // 其他为axios的配置-设置headers\r\n                timeout: 60000 // 其他为axios的配置-请求超时时间\r\n            };\r\n            api.errorCallback = function (code, msg) {\r\n                // 当其他错误发生时，弹出提示层\r\n                setTimeout(function () {\r\n                    iview.Modal.error({\r\n                        title: '提示',\r\n                        content: msg\r\n                    });\r\n                }, 500);\r\n            };\r\n            Vue.use(VueViewer.default);\r\n            new Vue({\r\n                el: '#app',\r\n                mixins: typeof mixin != 'undefined' ? [mixin] : {},\r\n                data: {\r\n                    isWap: wapFn(),\r\n                    showEwm: false,\r\n                    showTopNav: false,\r\n                    cdn: 'https://t3.chei.com.cn/xzpt/survey/cdn/showimg/' || 'https://t1.chei.com.cn/xzpt/survey/cdn/showimg/',\r\n                    ext: '.jpeg',\r\n                    finishedYhdy: false,\r\n                    visitorId: '',\r\n                    dcwjModal: false\r\n                },\r\n                methods: {\r\n                    // 返回顶部\r\n                    backToTop: function () {\r\n                        var curScrollTop = document.documentElement.scrollTop;\r\n                        var timer = setInterval(function () {\r\n                            if (curScrollTop > 0) {\r\n                                window.scrollTo(0, curScrollTop);\r\n                                curScrollTop -= 15;\r\n                            } else {\r\n                                window.scrollTo(0, 0);\r\n                                clearInterval(timer);\r\n                            }\r\n                        }, 2);\r\n                    },\r\n                    goWap: function() {\r\n                        api.syncAjax('get','/ajax/changeaccessmodel.action',{\r\n                            params: {\r\n                                accessModel: 'wap'\r\n                            }\r\n                        }).then(function(res){\r\n                            if (res.flag) {\r\n                                window.location.reload();\r\n                            }\r\n                        })\r\n                    },\r\n                    getDcwjStatus: function() {\r\n                        var _this = this;\r\n                        api.syncAjax('get','/ajax/getuserstatus.action').then(function(res){\r\n                            i"
+    }
+  ],
+  "visible_text_blocks": [
+    "学信网 学籍查询 学历查询 学位查询 在线验证 出国教育背景信息服务 图像校对 学信档案 高考 研招 港澳台招生 征兵 就业 学职平台 全国大学生学业与职业发展平台 登录 注册 首页 专业洞察 职业测评 职业探索 职业人物 职业微视频 就业指导课 专题汇总 {{resultJson.lbtVo.jztsVo.zymc}} {{resultJson.lbtVo.jztsVo.myd.toFixed(1)}} 综合满意度 {{resultJson.lbtVo.jztsVo.evlNum}}人评价 学长学姐有话说 {{zy.zymc}}：{{zy.title}} 如你所查的门类（专业大类)、专业类、专业与专业目录有出入，请以专业目录为准。 本科（普通教育）专业目录 本科（职业教育）专业目录 高职（专科）专业目录 {{item.name}} {{item.name}} {{item.name}} 搜索发现 查询 无查询结果",
+    "学信网 学籍查询 学历查询 学位查询 在线验证 出国教育背景信息服务 图像校对 学信档案 高考 研招 港澳台招生 征兵 就业 学职平台",
+    "学信网",
+    "学籍查询",
+    "学历查询",
+    "学位查询",
+    "在线验证",
+    "出国教育背景信息服务",
+    "图像校对",
+    "学信档案",
+    "高考",
+    "研招",
+    "港澳台招生",
+    "征兵",
+    "就业",
+    "学职平台",
+    "全国大学生学业与职业发展平台 登录 注册 首页 专业洞察 职业测评 职业探索 职业人物 职业微视频 就业指导课 专题汇总",
+    "全国大学生学业与职业发展平台 登录 注册",
+    "全国大学生学业与职业发展平台",
+    "登录 注册",
+    "登录",
+    "注册",
+    "首页 专业洞察 职业测评 职业探索 职业人物 职业微视频 就业指导课 专题汇总",
+    "首页",
+    "专业洞察",
+    "职业测评",
+    "职业探索",
+    "职业人物",
+    "职业微视频",
+    "就业指导课",
+    "专题汇总",
+    "{{resultJson.lbtVo.jztsVo.zymc}} {{resultJson.lbtVo.jztsVo.myd.toFixed(1)}} 综合满意度 {{resultJson.lbtVo.jztsVo.evlNum}}人评价 学长学姐有话说 {{zy.zymc}}：{{zy.title}} 如你所查的门类（专业大类)、专业类、专业与专业目录有出入，请以专业目录为准。 本科（普通教育）专业目录 本科（职业教育）专业目录 高职（专科）专业目录 {{item.name}} {{item.name}} {{item.name}} 搜索发现 查询 无查询结果",
+    "{{resultJson.lbtVo.jztsVo.zymc}} {{resultJson.lbtVo.jztsVo.myd.toFixed(1)}} 综合满意度 {{resultJson.lbtVo.jztsVo.evlNum}}人评价 学长学姐有话说",
+    "{{resultJson.lbtVo.jztsVo.zymc}} {{resultJson.lbtVo.jztsVo.myd.toFixed(1)}} 综合满意度 {{resultJson.lbtVo.jztsVo.evlNum}}人评价",
+    "{{resultJson.lbtVo.jztsVo.zymc}}",
+    "{{resultJson.lbtVo.jztsVo.myd.toFixed(1)}} 综合满意度 {{resultJson.lbtVo.jztsVo.evlNum}}人评价",
+    "{{resultJson.lbtVo.jztsVo.myd.toFixed(1)}}",
+    "综合满意度 {{resultJson.lbtVo.jztsVo.evlNum}}人评价",
+    "综合满意度",
+    "{{resultJson.lbtVo.jztsVo.evlNum}}人评价",
+    "学长学姐有话说",
+    "{{zy.zymc}}：{{zy.title}}",
+    "如你所查的门类（专业大类)、专业类、专业与专业目录有出入，请以专业目录为准。 本科（普通教育）专业目录 本科（职业教育）专业目录 高职（专科）专业目录",
+    "如你所查的门类（专业大类)、专业类、专业与专业目录有出入，请以专业目录为准。",
+    "本科（普通教育）专业目录 本科（职业教育）专业目录 高职（专科）专业目录",
+    "本科（普通教育）专业目录",
+    "本科（职业教育）专业目录",
+    "高职（专科）专业目录",
+    "{{item.name}} {{item.name}} {{item.name}} 搜索发现 查询",
+    "搜索发现",
+    "无查询结果",
+    "学信网 版权声明 鸣谢单位 关于我们 联系我们 主办单位： 教育部学生服务与素质发展中心 Copyright © 2003-2026 学信网 All Rights Reserved 京ICP备19004913号-1 京公网安备11010202009747号 客服热线：010-67410388 客服邮箱：kefu@chsi.com.cn 官方微信",
+    "学信网 版权声明 鸣谢单位 关于我们 联系我们",
+    "版权声明",
+    "鸣谢单位",
+    "关于我们",
+    "联系我们",
+    "主办单位： 教育部学生服务与素质发展中心 Copyright © 2003-2026 学信网 All Rights Reserved 京ICP备19004913号-1 京公网安备11010202009747号",
+    "教育部学生服务与素质发展中心",
+    "京ICP备19004913号-1",
+    "京公网安备11010202009747号",
+    "客服热线：010-67410388 客服邮箱：kefu@chsi.com.cn",
+    "官方微信"
+  ],
+  "links": [
+    {
+      "text": "学信网",
+      "href": "https://www.chsi.com.cn/"
+    },
+    {
+      "text": "学籍查询",
+      "href": "https://my.chsi.com.cn/"
+    },
+    {
+      "text": "学历查询",
+      "href": "https://www.chsi.com.cn/xlcx/"
+    },
+    {
+      "text": "学位查询",
+      "href": "https://www.chsi.com.cn/xwcx/"
+    },
+    {
+      "text": "在线验证",
+      "href": "https://www.chsi.com.cn/xlcx/bgcx.jsp"
+    },
+    {
+      "text": "出国教育背景信息服务",
+      "href": "https://www.chsi.com.cn/xlrz/index2.jsp"
+    },
+    {
+      "text": "图像校对",
+      "href": "https://my.chsi.com.cn/archive/index.jsp#txjd"
+    },
+    {
+      "text": "学信档案",
+      "href": "https://my.chsi.com.cn/"
+    },
+    {
+      "text": "高考",
+      "href": "https://gaokao.chsi.com.cn/"
+    },
+    {
+      "text": "研招",
+      "href": "https://yz.chsi.com.cn/"
+    },
+    {
+      "text": "港澳台招生",
+      "href": "https://www.gatzs.com.cn/"
+    },
+    {
+      "text": "征兵",
+      "href": "https://www.gfbzb.gov.cn/"
+    },
+    {
+      "text": "就业",
+      "href": "https://www.ncss.cn/"
+    },
+    {
+      "text": "学职平台",
+      "href": "https://xz.chsi.com.cn/"
+    },
+    {
+      "text": "",
+      "href": "https://xz.chsi.com.cn/"
+    },
+    {
+      "text": "登录",
+      "href": "https://xz.chsi.com.cn/login.action"
+    },
+    {
+      "text": "注册",
+      "href": "https://account.chsi.com.cn/account/preregister.action?from=ixy-login"
+    },
+    {
+      "text": "首页",
+      "href": "https://xz.chsi.com.cn/home.action"
+    },
+    {
+      "text": "专业洞察",
+      "href": "https://xz.chsi.com.cn/speciality/index.action"
+    },
+    {
+      "text": "职业测评",
+      "href": "https://xz.chsi.com.cn/survey/index.action"
+    },
+    {
+      "text": "职业探索",
+      "href": "https://xz.chsi.com.cn/occupation/index.action"
+    },
+    {
+      "text": "职业人物",
+      "href": "https://xz.chsi.com.cn/occucase/index.action"
+    },
+    {
+      "text": "职业微视频",
+      "href": "https://xz.chsi.com.cn/video/index.action"
+    },
+    {
+      "text": "就业指导课",
+      "href": "https://xz.chsi.com.cn/jyzdk/index.action"
+    },
+    {
+      "text": "专题汇总",
+      "href": "https://xz.chsi.com.cn/zthz/index.action"
+    },
+    {
+      "text": "本科（普通教育）专业目录",
+      "href": "https://xz.chsi.com.cn/xz/zyts/202504/20250425/2293378308.html"
+    },
+    {
+      "text": "本科（职业教育）专业目录",
+      "href": "https://xz.chsi.com.cn/xz/zyts/202504/20250425/2293378311.html"
+    },
+    {
+      "text": "高职（专科）专业目录",
+      "href": "https://xz.chsi.com.cn/xz/zyts/202108/20210812/2097299778.html"
+    },
+    {
+      "text": "",
+      "href": "https://xz.chsi.com.cn/cp/report/index.action"
+    },
+    {
+      "text": "版权声明",
+      "href": "https://www.chsi.com.cn/about/copyright.shtml"
+    },
+    {
+      "text": "鸣谢单位",
+      "href": "https://xz.chsi.com.cn/showoriorg.action"
+    },
+    {
+      "text": "关于我们",
+      "href": "https://xz.chsi.com.cn/about.action"
+    },
+    {
+      "text": "联系我们",
+      "href": "http://www.chsi.com.cn/about/contact.shtml"
+    },
+    {
+      "text": "教育部学生服务与素质发展中心",
+      "href": "https://chesicc.chsi.com.cn/"
+    },
+    {
+      "text": "京ICP备19004913号-1",
+      "href": "https://beian.miit.gov.cn"
+    },
+    {
+      "text": "京公网安备11010202009747号",
+      "href": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202009747"
+    },
+    {
+      "text": "",
+      "href": "https://xz.chsi.com.cn/xz/zyts/202601/20260116/2247736163.html"
+    }
+  ],
+  "link_groups": {
+    "action_like": [
+      {
+        "text": "在线验证",
+        "href": "https://www.chsi.com.cn/xlcx/bgcx.jsp"
+      },
+      {
+        "text": "出国教育背景信息服务",
+        "href": "https://www.chsi.com.cn/xlrz/index2.jsp"
+      },
+      {
+        "text": "登录",
+        "href": "https://xz.chsi.com.cn/login.action"
+      },
+      {
+        "text": "注册",
+        "href": "https://account.chsi.com.cn/account/preregister.action?from=ixy-login"
+      },
+      {
+        "text": "首页",
+        "href": "https://xz.chsi.com.cn/home.action"
+      },
+      {
+        "text": "专业洞察",
+        "href": "https://xz.chsi.com.cn/speciality/index.action"
+      },
+      {
+        "text": "职业测评",
+        "href": "https://xz.chsi.com.cn/survey/index.action"
+      },
+      {
+        "text": "职业探索",
+        "href": "https://xz.chsi.com.cn/occupation/index.action"
+      },
+      {
+        "text": "职业人物",
+        "href": "https://xz.chsi.com.cn/occucase/index.action"
+      },
+      {
+        "text": "职业微视频",
+        "href": "https://xz.chsi.com.cn/video/index.action"
+      },
+      {
+        "text": "就业指导课",
+        "href": "https://xz.chsi.com.cn/jyzdk/index.action"
+      },
+      {
+        "text": "专题汇总",
+        "href": "https://xz.chsi.com.cn/zthz/index.action"
+      },
+      {
+        "text": "",
+        "href": "https://xz.chsi.com.cn/cp/report/index.action"
+      },
+      {
+        "text": "鸣谢单位",
+        "href": "https://xz.chsi.com.cn/showoriorg.action"
+      },
+      {
+        "text": "关于我们",
+        "href": "https://xz.chsi.com.cn/about.action"
+      }
+    ],
+    "static_like": [],
+    "other": [
+      {
+        "text": "学信网",
+        "href": "https://www.chsi.com.cn/"
+      },
+      {
+        "text": "学籍查询",
+        "href": "https://my.chsi.com.cn/"
+      },
+      {
+        "text": "学历查询",
+        "href": "https://www.chsi.com.cn/xlcx/"
+      },
+      {
+        "text": "学位查询",
+        "href": "https://www.chsi.com.cn/xwcx/"
+      },
+      {
+        "text": "图像校对",
+        "href": "https://my.chsi.com.cn/archive/index.jsp#txjd"
+      },
+      {
+        "text": "学信档案",
+        "href": "https://my.chsi.com.cn/"
+      },
+      {
+        "text": "高考",
+        "href": "https://gaokao.chsi.com.cn/"
+      },
+      {
+        "text": "研招",
+        "href": "https://yz.chsi.com.cn/"
+      },
+      {
+        "text": "港澳台招生",
+        "href": "https://www.gatzs.com.cn/"
+      },
+      {
+        "text": "征兵",
+        "href": "https://www.gfbzb.gov.cn/"
+      },
+      {
+        "text": "就业",
+        "href": "https://www.ncss.cn/"
+      },
+      {
+        "text": "学职平台",
+        "href": "https://xz.chsi.com.cn/"
+      },
+      {
+        "text": "",
+        "href": "https://xz.chsi.com.cn/"
+      },
+      {
+        "text": "本科（普通教育）专业目录",
+        "href": "https://xz.chsi.com.cn/xz/zyts/202504/20250425/2293378308.html"
+      },
+      {
+        "text": "本科（职业教育）专业目录",
+        "href": "https://xz.chsi.com.cn/xz/zyts/202504/20250425/2293378311.html"
+      },
+      {
+        "text": "高职（专科）专业目录",
+        "href": "https://xz.chsi.com.cn/xz/zyts/202108/20210812/2097299778.html"
+      },
+      {
+        "text": "版权声明",
+        "href": "https://www.chsi.com.cn/about/copyright.shtml"
+      },
+      {
+        "text": "联系我们",
+        "href": "http://www.chsi.com.cn/about/contact.shtml"
+      },
+      {
+        "text": "教育部学生服务与素质发展中心",
+        "href": "https://chesicc.chsi.com.cn/"
+      },
+      {
+        "text": "京ICP备19004913号-1",
+        "href": "https://beian.miit.gov.cn"
+      },
+      {
+        "text": "京公网安备11010202009747号",
+        "href": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202009747"
+      },
+      {
+        "text": "",
+        "href": "https://xz.chsi.com.cn/xz/zyts/202601/20260116/2247736163.html"
+      }
+    ]
+  },
+  "forms": [
+    {
+      "index": 1,
+      "method": "GET",
+      "action": "https://cn.bing.com/search",
+      "inputs": [
+        {
+          "tag": "input",
+          "type": "hidden",
+          "name": "q",
+          "id": "",
+          "value": "",
+          "placeholder": ""
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "name": "query",
+          "id": "top-nav-search-input",
+          "value": "",
+          "placeholder": ""
+        },
+        {
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "value": "",
+          "placeholder": ""
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "index": 1,
+      "src": "https://t3.chei.com.cn/xz/assets/web/images/zydc-index-bg.jpg",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": ""
+    },
+    {
+      "index": 3,
+      "src": "https://t3.chei.com.cn/xz/assets/web/images/xz-ewm.jpg",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "118",
+      "height": "",
+      "parent_text": ""
+    },
+    {
+      "index": 4,
+      "src": "https://t1.chei.com.cn/xz/assets/web/images/dcwj-img.png",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": ""
+    },
+    {
+      "index": 5,
+      "src": "https://t1.chei.com.cn/chsi/images/jgwab.svg",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": "京公网安备11010202009747号"
+    },
+    {
+      "index": 7,
+      "src": "https://t1.chei.com.cn/xz/assets/web/images/xzzt-detail-share.png",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": ""
+    }
+  ],
+  "images_downloaded": [
+    {
+      "index": 1,
+      "src": "https://t3.chei.com.cn/xz/assets/web/images/zydc-index-bg.jpg",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": "",
+      "local_path": "output/xz/images/speciality_index/790ea44f1134.jpg",
+      "file_size": 78513,
+      "content_type": "image/jpeg",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "src": "https://t3.chei.com.cn/xz/assets/web/images/xz-ewm.jpg",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "118",
+      "height": "",
+      "parent_text": "",
+      "local_path": "output/xz/images/speciality_index/d3b4b9b81e54.jpg",
+      "file_size": 27556,
+      "content_type": "image/jpeg",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "src": "https://t1.chei.com.cn/xz/assets/web/images/dcwj-img.png",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": "",
+      "local_path": "output/xz/images/speciality_index/48f19aaadb73.png",
+      "file_size": 75524,
+      "content_type": "image/png",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "src": "https://t1.chei.com.cn/chsi/images/jgwab.svg",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": "京公网安备11010202009747号",
+      "local_path": "output/xz/images/speciality_index/f0df95e949b5.svg",
+      "file_size": 14438,
+      "content_type": "image/svg+xml",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "src": "https://t1.chei.com.cn/xz/assets/web/images/xzzt-detail-share.png",
+      "alt": "",
+      "title": "",
+      "class": "",
+      "width": "",
+      "height": "",
+      "parent_text": "",
+      "local_path": "output/xz/images/speciality_index/0b73b781d5a0.png",
+      "file_size": 822,
+      "content_type": "image/png",
+      "error": ""
+    }
+  ]
+}
