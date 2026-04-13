@@ -8,11 +8,15 @@ from hashlib import md5
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
+import requests
+from bs4 import BeautifulSoup
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
 
 INDEX_URL = "https://xz.chsi.com.cn/speciality/index.action"
+LIST_URL = "https://xz.chsi.com.cn/speciality/list.action"
+SUBCATEGORY_URL = "https://xz.chsi.com.cn/speciality/subcategory.action"
 OUTPUT_ROOT = Path(os.getenv("XZ_OUTPUT_DIR", "output/xz_detail"))
 
 
@@ -26,9 +30,11 @@ def env_bool(name: str, default: bool = False) -> bool:
 HEADLESS = env_bool("HEADLESS", True)
 SAVE_HTML = env_bool("XZ_SAVE_HTML", True)
 DOWNLOAD_IMAGES = env_bool("XZ_DOWNLOAD_IMAGES", True)
-MAX_PAGES = int(os.getenv("XZ_MAX_PAGES", "200"))
+SAVE_LIST_HTML = env_bool("XZ_SAVE_LIST_HTML", True)
+MAX_PAGES = int(os.getenv("XZ_MAX_PAGES", "400"))
 MAX_DETAILS = int(os.getenv("XZ_MAX_DETAILS", "0"))
-
+LIST_STEP = int(os.getenv("XZ_LIST_STEP", "15"))
+EMPTY_PAGE_STOP = int(os.getenv("XZ_EMPTY_PAGE_STOP", "3"))
 
 DEFAULT_SECTION_HEADINGS = [
     "课程统计",
@@ -65,6 +71,10 @@ SCHOOL_NAME_RE = re.compile(
 
 def iso_now():
     return time.strftime("%Y-%m-%dT%H:%M:%S%z", time.localtime())
+
+
+def now_ms():
+    return str(int(time.time() * 1000))
 
 
 def clean_text(text):
@@ -164,6 +174,201 @@ def download_file(url: str, dest_dir: Path, referer: str):
     return path, len(content), content_type
 
 
+def make_session():
+    s = requests.Session()
+    s.headers.update({
+        "User-Agent": (
+            "Mozilla/5.0 (X11; Linux x86_64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/123.0.0.0 Safari/537.36"
+        ),
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+        "Referer": INDEX_URL,
+    })
+    return s
+
+
+def fetch_text(session: requests.Session, url: str, params=None):
+    r = session.get(url, params=params, timeout=60)
+    r.raise_for_status()
+    r.encoding = r.apparent_encoding or r.encoding or "utf-8"
+    return r.text, r
+
+
+def parse_detail_candidates_from_html(html: str, base_url: str):
+    urls = []
+
+    soup = BeautifulSoup(html, "html.parser")
+
+    for a in soup.find_all("a"):
+        href = a.get("href", "")
+        if not href:
+            continue
+        full = urljoin(base_url, href)
+        if "/speciality/detail" in full and "specId=" in full:
+            urls.append(full)
+
+    patterns = [
+        r"https?://xz\.chsi\.com\.cn/speciality/detail(?:/[^\"'<> ]+)?\.action\?specId=[^\"'<> ]+",
+        r"/speciality/detail(?:/[^\"'<> ]+)?\.action\?specId=[^\"'<> ]+",
+    ]
+    for pat in patterns:
+        for m in re.findall(pat, html):
+            urls.append(urljoin(base_url, m))
+
+    urls = [x.rstrip(')"\'') for x in urls]
+    urls = [x for x in urls if "/speciality/detail" in x and "specId=" in x]
+    urls = unique_keep_order(urls, key_func=lambda x: x)
+
+    out = []
+    for url in urls:
+        out.append({
+            "spec_id": extract_spec_id(url),
+            "url": url,
+        })
+    return out
+
+
+def fetch_subcategory(session: requests.Session):
+    try:
+        text, resp = fetch_text(session, SUBCATEGORY_URL, params={"df": "10", "_t": now_ms()})
+        result = {
+            "url": resp.url,
+            "status_code": resp.status_code,
+            "content_type": resp.headers.get("Content-Type", ""),
+            "raw_text_preview": text[:2000],
+        }
+        save_json(OUTPUT_ROOT / "discovery" / "subcategory.json", result)
+        if SAVE_HTML:
+            save_text(OUTPUT_ROOT / "discovery" / "subcategory.txt", text)
+        return result
+    except Exception as e:
+        result = {
+            "url": SUBCATEGORY_URL,
+            "error": repr(e),
+        }
+        save_json(OUTPUT_ROOT / "discovery" / "subcategory.json", result)
+        return result
+
+
+def discover_detail_urls_by_list():
+    OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
+    session = make_session()
+
+    subcategory_info = fetch_subcategory(session)
+
+    discovered = []
+    pages = []
+    seen_page_hash = set()
+    consecutive_no_new = 0
+
+    for page_no in range(MAX_PAGES):
+        start = page_no * LIST_STEP
+        params = {
+            "start": str(start),
+            "phbType": "1",
+            "cc": "",
+            "ml": "",
+            "xk": "",
+            "zymc": "",
+            "_t": now_ms(),
+        }
+
+        try:
+            html, resp = fetch_text(session, LIST_URL, params=params)
+        except Exception as e:
+            pages.append({
+                "page_no": page_no + 1,
+                "start": start,
+                "error": repr(e),
+            })
+            consecutive_no_new += 1
+            if consecutive_no_new >= EMPTY_PAGE_STOP:
+                break
+            continue
+
+        page_hash = md5(html.encode("utf-8")).hexdigest()
+        if page_hash in seen_page_hash:
+            pages.append({
+                "page_no": page_no + 1,
+                "start": start,
+                "url": resp.url,
+                "status_code": resp.status_code,
+                "content_type": resp.headers.get("Content-Type", ""),
+                "duplicate_page": True,
+                "candidate_count": 0,
+            })
+            break
+        seen_page_hash.add(page_hash)
+
+        if SAVE_LIST_HTML:
+            save_text(OUTPUT_ROOT / "discovery" / "list_pages" / f"{start}.html", html)
+
+        candidates = parse_detail_candidates_from_html(html, INDEX_URL)
+        new_before = len({x["spec_id"] for x in discovered if x["spec_id"]})
+        discovered.extend(candidates)
+        discovered = unique_keep_order(discovered, key_func=lambda x: x["url"])
+        new_after = len({x["spec_id"] for x in discovered if x["spec_id"]})
+        new_count = new_after - new_before
+
+        pages.append({
+            "page_no": page_no + 1,
+            "start": start,
+            "url": resp.url,
+            "status_code": resp.status_code,
+            "content_type": resp.headers.get("Content-Type", ""),
+            "candidate_count": len(candidates),
+            "new_spec_count": new_count,
+            "preview": clean_text(html)[:500],
+        })
+
+        if not candidates or new_count == 0:
+            consecutive_no_new += 1
+        else:
+            consecutive_no_new = 0
+
+        if MAX_DETAILS > 0 and new_after >= MAX_DETAILS:
+            break
+
+        if consecutive_no_new >= EMPTY_PAGE_STOP:
+            break
+
+    by_spec = {}
+    for item in discovered:
+        spec_id = item.get("spec_id", "")
+        url = item.get("url", "")
+        if not spec_id or not url:
+            continue
+        by_spec.setdefault(spec_id, [])
+        by_spec[spec_id].append(url)
+
+    details = []
+    for spec_id, urls in by_spec.items():
+        details.append({
+            "spec_id": spec_id,
+            "detail_url": choose_best_detail_url(urls),
+            "all_urls": sorted(set(urls)),
+        })
+
+    details = sorted(details, key=lambda x: x["spec_id"])
+
+    if MAX_DETAILS > 0:
+        details = details[:MAX_DETAILS]
+
+    discovery = {
+        "generated_at": iso_now(),
+        "index_url": INDEX_URL,
+        "list_url": LIST_URL,
+        "list_step": LIST_STEP,
+        "detail_count": len(details),
+        "details": details,
+        "pages": pages,
+        "subcategory": subcategory_info,
+    }
+    save_json(OUTPUT_ROOT / "discovery" / "index_discovery.json", discovery)
+    return discovery
+
+
 def auto_scroll(page):
     for _ in range(6):
         page.mouse.wheel(0, 1800)
@@ -177,231 +382,6 @@ def wait_ready(page):
     page.wait_for_timeout(1800)
     auto_scroll(page)
     page.wait_for_timeout(1200)
-
-
-def click_first(page, selectors):
-    for sel in selectors:
-        try:
-            locator = page.locator(sel).first
-            if locator.is_visible(timeout=3000):
-                locator.click(timeout=5000)
-                return True
-        except Exception:
-            continue
-    return False
-
-
-def collect_detail_candidates_from_page(page):
-    items = []
-
-    try:
-        anchors = page.locator("a").evaluate_all(
-            """
-            els => els.map(a => ({
-                text: (a.innerText || '').replace(/\\s+/g, ' ').trim(),
-                href: a.href || a.getAttribute('href') || ''
-            }))
-            """
-        )
-        for x in anchors:
-            href = clean_text(x.get("href", ""))
-            text = clean_text(x.get("text", ""))
-            if href and "/speciality/detail" in href and "specId=" in href:
-                items.append({"url": href, "text": text, "source": "anchor"})
-    except Exception:
-        pass
-
-    try:
-        html = page.content()
-        patterns = [
-            r"https?://xz\.chsi\.com\.cn/speciality/detail(?:/[^\"'<> ]+)?\.action\?specId=[^\"'<> ]+",
-            r"/speciality/detail(?:/[^\"'<> ]+)?\.action\?specId=[^\"'<> ]+",
-        ]
-        for pat in patterns:
-            for href in re.findall(pat, html):
-                href = urljoin(page.url, href)
-                items.append({"url": href, "text": "", "source": "html_regex"})
-    except Exception:
-        pass
-
-    out = []
-    for item in items:
-        url = item["url"].rstrip(')"\'')
-        if "/speciality/detail" not in url or "specId=" not in url:
-            continue
-        item["url"] = url
-        item["spec_id"] = extract_spec_id(url)
-        out.append(item)
-
-    return unique_keep_order(out, key_func=lambda x: x["url"])
-
-
-def maybe_click_query(page):
-    selectors = [
-        "button:has-text('查询')",
-        "a:has-text('查询')",
-        "div:has-text('查询')",
-        "span:has-text('查询')",
-        "text=查询",
-    ]
-    return click_first(page, selectors)
-
-
-def goto_next_page(page):
-    selectors = [
-        ".ivu-page-next",
-        "li[title='下一页']",
-        "button[aria-label*='next']",
-        "a[aria-label*='next']",
-        "button:has-text('下一页')",
-        "a:has-text('下一页')",
-        "text=下一页",
-    ]
-    try:
-        before = page.url + "||" + clean_text(page.locator("body").inner_text(timeout=10000))[:500]
-    except Exception:
-        before = page.url
-
-    ok = click_first(page, selectors)
-    if not ok:
-        return False
-
-    page.wait_for_timeout(2000)
-    try:
-        page.wait_for_load_state("networkidle", timeout=10000)
-    except Exception:
-        pass
-
-    try:
-        after = page.url + "||" + clean_text(page.locator("body").inner_text(timeout=10000))[:500]
-    except Exception:
-        after = page.url
-
-    return after != before
-
-
-def discover_detail_urls(context):
-    page = context.new_page()
-    network_hits = []
-    seen_network = set()
-
-    def on_response(resp):
-        try:
-            url = resp.url
-            if "xz.chsi.com.cn" not in url:
-                return
-            if not any(k in url for k in [".action", ".do", "/showimg/"]):
-                return
-            key = (url, resp.status)
-            if key in seen_network:
-                return
-            seen_network.add(key)
-            item = {
-                "url": url,
-                "status": resp.status,
-                "resource_type": resp.request.resource_type,
-                "method": resp.request.method,
-            }
-            try:
-                item["content_type"] = resp.headers.get("content-type", "")
-            except Exception:
-                item["content_type"] = ""
-            network_hits.append(item)
-        except Exception:
-            pass
-
-    page.on("response", on_response)
-
-    page.goto(INDEX_URL, wait_until="domcontentloaded", timeout=60000)
-    wait_ready(page)
-
-    if SAVE_HTML:
-        save_text(OUTPUT_ROOT / "discovery" / "index.html", page.content())
-        save_text(OUTPUT_ROOT / "discovery" / "index.txt", page.locator("body").inner_text())
-
-    maybe_click_query(page)
-    page.wait_for_timeout(2500)
-
-    discovered = []
-    page_states = set()
-
-    for page_no in range(1, MAX_PAGES + 1):
-        try:
-            page.wait_for_timeout(1000)
-            auto_scroll(page)
-            candidates = collect_detail_candidates_from_page(page)
-            discovered.extend(candidates)
-
-            try:
-                body_head = clean_text(page.locator("body").inner_text(timeout=10000))[:800]
-            except Exception:
-                body_head = ""
-
-            state = {
-                "page_no": page_no,
-                "url": page.url,
-                "candidate_count": len(candidates),
-                "body_head": body_head,
-            }
-            state_key = md5(json.dumps(state, ensure_ascii=False).encode("utf-8")).hexdigest()
-            if state_key in page_states:
-                break
-            page_states.add(state_key)
-
-            if MAX_DETAILS and len({x["spec_id"] for x in discovered if x["spec_id"]}) >= MAX_DETAILS:
-                break
-
-            moved = goto_next_page(page)
-            if not moved:
-                break
-        except Exception:
-            break
-
-    page.close()
-
-    for hit in network_hits:
-        url = hit["url"]
-        if "/speciality/detail" in url and "specId=" in url:
-            discovered.append({
-                "url": url,
-                "text": "",
-                "source": "network",
-                "spec_id": extract_spec_id(url),
-            })
-
-    discovered = unique_keep_order(discovered, key_func=lambda x: x["url"])
-
-    by_spec = {}
-    no_spec = []
-    for item in discovered:
-        spec_id = item.get("spec_id", "")
-        if not spec_id:
-            no_spec.append(item)
-            continue
-        by_spec.setdefault(spec_id, [])
-        by_spec[spec_id].append(item["url"])
-
-    detail_urls = []
-    for spec_id, urls in by_spec.items():
-        detail_urls.append({
-            "spec_id": spec_id,
-            "detail_url": choose_best_detail_url(urls),
-            "all_urls": sorted(set(urls)),
-        })
-
-    detail_urls = sorted(detail_urls, key=lambda x: x["spec_id"])
-
-    discovery = {
-        "generated_at": iso_now(),
-        "index_url": INDEX_URL,
-        "detail_count": len(detail_urls),
-        "details": detail_urls,
-        "unbound_urls": no_spec,
-        "network_hits": network_hits,
-    }
-
-    save_json(OUTPUT_ROOT / "discovery" / "index_discovery.json", discovery)
-    return discovery
 
 
 def extract_basic_info(lines, body_text, url, page_title):
@@ -857,6 +837,22 @@ def scrape_detail(context, detail_url):
 def main():
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 
+    discovery = discover_detail_urls_by_list()
+    details = discovery["details"]
+
+    if not details:
+        save_json(OUTPUT_ROOT / "batch_summary.json", {
+            "generated_at": iso_now(),
+            "index_url": INDEX_URL,
+            "discovered_count": 0,
+            "processed_count": 0,
+            "items": [],
+        })
+        print("done")
+        print("discovered: 0")
+        print("processed: 0")
+        return
+
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=HEADLESS,
@@ -879,11 +875,6 @@ def main():
         )
 
         try:
-            discovery = discover_detail_urls(context)
-            details = discovery["details"]
-            if MAX_DETAILS > 0:
-                details = details[:MAX_DETAILS]
-
             all_results = []
             for idx, item in enumerate(details, start=1):
                 detail_url = item["detail_url"]
@@ -920,6 +911,7 @@ def main():
             batch = {
                 "generated_at": iso_now(),
                 "index_url": INDEX_URL,
+                "list_url": LIST_URL,
                 "discovered_count": discovery["detail_count"],
                 "processed_count": len(all_results),
                 "items": all_results,
