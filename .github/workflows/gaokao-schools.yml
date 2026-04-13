@@ -1,0 +1,125 @@
+name: Run CHSI School Scraper
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install requests beautifulsoup4
+
+      - name: Warm cache from repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          if [ -d data/chsi-schools ]; then
+            rsync -av data/chsi-schools/ output/
+          fi
+
+      - name: Run school scraper
+        id: run-automation
+        continue-on-error: true
+        env:
+          START_MIN: "0"
+          START_MAX: "2900"
+          PAGE_STEP: "20"
+          OVERWRITE: "0"
+          SAVE_RAW_HTML: "0"
+          REQUEST_DELAY: "0.15"
+          TIMEOUT: "30"
+        run: |
+          python scripts/gaokao_schools.py
+
+      - name: Check outputs
+        id: check-results
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -d output ] && [ "$(find output -type f | wc -l)" -gt 0 ]; then
+            file_count=$(find output -type f | wc -l | tr -d ' ')
+            echo "status=success" >> "$GITHUB_OUTPUT"
+            echo "file_count=$file_count" >> "$GITHUB_OUTPUT"
+            echo "✅ 找到输出文件 $file_count 个"
+          else
+            echo "status=no_file" >> "$GITHUB_OUTPUT"
+            echo "file_count=0" >> "$GITHUB_OUTPUT"
+            echo "⚠️ output/ 目录不存在或没有文件"
+          fi
+
+      - name: Prepare repository output folder
+        if: steps.check-results.outputs.status == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/chsi-schools
+          rsync -av --delete output/ data/chsi-schools/
+
+      - name: Show changed files
+        if: steps.check-results.outputs.status == 'success'
+        shell: bash
+        run: |
+          echo "===== git status ====="
+          git status --short || true
+          echo
+          echo "===== synced files ====="
+          find data/chsi-schools -maxdepth 3 -type f | sort || true
+
+      - name: Configure git
+        if: steps.check-results.outputs.status == 'success'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push outputs
+        if: steps.check-results.outputs.status == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git add data/chsi-schools/
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "🤖 Update CHSI school outputs - $(date +%Y-%m-%d)"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push origin HEAD:"${GITHUB_REF_NAME}"
+          fi
+
+      - name: Upload outputs artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gaokao-schools-output
+          path: output/
+          if-no-files-found: warn
+          retention-days: 7
+          overwrite: true
