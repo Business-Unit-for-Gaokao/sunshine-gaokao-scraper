@@ -51,7 +51,7 @@ jobs:
           PAGE_STEP: "20"
           OVERWRITE: "0"
           SAVE_RAW_HTML: "0"
-          REQUEST_DELAY: "0.15"
+          REQUEST_DELAY: "0.2"
           TIMEOUT: "30"
         run: |
           python scripts/gaokao_schools.py
