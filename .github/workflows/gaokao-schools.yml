@@ -8,11 +8,13 @@ permissions:
   actions: write
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   PYTHONUNBUFFERED: "1"
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
+    timeout-minutes: 720
 
     steps:
       - name: Checkout
@@ -30,7 +32,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install requests beautifulsoup4
+          pip install beautifulsoup4 playwright
+
+      - name: Install Playwright browsers
+        run: |
+          python -m playwright install --with-deps chromium
 
       - name: Warm cache from repository
         shell: bash
@@ -50,8 +56,8 @@ jobs:
           PAGE_STEP: "20"
           OVERWRITE: "0"
           SAVE_RAW_HTML: "0"
-          REQUEST_DELAY: "0.2"
-          TIMEOUT: "30"
+          PAGE_TIMEOUT: "60000"
+          WAIT_MS: "1200"
         run: |
           python scripts/gaokao_schools.py
 
