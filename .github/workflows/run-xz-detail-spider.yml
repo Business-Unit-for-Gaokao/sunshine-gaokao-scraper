@@ -1,60 +1,33 @@
-name: Run XZ Detail Spider
+name: Run XZ Detail Spider Full
 
 on:
   workflow_dispatch:
-    inputs:
-      max_details:
-        description: "最多抓取多少个专业详情，0 表示不限制"
-        required: false
-        default: "30"
-        type: string
-      max_pages:
-        description: "list.action 最多抓多少页"
-        required: false
-        default: "120"
-        type: string
-      list_step:
-        description: "list.action 分页步长，当前建议 15"
-        required: false
-        default: "15"
-        type: string
-      empty_page_stop:
-        description: "连续多少页没有新增 specId 时停止"
-        required: false
-        default: "3"
-        type: string
-      download_images:
-        description: "是否下载详情页图表图片"
-        required: false
-        default: true
-        type: boolean
-      save_html:
-        description: "是否保存详情页 HTML"
-        required: false
-        default: true
-        type: boolean
-      save_list_html:
-        description: "是否保存 list.action 原始返回"
-        required: false
-        default: true
-        type: boolean
-      headless:
-        description: "是否无头运行"
-        required: false
-        default: true
-        type: boolean
+  schedule:
+    - cron: "20 2 * * *"
 
 permissions:
   contents: write
   actions: write
 
+concurrency:
+  group: xz-detail-spider
+  cancel-in-progress: false
+
 env:
   PYTHONUNBUFFERED: "1"
+  HEADLESS: "true"
+  XZ_MAX_DETAILS: "0"
+  XZ_MAX_PAGES: "200"
+  XZ_LIST_STEP: "15"
+  XZ_EMPTY_PAGE_STOP: "3"
+  XZ_DOWNLOAD_IMAGES: "true"
+  XZ_SAVE_HTML: "true"
+  XZ_SAVE_LIST_HTML: "true"
 
 jobs:
   run-xz-detail:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 360
 
     steps:
       - name: Checkout
@@ -71,23 +44,15 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install playwright requests beautifulsoup4
+          pip install playwright requests
 
       - name: Install Playwright Chromium
         run: |
           python -m playwright install --with-deps chromium
 
-      - name: Run xz detail spider
-        env:
-          XZ_MAX_DETAILS: ${{ inputs.max_details }}
-          XZ_MAX_PAGES: ${{ inputs.max_pages }}
-          XZ_LIST_STEP: ${{ inputs.list_step }}
-          XZ_EMPTY_PAGE_STOP: ${{ inputs.empty_page_stop }}
-          XZ_DOWNLOAD_IMAGES: ${{ inputs.download_images }}
-          XZ_SAVE_HTML: ${{ inputs.save_html }}
-          XZ_SAVE_LIST_HTML: ${{ inputs.save_list_html }}
-          HEADLESS: ${{ inputs.headless }}
+      - name: Show runtime config
         run: |
+          echo "HEADLESS=$HEADLESS"
           echo "XZ_MAX_DETAILS=$XZ_MAX_DETAILS"
           echo "XZ_MAX_PAGES=$XZ_MAX_PAGES"
           echo "XZ_LIST_STEP=$XZ_LIST_STEP"
@@ -95,7 +60,9 @@ jobs:
           echo "XZ_DOWNLOAD_IMAGES=$XZ_DOWNLOAD_IMAGES"
           echo "XZ_SAVE_HTML=$XZ_SAVE_HTML"
           echo "XZ_SAVE_LIST_HTML=$XZ_SAVE_LIST_HTML"
-          echo "HEADLESS=$HEADLESS"
+
+      - name: Run xz detail spider
+        run: |
           python scripts/xz_detail_spider.py
 
       - name: Check output
@@ -128,13 +95,6 @@ jobs:
           mkdir -p data/xz_detail
           rsync -av --delete output/xz_detail/ data/xz_detail/
 
-      - name: Show synced tree
-        if: always()
-        shell: bash
-        run: |
-          echo "===== data/xz_detail ====="
-          find data/xz_detail -maxdepth 5 -type f | sort || true
-
       - name: Configure git
         if: steps.check-output.outputs.has_output == 'true'
         shell: bash
@@ -151,7 +111,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "🤖 Update xz detail spider output - $(date +%Y-%m-%d\ %H:%M:%S)"
+            git commit -m "🤖 Full update xz detail output - $(date +%Y-%m-%d\ %H:%M:%S)"
             git pull --rebase origin "${GITHUB_REF_NAME}" || true
             git push origin HEAD:"${GITHUB_REF_NAME}"
           fi
