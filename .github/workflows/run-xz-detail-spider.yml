@@ -3,10 +3,26 @@ name: Run XZ Detail Spider
 on:
   workflow_dispatch:
     inputs:
-      detail_url:
-        description: "学职平台专业详情页，例如 https://xz.chsi.com.cn/speciality/detail/ptbk.action?specId=hota9lc5d66i41zx"
-        required: true
+      max_details:
+        description: "最多抓取多少个专业详情，0 表示不限制"
+        required: false
+        default: "20"
         type: string
+      download_images:
+        description: "是否下载详情页图表图片"
+        required: false
+        default: true
+        type: boolean
+      save_html:
+        description: "是否保存页面 HTML"
+        required: false
+        default: true
+        type: boolean
+      headless:
+        description: "是否无头运行"
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: write
@@ -14,12 +30,11 @@ permissions:
 
 env:
   PYTHONUNBUFFERED: "1"
-  HEADLESS: "1"
 
 jobs:
   run-xz-detail:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
 
     steps:
       - name: Checkout
@@ -44,9 +59,16 @@ jobs:
 
       - name: Run xz detail spider
         env:
-          XZ_DETAIL_URL: ${{ inputs.detail_url }}
+          XZ_MAX_DETAILS: ${{ inputs.max_details }}
+          XZ_DOWNLOAD_IMAGES: ${{ inputs.download_images }}
+          XZ_SAVE_HTML: ${{ inputs.save_html }}
+          HEADLESS: ${{ inputs.headless }}
         run: |
-          python scripts/xz_detail_spider.py "${XZ_DETAIL_URL}"
+          echo "XZ_MAX_DETAILS=$XZ_MAX_DETAILS"
+          echo "XZ_DOWNLOAD_IMAGES=$XZ_DOWNLOAD_IMAGES"
+          echo "XZ_SAVE_HTML=$XZ_SAVE_HTML"
+          echo "HEADLESS=$HEADLESS"
+          python scripts/xz_detail_spider.py
 
       - name: Check output
         id: check-output
@@ -63,6 +85,13 @@ jobs:
             exit 1
           fi
 
+      - name: Show output tree
+        if: always()
+        shell: bash
+        run: |
+          echo "===== output/xz_detail ====="
+          find output/xz_detail -maxdepth 5 -type f | sort || true
+
       - name: Sync outputs into repo
         if: steps.check-output.outputs.has_output == 'true'
         shell: bash
@@ -71,15 +100,12 @@ jobs:
           mkdir -p data/xz_detail
           rsync -av --delete output/xz_detail/ data/xz_detail/
 
-      - name: Show synced files
+      - name: Show synced tree
         if: always()
         shell: bash
         run: |
-          echo "===== output/xz_detail ====="
-          find output/xz_detail -maxdepth 4 -type f | sort || true
-          echo
           echo "===== data/xz_detail ====="
-          find data/xz_detail -maxdepth 4 -type f | sort || true
+          find data/xz_detail -maxdepth 5 -type f | sort || true
 
       - name: Configure git
         if: steps.check-output.outputs.has_output == 'true'
@@ -97,7 +123,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "🤖 Update XZ detail spider output - $(date +%Y-%m-%d)"
+            git commit -m "🤖 Update xz detail spider output - $(date +%Y-%m-%d %H:%M:%S)"
             git pull --rebase origin "${GITHUB_REF_NAME}" || true
             git push origin HEAD:"${GITHUB_REF_NAME}"
           fi
