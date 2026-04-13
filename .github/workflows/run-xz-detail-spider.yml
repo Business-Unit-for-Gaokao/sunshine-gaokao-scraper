@@ -6,12 +6,22 @@ on:
       max_details:
         description: "最多抓取多少个专业详情，0 表示不限制"
         required: false
-        default: "20"
+        default: "30"
         type: string
       max_pages:
-        description: "最多翻多少页结果页"
+        description: "列表接口最多抓多少页"
         required: false
         default: "200"
+        type: string
+      list_step:
+        description: "列表接口分页步长"
+        required: false
+        default: "15"
+        type: string
+      empty_page_stop:
+        description: "连续多少页没有新增 specId 时停止"
+        required: false
+        default: "3"
         type: string
       download_images:
         description: "是否下载详情页图表图片"
@@ -19,7 +29,12 @@ on:
         default: true
         type: boolean
       save_html:
-        description: "是否保存页面 HTML"
+        description: "是否保存详情页 HTML"
+        required: false
+        default: true
+        type: boolean
+      save_list_html:
+        description: "是否保存 list.action 返回片段"
         required: false
         default: true
         type: boolean
@@ -39,7 +54,7 @@ env:
 jobs:
   run-xz-detail:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 240
 
     steps:
       - name: Checkout
@@ -50,13 +65,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: "3.12"
           cache: "pip"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install playwright
+          pip install playwright requests beautifulsoup4
 
       - name: Install Playwright Chromium
         run: |
@@ -66,14 +81,20 @@ jobs:
         env:
           XZ_MAX_DETAILS: ${{ inputs.max_details }}
           XZ_MAX_PAGES: ${{ inputs.max_pages }}
+          XZ_LIST_STEP: ${{ inputs.list_step }}
+          XZ_EMPTY_PAGE_STOP: ${{ inputs.empty_page_stop }}
           XZ_DOWNLOAD_IMAGES: ${{ inputs.download_images }}
           XZ_SAVE_HTML: ${{ inputs.save_html }}
+          XZ_SAVE_LIST_HTML: ${{ inputs.save_list_html }}
           HEADLESS: ${{ inputs.headless }}
         run: |
           echo "XZ_MAX_DETAILS=$XZ_MAX_DETAILS"
           echo "XZ_MAX_PAGES=$XZ_MAX_PAGES"
+          echo "XZ_LIST_STEP=$XZ_LIST_STEP"
+          echo "XZ_EMPTY_PAGE_STOP=$XZ_EMPTY_PAGE_STOP"
           echo "XZ_DOWNLOAD_IMAGES=$XZ_DOWNLOAD_IMAGES"
           echo "XZ_SAVE_HTML=$XZ_SAVE_HTML"
+          echo "XZ_SAVE_LIST_HTML=$XZ_SAVE_LIST_HTML"
           echo "HEADLESS=$HEADLESS"
           python scripts/xz_detail_spider.py
 
