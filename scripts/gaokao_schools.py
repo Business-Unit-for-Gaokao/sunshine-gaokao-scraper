@@ -15,6 +15,7 @@ from urllib3.util.retry import Retry
 
 BASE = "https://gaokao.chsi.com.cn"
 SEARCH_URL_TEMPLATE = BASE + "/sch/search--ss-on,option-qg,searchType-1,start-{start}.dhtml"
+
 OUTPUT_DIR = Path("output")
 SCHOOLS_DIR = OUTPUT_DIR / "schools"
 
@@ -22,12 +23,9 @@ START_MIN = int(os.getenv("START_MIN", "0"))
 START_MAX = int(os.getenv("START_MAX", "2900"))
 PAGE_STEP = int(os.getenv("PAGE_STEP", "20"))
 TIMEOUT = int(os.getenv("TIMEOUT", "30"))
-REQUEST_DELAY = float(os.getenv("REQUEST_DELAY", "0.15"))
+REQUEST_DELAY = float(os.getenv("REQUEST_DELAY", "0.2"))
 OVERWRITE = os.getenv("OVERWRITE", "0") == "1"
 SAVE_RAW_HTML = os.getenv("SAVE_RAW_HTML", "0") == "1"
-
-MAIN_RE = re.compile(r"/sch/schoolInfoMain--schId-(\d+)\.dhtml")
-INFO_RE = re.compile(r"/sch/schoolInfo--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml")
 
 PROVINCES = {
     "北京", "天津", "河北", "山西", "内蒙古", "辽宁", "吉林", "黑龙江", "上海", "江苏",
@@ -36,13 +34,43 @@ PROVINCES = {
 }
 
 NAV_BLACKLIST = {
-    "首页", "高考资讯", "阳光志愿", "高招咨询", "在线咨询", "招生动态", "试题评析",
-    "院校库", "专业库", "院校满意度", "专业满意度", "专业推荐", "更多", "招生政策",
-    "选科参考", "云咨询周", "成绩查询", "招生章程", "名单公示", "志愿参考", "咨询室",
-    "录取结果", "高职招生", "工作动态", "心理测评", "直播安排", "批次线", "专业解读",
-    "各地网站", "职业前景", "特殊类型招生", "志愿填报时间", "招办访谈", "登录", "注册",
-    "搜索", "查看", "取消", "返回", "上一页", "下一页", "跳至", "页"
+    "首页", "高考资讯", "阳光志愿", "在线咨询", "招生动态", "高职招生", "试题评析",
+    "院校库", "专业库", "招生章程", "名单公示", "院校满意度", "专业满意度", "专业推荐",
+    "专业解读", "招办访谈", "帮助中心", "登录", "注册", "学籍查询", "学历查询",
+    "学位查询", "在线验证", "出国教育背景服务", "图像校对", "学信档案", "高考", "研招",
+    "港澳台招生", "征兵", "就业", "学职平台", "学信网", "中心简介", "联系我们", "版权声明",
+    "网站地图", "网站宣传", "查看", "取消", "搜索", "返回", "上一页", "下一页", "更多信息"
 }
+
+PATTERNS = {
+    "schoolInfoMain": re.compile(r"/sch/schoolInfoMain--schId-(\d+)\.dhtml"),
+    "schoolInfo": re.compile(r"/sch/schoolInfo--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
+    "listzyjs": re.compile(r"/sch/listzyjs--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
+    "listdksw": re.compile(r"/sch/listdksw--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
+    "listBulletin": re.compile(r"/sch/listBulletin--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
+    "listlqjggs": re.compile(r"/sch/listlqjggs--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
+    "zszc": re.compile(r"/zsgs/zhangcheng/listZszc--schId-(\d+)\.dhtml"),
+}
+
+COMMON_PAGE_CANDIDATES = [
+    {"name": "学校首页", "path": "/sch/schoolInfoMain--schId-{schId}.dhtml"},
+    {"name": "学校简介", "path": "/sch/schoolInfo--schId-{schId},categoryId-26172,mindex-1.dhtml"},
+    {"name": "院系设置", "path": "/sch/schoolInfo--schId-{schId},categoryId-26177,mindex-2.dhtml"},
+    {"name": "专业介绍", "path": "/sch/listzyjs--schId-{schId},categoryId-417809,mindex-3.dhtml"},
+    {"name": "录取规则", "path": "/sch/schoolInfo--schId-{schId},categoryId-26187,mindex-4.dhtml"},
+    {"name": "体检要求", "path": "/sch/schoolInfo--schId-{schId},categoryId-26196,mindex-5.dhtml"},
+    {"name": "收费项目", "path": "/sch/schoolInfo--schId-{schId},categoryId-26201,mindex-7.dhtml"},
+    {"name": "奖学金设置", "path": "/sch/schoolInfo--schId-{schId},categoryId-26204,mindex-8.dhtml"},
+    {"name": "食宿条件", "path": "/sch/schoolInfo--schId-{schId},categoryId-26208,mindex-8.dhtml"},
+    {"name": "基础设施", "path": "/sch/schoolInfo--schId-{schId},categoryId-26213,mindex-9.dhtml"},
+    {"name": "毕业生就业", "path": "/sch/schoolInfo--schId-{schId},categoryId-26216,mindex-10.dhtml"},
+    {"name": "联系办法", "path": "/sch/schoolInfo--schId-{schId},categoryId-26221,mindex-11.dhtml"},
+    {"name": "公示栏", "path": "/sch/listBulletin--schId-{schId},categoryId-26219,mindex-12.dhtml"},
+    {"name": "答考生问", "path": "/sch/listdksw--schId-{schId},categoryId-420549,mindex-16.dhtml"},
+    {"name": "录取结果公示", "path": "/sch/listlqjggs--schId-{schId},categoryId-423317,mindex-8.dhtml"},
+    {"name": "其他", "path": "/sch/schoolInfo--schId-{schId},categoryId-26224,mindex-17.dhtml"},
+    {"name": "招生章程", "path": "/zsgs/zhangcheng/listZszc--schId-{schId}.dhtml"},
+]
 
 
 def ensure_output():
@@ -98,7 +126,7 @@ def make_session():
         total=5,
         connect=5,
         read=5,
-        backoff_factor=1.2,
+        backoff_factor=1.0,
         status_forcelist=[429, 500, 502, 503, 504],
         allowed_methods=["GET"],
     )
@@ -132,9 +160,7 @@ def soup_of(html: str):
 
 def title_from_soup(soup: BeautifulSoup):
     if soup.title and clean_text(soup.title.get_text()):
-        title = clean_text(soup.title.get_text())
-        title = re.sub(r"_院校信息库_阳光高考.*$", "", title)
-        return title
+        return clean_text(soup.title.get_text())
     for tag in ["h1", "h2", "h3"]:
         node = soup.find(tag)
         if node and clean_text(node.get_text()):
@@ -142,23 +168,20 @@ def title_from_soup(soup: BeautifulSoup):
     return ""
 
 
-def extract_url_meta(url: str):
-    m1 = MAIN_RE.search(url)
-    if m1:
-        return {
-            "page_type": "main",
-            "schId": m1.group(1),
-            "categoryId": "",
-            "mindex": "",
-        }
-    m2 = INFO_RE.search(url)
-    if m2:
-        return {
-            "page_type": "section",
-            "schId": m2.group(1),
-            "categoryId": m2.group(2),
-            "mindex": m2.group(3),
-        }
+def detect_page_type(url: str):
+    for page_type, pattern in PATTERNS.items():
+        m = pattern.search(url)
+        if m:
+            groups = list(m.groups())
+            sch_id = groups[0] if groups else ""
+            category_id = groups[1] if len(groups) >= 2 else ""
+            mindex = groups[2] if len(groups) >= 3 else ""
+            return {
+                "page_type": page_type,
+                "schId": sch_id,
+                "categoryId": category_id,
+                "mindex": mindex,
+            }
     return {
         "page_type": "unknown",
         "schId": "",
@@ -167,29 +190,23 @@ def extract_url_meta(url: str):
     }
 
 
-def is_same_school_info_url(url: str, sch_id: str):
-    u = normalize_url(url)
-    m1 = MAIN_RE.search(u)
-    if m1 and m1.group(1) == str(sch_id):
-        return True
-    m2 = INFO_RE.search(u)
-    if m2 and m2.group(1) == str(sch_id):
-        return True
-    return False
+def is_target_school_url(url: str, sch_id: str):
+    meta = detect_page_type(url)
+    return meta["schId"] == str(sch_id) and meta["page_type"] != "unknown"
 
 
-def extract_same_school_links(soup: BeautifulSoup, page_url: str, sch_id: str):
+def extract_target_links(soup: BeautifulSoup, page_url: str, sch_id: str):
     links = []
     for a in soup.find_all("a", href=True):
         href = clean_text(a.get("href"))
         if not href or href.startswith("javascript:"):
             continue
         full = normalize_url(urljoin(page_url, href))
-        if is_same_school_info_url(full, sch_id):
+        if is_target_school_url(full, sch_id):
             links.append({
                 "名称": clean_text(a.get_text()),
                 "链接": full,
-                "页面标识": extract_url_meta(full)
+                "页面标识": detect_page_type(full)
             })
     return unique_keep_order(links)
 
@@ -202,11 +219,9 @@ def extract_other_links(soup: BeautifulSoup, page_url: str, sch_id: str):
         if not href or href.startswith("javascript:"):
             continue
         full = normalize_url(urljoin(page_url, href))
-        if is_same_school_info_url(full, sch_id):
+        if is_target_school_url(full, sch_id):
             continue
-        if text and text in NAV_BLACKLIST:
-            continue
-        if not text and not full:
+        if text in NAV_BLACKLIST:
             continue
         links.append({
             "名称": text,
@@ -245,10 +260,26 @@ def extract_tables(soup: BeautifulSoup):
     return tables
 
 
+def extract_list_items(soup: BeautifulSoup, page_url: str):
+    items = []
+    for a in soup.find_all("a", href=True):
+        text = clean_text(a.get_text())
+        href = normalize_url(urljoin(page_url, a.get("href")))
+        if not text or text in NAV_BLACKLIST:
+            continue
+        if len(text) > 100:
+            continue
+        items.append({
+            "标题": text,
+            "链接": href
+        })
+    return unique_keep_order(items)
+
+
 def extract_key_values_from_lines(lines):
     kv = {}
     for line in lines:
-        m = re.match(r"^([^：:]{1,30})[：:]\s*(.+)$", line)
+        m = re.match(r"^([^：:]{1,40})[：:]\s*(.+)$", line)
         if not m:
             continue
         key = clean_text(m.group(1))
@@ -267,7 +298,7 @@ def find_school_card(anchor, school_name):
         if name not in {"div", "li", "td", "tr"}:
             continue
         text = clean_text(parent.get_text("\n", strip=True))
-        if school_name in text and "主管部门" in text and len(text) < 500:
+        if school_name in text and len(text) < 800:
             return parent
     return anchor.parent
 
@@ -279,49 +310,29 @@ def guess_location(lines):
     return ""
 
 
-def guess_authority(text):
-    m = re.search(r"主管部门[:：]\s*([^\n]+)", text)
+def guess_field(text, label):
+    m = re.search(rf"{re.escape(label)}[:：]\s*([^\n]+)", text)
     return clean_text(m.group(1)) if m else ""
 
 
 def guess_level(text):
-    for item in ["本科", "高职(专科)", "高职（专科）", "专科"]:
+    for item in ["本科", "高职（专科）", "高职(专科)", "专科"]:
         if item in text:
             return item
     return ""
 
 
-def guess_satisfaction(text):
-    m = re.search(r"满意度\s*([0-9.]+)", text)
-    return clean_text(m.group(1)) if m else ""
-
-
-def guess_features(lines, school_name, location, authority, level, satisfaction):
-    features = []
-    known = {
-        school_name, location, authority, level, satisfaction,
-        "主管部门：", "主管部门", "满意度", "院校信息库", "阳光高考"
-    }
-    fixed_patterns = [
-        "“双一流”建设高校", "民办高校", "独立学院", "中外合作办学",
-        "内地与港澳台地区合作办学"
+def guess_features(lines):
+    wanted = [
+        "“双一流”建设高校", "211工程", "985工程",
+        "民办高校", "独立学院", "中外合作办学", "研究生院"
     ]
+    out = []
     joined = "\n".join(lines)
-    for p in fixed_patterns:
-        if p in joined and p not in features:
-            features.append(p)
-    for line in lines:
-        if line in known:
-            continue
-        if line in PROVINCES:
-            continue
-        if re.fullmatch(r"[0-9.]+", line):
-            continue
-        if "主管部门" in line or "满意度" in line:
-            continue
-        if len(line) <= 20 and line not in features:
-            features.append(line)
-    return unique_keep_order(features)
+    for x in wanted:
+        if x in joined:
+            out.append(x)
+    return out
 
 
 def parse_school_list_page(html: str, page_url: str, start: int):
@@ -331,28 +342,20 @@ def parse_school_list_page(html: str, page_url: str, start: int):
 
     for a in soup.find_all("a", href=True):
         href = normalize_url(urljoin(page_url, a.get("href")))
-        m = MAIN_RE.search(href)
-        if not m:
+        meta = detect_page_type(href)
+        if meta["page_type"] != "schoolInfoMain":
             continue
 
-        sch_id = m.group(1)
+        sch_id = meta["schId"]
         school_name = clean_text(a.get_text())
-        if not school_name or school_name in NAV_BLACKLIST:
-            continue
-        if sch_id in seen:
+        if not school_name or sch_id in seen:
             continue
         seen.add(sch_id)
 
         card = find_school_card(a, school_name)
-        card_text = card.get_text("\n", strip=True) if card else a.get_text("\n", strip=True)
-        lines = normalize_lines(card_text)
+        raw_text = card.get_text("\n", strip=True) if card else a.get_text("\n", strip=True)
+        lines = normalize_lines(raw_text)
         text = "\n".join(lines)
-
-        location = guess_location(lines)
-        authority = guess_authority(text)
-        level = guess_level(text)
-        satisfaction = guess_satisfaction(text)
-        features = guess_features(lines, school_name, location, authority, level, satisfaction)
 
         schools.append({
             "schId": sch_id,
@@ -361,40 +364,49 @@ def parse_school_list_page(html: str, page_url: str, start: int):
             "搜索页": normalize_url(page_url),
             "start": start,
             "页码": start // PAGE_STEP + 1,
-            "所在地": location,
-            "主管部门": authority,
-            "办学层次": level,
-            "院校特性": features,
-            "满意度": satisfaction,
+            "所在地": guess_location(lines),
+            "教育行政主管部门": guess_field(text, "教育行政主管部门") or guess_field(text, "主管部门"),
+            "详细地址": guess_field(text, "详细地址"),
+            "官方网址": guess_field(text, "官方网址"),
+            "招生网址": guess_field(text, "招生网址"),
+            "官方电话": guess_field(text, "官方电话"),
+            "办学层次": guess_level(text),
+            "院校特性": guess_features(lines),
             "列表页原始文本": text,
         })
 
     return schools
 
 
+def build_seed_urls(sch_id: str):
+    urls = []
+    for item in COMMON_PAGE_CANDIDATES:
+        urls.append({
+            "名称": item["name"],
+            "链接": normalize_url(BASE + item["path"].format(schId=sch_id))
+        })
+    return urls
+
+
 def parse_page_payload(url: str, html: str, sch_id: str):
     soup = soup_of(html)
     body = soup.body or soup
-    page_meta = extract_url_meta(url)
+    meta = detect_page_type(url)
     title = title_from_soup(soup)
-    raw_text = body.get_text("\n", strip=True)
-    lines = normalize_lines(raw_text)
-    headings = unique_keep_order(
-        [clean_text(x.get_text(" ", strip=True)) for x in body.find_all(["h1", "h2", "h3", "h4"]) if clean_text(x.get_text(" ", strip=True))]
-    )
+    lines = normalize_lines(body.get_text("\n", strip=True))
 
     payload = {
         "链接": normalize_url(url),
-        "页面标识": page_meta,
+        "页面标识": meta,
         "标题": title,
-        "标题层级": headings,
         "原始文本": "\n".join(lines),
         "文本行": lines,
         "结构化字段": extract_key_values_from_lines(lines),
         "表格": extract_tables(body),
         "图片": extract_images(body, url),
-        "同校信息链接": extract_same_school_links(body, url, sch_id),
+        "同校栏目链接": extract_target_links(body, url, sch_id),
         "其他链接": extract_other_links(body, url, sch_id),
+        "列表项": extract_list_items(body, url) if meta["page_type"] in {"listzyjs", "listdksw", "listBulletin", "listlqjggs"} else [],
         "抓取时间": iso_now(),
     }
 
@@ -405,33 +417,37 @@ def parse_page_payload(url: str, html: str, sch_id: str):
 
 
 def sort_pages(pages):
+    order = {
+        "schoolInfoMain": 0,
+        "schoolInfo": 1,
+        "listzyjs": 2,
+        "listdksw": 3,
+        "listBulletin": 4,
+        "listlqjggs": 5,
+        "zszc": 6,
+        "unknown": 99,
+    }
+
     def key(x):
         meta = x.get("页面标识", {})
-        page_type = meta.get("page_type", "")
-        if page_type == "main":
-            return (0, 0, 0, x.get("链接", ""))
+        page_type = meta.get("page_type", "unknown")
         mindex = meta.get("mindex") or "9999"
         category = meta.get("categoryId") or "999999999"
-        return (1, int(mindex), int(category), x.get("链接", ""))
+        return (order.get(page_type, 99), int(mindex) if str(mindex).isdigit() else 9999, int(category) if str(category).isdigit() else 999999999, x.get("链接", ""))
 
     return sorted(pages, key=key)
 
 
-def extract_school_name_from_pages(stub, pages):
-    if stub.get("学校名称"):
-        return stub["学校名称"]
-    for page in pages:
-        if page.get("标题"):
-            return page["标题"]
-    return ""
-
-
 def crawl_school(session: requests.Session, school_stub: dict):
     sch_id = school_stub["schId"]
-    queue = deque([school_stub["主页链接"]])
+    queue = deque()
     visited = set()
     pages = []
     errors = []
+
+    queue.append(school_stub["主页链接"])
+    for seed in build_seed_urls(sch_id):
+        queue.append(seed["链接"])
 
     while queue:
         current = normalize_url(queue.popleft())
@@ -444,10 +460,10 @@ def crawl_school(session: requests.Session, school_stub: dict):
             payload = parse_page_payload(current, html, sch_id)
             pages.append(payload)
 
-            for link in payload.get("同校信息链接", []):
-                full = normalize_url(link["链接"])
-                if full not in visited:
-                    queue.append(full)
+            for link in payload.get("同校栏目链接", []):
+                url = normalize_url(link["链接"])
+                if url not in visited:
+                    queue.append(url)
 
         except Exception as e:
             errors.append({
@@ -457,17 +473,13 @@ def crawl_school(session: requests.Session, school_stub: dict):
             })
 
     pages = sort_pages(pages)
-    main_page = next((p for p in pages if p.get("页面标识", {}).get("page_type") == "main"), None)
-    section_pages = [p for p in pages if p.get("页面标识", {}).get("page_type") == "section"]
 
     return {
         "schId": sch_id,
-        "学校名称": extract_school_name_from_pages(school_stub, pages),
+        "学校名称": school_stub.get("学校名称", ""),
         "列表信息": school_stub,
-        "详情主页": main_page,
-        "栏目页数量": len(section_pages),
-        "栏目页": section_pages,
         "详情页总数": len(pages),
+        "页面列表": pages,
         "错误": errors,
         "抓取时间": iso_now(),
     }
@@ -499,15 +511,15 @@ def build_hierarchy_by_province(schools):
         province_map.setdefault(province, [])
         province_map[province].append(school)
 
-    out = []
+    result = []
     for province, items in province_map.items():
-        out.append({
+        result.append({
             "所在地": province,
             "学校数量": len(items),
             "学校列表": items,
         })
-    out.sort(key=lambda x: x["所在地"])
-    return out
+    result.sort(key=lambda x: x["所在地"])
+    return result
 
 
 def collect_school_index(session: requests.Session):
@@ -519,13 +531,12 @@ def collect_school_index(session: requests.Session):
         print(f"[INFO] 列表页 start={start}")
         html = get_html(session, url)
         rows = parse_school_list_page(html, url, start)
-        print(f"[INFO] start={start} 提取到学校数: {len(rows)}")
+        print(f"[INFO] start={start} 学校数: {len(rows)}")
 
         for row in rows:
-            sch_id = row["schId"]
-            if sch_id in seen:
+            if row["schId"] in seen:
                 continue
-            seen.add(sch_id)
+            seen.add(row["schId"])
             all_rows.append(row)
 
         write_partial(all_rows, [])
@@ -541,26 +552,26 @@ def run():
     write_partial(index_rows, [])
 
     school_rows = []
-    for idx, school_stub in enumerate(index_rows, start=1):
-        sch_id = school_stub["schId"]
-        school_path = SCHOOLS_DIR / f"{sch_id}.json"
+    total = len(index_rows)
 
-        if school_path.exists() and not OVERWRITE:
-            data = load_json(school_path, {})
+    for i, school_stub in enumerate(index_rows, start=1):
+        sch_id = school_stub["schId"]
+        path = SCHOOLS_DIR / f"{sch_id}.json"
+
+        if path.exists() and not OVERWRITE:
+            data = load_json(path, {})
             if data:
                 school_rows.append(data)
-                print(f"[INFO] 跳过已存在学校 {idx}/{len(index_rows)} schId={sch_id}")
+                print(f"[INFO] 跳过已有 {i}/{total} schId={sch_id}")
                 continue
 
-        print(f"[INFO] 抓取学校 {idx}/{len(index_rows)} schId={sch_id} {school_stub.get('学校名称', '')}")
+        print(f"[INFO] 抓取学校 {i}/{total} schId={sch_id} {school_stub.get('学校名称', '')}")
         data = crawl_school(session, school_stub)
-        save_json(school_path, data)
+        save_json(path, data)
         school_rows.append(data)
 
-        if idx % 10 == 0 or idx == len(index_rows):
+        if i % 10 == 0 or i == total:
             write_partial(index_rows, school_rows)
-
-    hierarchy = build_hierarchy_by_province(school_rows)
 
     save_json(
         OUTPUT_DIR / "school-index.json",
@@ -585,7 +596,7 @@ def run():
         {
             "抓取时间": iso_now(),
             "数量": len(school_rows),
-            "按所在地聚合": hierarchy,
+            "按所在地聚合": build_hierarchy_by_province(school_rows),
         },
     )
 
@@ -594,9 +605,8 @@ def run():
         {
             "抓取时间": iso_now(),
             "来源": {
-                "搜索列表模板": SEARCH_URL_TEMPLATE,
-                "详情主页格式": BASE + "/sch/schoolInfoMain--schId-<schId>.dhtml",
-                "栏目页格式": BASE + "/sch/schoolInfo--schId-<schId>,categoryId-<categoryId>,mindex-<mindex>.dhtml",
+                "搜索页模板": SEARCH_URL_TEMPLATE,
+                "页面类型": list(PATTERNS.keys()),
             },
             "范围": {
                 "start_min": START_MIN,
@@ -609,8 +619,8 @@ def run():
         },
     )
 
-    print(f"schools_index: {len(index_rows)}")
-    print(f"schools_saved: {len(school_rows)}")
+    print(f"school_index: {len(index_rows)}")
+    print(f"school_saved: {len(school_rows)}")
     print(f"output_dir: {OUTPUT_DIR.resolve()}")
 
 
