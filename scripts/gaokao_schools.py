@@ -23,7 +23,7 @@ START_MIN = int(os.getenv("START_MIN", "0"))
 START_MAX = int(os.getenv("START_MAX", "2900"))
 PAGE_STEP = int(os.getenv("PAGE_STEP", "20"))
 TIMEOUT = int(os.getenv("TIMEOUT", "30"))
-REQUEST_DELAY = float(os.getenv("REQUEST_DELAY", "0.2"))
+REQUEST_DELAY = float(os.getenv("REQUEST_DELAY", "0.25"))
 OVERWRITE = os.getenv("OVERWRITE", "0") == "1"
 SAVE_RAW_HTML = os.getenv("SAVE_RAW_HTML", "0") == "1"
 
@@ -34,15 +34,16 @@ PROVINCES = {
 }
 
 NAV_BLACKLIST = {
-    "首页", "高考资讯", "阳光志愿", "在线咨询", "招生动态", "高职招生", "试题评析",
+    "首页", "高考资讯", "阳光志愿", "高招咨询", "在线咨询", "招生动态", "试题评析",
     "院校库", "专业库", "招生章程", "名单公示", "院校满意度", "专业满意度", "专业推荐",
     "专业解读", "招办访谈", "帮助中心", "登录", "注册", "学籍查询", "学历查询",
     "学位查询", "在线验证", "出国教育背景服务", "图像校对", "学信档案", "高考", "研招",
     "港澳台招生", "征兵", "就业", "学职平台", "学信网", "中心简介", "联系我们", "版权声明",
-    "网站地图", "网站宣传", "查看", "取消", "搜索", "返回", "上一页", "下一页", "更多信息"
+    "网站地图", "网站宣传", "查看", "取消", "搜索", "返回", "上一页", "下一页",
+    "更多信息", "更多", "展开", "收起"
 }
 
-PATTERNS = {
+KNOWN_PATTERNS = {
     "schoolInfoMain": re.compile(r"/sch/schoolInfoMain--schId-(\d+)\.dhtml"),
     "schoolInfo": re.compile(r"/sch/schoolInfo--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
     "listzyjs": re.compile(r"/sch/listzyjs--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
@@ -51,6 +52,9 @@ PATTERNS = {
     "listlqjggs": re.compile(r"/sch/listlqjggs--schId-(\d+),categoryId-(\d+),mindex-(\d+)\.dhtml"),
     "zszc": re.compile(r"/zsgs/zhangcheng/listZszc--schId-(\d+)\.dhtml"),
 }
+
+GENERIC_SCH_PATTERN = re.compile(r"/sch/([^/?]+)--schId-(\d+)([^?]*)\.dhtml")
+GENERIC_ZSGS_PATTERN = re.compile(r"/zsgs/([^?]+)--schId-(\d+)([^?]*)\.dhtml")
 
 COMMON_PAGE_CANDIDATES = [
     {"name": "学校首页", "path": "/sch/schoolInfoMain--schId-{schId}.dhtml"},
@@ -169,7 +173,7 @@ def title_from_soup(soup: BeautifulSoup):
 
 
 def detect_page_type(url: str):
-    for page_type, pattern in PATTERNS.items():
+    for page_type, pattern in KNOWN_PATTERNS.items():
         m = pattern.search(url)
         if m:
             groups = list(m.groups())
@@ -178,24 +182,77 @@ def detect_page_type(url: str):
             mindex = groups[2] if len(groups) >= 3 else ""
             return {
                 "page_type": page_type,
+                "page_family": "known",
                 "schId": sch_id,
                 "categoryId": category_id,
                 "mindex": mindex,
+                "raw_name": page_type,
             }
+
+    m = GENERIC_SCH_PATTERN.search(url)
+    if m:
+        raw_name = m.group(1)
+        sch_id = m.group(2)
+        tail = m.group(3) or ""
+        category_id = ""
+        mindex = ""
+        c = re.search(r"categoryId-(\d+)", tail)
+        mi = re.search(r"mindex-(\d+)", tail)
+        if c:
+            category_id = c.group(1)
+        if mi:
+            mindex = mi.group(1)
+        return {
+            "page_type": "generic_sch",
+            "page_family": "generic",
+            "schId": sch_id,
+            "categoryId": category_id,
+            "mindex": mindex,
+            "raw_name": raw_name,
+        }
+
+    m = GENERIC_ZSGS_PATTERN.search(url)
+    if m:
+        raw_name = m.group(1)
+        sch_id = m.group(2)
+        tail = m.group(3) or ""
+        category_id = ""
+        mindex = ""
+        c = re.search(r"categoryId-(\d+)", tail)
+        mi = re.search(r"mindex-(\d+)", tail)
+        if c:
+            category_id = c.group(1)
+        if mi:
+            mindex = mi.group(1)
+        return {
+            "page_type": "generic_zsgs",
+            "page_family": "generic",
+            "schId": sch_id,
+            "categoryId": category_id,
+            "mindex": mindex,
+            "raw_name": raw_name,
+        }
+
     return {
         "page_type": "unknown",
+        "page_family": "unknown",
         "schId": "",
         "categoryId": "",
         "mindex": "",
+        "raw_name": "",
     }
 
 
 def is_target_school_url(url: str, sch_id: str):
     meta = detect_page_type(url)
-    return meta["schId"] == str(sch_id) and meta["page_type"] != "unknown"
+    return meta["page_type"] != "unknown" and meta["schId"] == str(sch_id)
 
 
-def extract_target_links(soup: BeautifulSoup, page_url: str, sch_id: str):
+def is_list_like_page(page_type: str):
+    return page_type in {"listzyjs", "listdksw", "listBulletin", "listlqjggs", "zszc"}
+
+
+def extract_same_school_links(soup: BeautifulSoup, page_url: str, sch_id: str):
     links = []
     for a in soup.find_all("a", href=True):
         href = clean_text(a.get("href"))
@@ -206,7 +263,7 @@ def extract_target_links(soup: BeautifulSoup, page_url: str, sch_id: str):
             links.append({
                 "名称": clean_text(a.get_text()),
                 "链接": full,
-                "页面标识": detect_page_type(full)
+                "页面标识": detect_page_type(full),
             })
     return unique_keep_order(links)
 
@@ -225,7 +282,7 @@ def extract_other_links(soup: BeautifulSoup, page_url: str, sch_id: str):
             continue
         links.append({
             "名称": text,
-            "链接": full
+            "链接": full,
         })
     return unique_keep_order(links)
 
@@ -238,7 +295,7 @@ def extract_images(soup: BeautifulSoup, page_url: str):
             continue
         imgs.append({
             "alt": clean_text(img.get("alt")),
-            "src": normalize_url(urljoin(page_url, src))
+            "src": normalize_url(urljoin(page_url, src)),
         })
     return unique_keep_order(imgs)
 
@@ -255,25 +312,9 @@ def extract_tables(soup: BeautifulSoup):
             tables.append({
                 "序号": idx,
                 "行数": len(rows),
-                "内容": rows
+                "内容": rows,
             })
     return tables
-
-
-def extract_list_items(soup: BeautifulSoup, page_url: str):
-    items = []
-    for a in soup.find_all("a", href=True):
-        text = clean_text(a.get_text())
-        href = normalize_url(urljoin(page_url, a.get("href")))
-        if not text or text in NAV_BLACKLIST:
-            continue
-        if len(text) > 100:
-            continue
-        items.append({
-            "标题": text,
-            "链接": href
-        })
-    return unique_keep_order(items)
 
 
 def extract_key_values_from_lines(lines):
@@ -290,6 +331,46 @@ def extract_key_values_from_lines(lines):
         if value not in kv[key]:
             kv[key].append(value)
     return kv
+
+
+def extract_list_items(soup: BeautifulSoup, page_url: str, sch_id: str):
+    items = []
+    seen = set()
+
+    for a in soup.find_all("a", href=True):
+        title = clean_text(a.get_text())
+        href = normalize_url(urljoin(page_url, a.get("href")))
+        if not title or title in NAV_BLACKLIST:
+            continue
+        if len(title) > 150:
+            continue
+
+        meta = detect_page_type(href)
+        same_school = is_target_school_url(href, sch_id)
+        key = (title, href)
+        if key in seen:
+            continue
+        seen.add(key)
+
+        parent_text = ""
+        parent_date = ""
+        li = a.find_parent(["li", "tr", "dd", "div", "p"])
+        if li:
+            parent_text = clean_text(li.get_text(" ", strip=True))
+            dm = re.search(r"(\d{4}-\d{2}-\d{2})", parent_text)
+            if dm:
+                parent_date = dm.group(1)
+
+        items.append({
+            "标题": title,
+            "链接": href,
+            "是否同校页面": same_school,
+            "页面标识": meta,
+            "日期": parent_date,
+            "上下文文本": parent_text,
+        })
+
+    return unique_keep_order(items)
 
 
 def find_school_card(anchor, school_name):
@@ -379,24 +460,34 @@ def parse_school_list_page(html: str, page_url: str, start: int):
 
 
 def build_seed_urls(sch_id: str):
-    urls = []
-    for item in COMMON_PAGE_CANDIDATES:
-        urls.append({
-            "名称": item["name"],
-            "链接": normalize_url(BASE + item["path"].format(schId=sch_id))
-        })
-    return urls
+    return [{
+        "名称": item["name"],
+        "链接": normalize_url(BASE + item["path"].format(schId=sch_id))
+    } for item in COMMON_PAGE_CANDIDATES]
 
 
-def parse_page_payload(url: str, html: str, sch_id: str):
+def parse_page_payload(url: str, html: str, sch_id: str, discovered_from: str = ""):
     soup = soup_of(html)
     body = soup.body or soup
     meta = detect_page_type(url)
     title = title_from_soup(soup)
     lines = normalize_lines(body.get_text("\n", strip=True))
+    same_school_links = extract_same_school_links(body, url, sch_id)
+    list_items = extract_list_items(body, url, sch_id) if is_list_like_page(meta["page_type"]) else []
+
+    child_detail_links = []
+    for item in list_items:
+        if item["是否同校页面"]:
+            child_detail_links.append({
+                "名称": item["标题"],
+                "链接": item["链接"],
+                "页面标识": item["页面标识"],
+            })
+    child_detail_links = unique_keep_order(child_detail_links)
 
     payload = {
         "链接": normalize_url(url),
+        "发现来源": discovered_from,
         "页面标识": meta,
         "标题": title,
         "原始文本": "\n".join(lines),
@@ -404,9 +495,10 @@ def parse_page_payload(url: str, html: str, sch_id: str):
         "结构化字段": extract_key_values_from_lines(lines),
         "表格": extract_tables(body),
         "图片": extract_images(body, url),
-        "同校栏目链接": extract_target_links(body, url, sch_id),
+        "同校页面链接": same_school_links,
         "其他链接": extract_other_links(body, url, sch_id),
-        "列表项": extract_list_items(body, url) if meta["page_type"] in {"listzyjs", "listdksw", "listBulletin", "listlqjggs"} else [],
+        "列表项": list_items,
+        "子详情链接": child_detail_links,
         "抓取时间": iso_now(),
     }
 
@@ -425,6 +517,8 @@ def sort_pages(pages):
         "listBulletin": 4,
         "listlqjggs": 5,
         "zszc": 6,
+        "generic_sch": 7,
+        "generic_zsgs": 8,
         "unknown": 99,
     }
 
@@ -433,7 +527,10 @@ def sort_pages(pages):
         page_type = meta.get("page_type", "unknown")
         mindex = meta.get("mindex") or "9999"
         category = meta.get("categoryId") or "999999999"
-        return (order.get(page_type, 99), int(mindex) if str(mindex).isdigit() else 9999, int(category) if str(category).isdigit() else 999999999, x.get("链接", ""))
+        raw_name = meta.get("raw_name", "")
+        mindex_num = int(mindex) if str(mindex).isdigit() else 9999
+        category_num = int(category) if str(category).isdigit() else 999999999
+        return (order.get(page_type, 99), mindex_num, category_num, raw_name, x.get("链接", ""))
 
     return sorted(pages, key=key)
 
@@ -445,40 +542,53 @@ def crawl_school(session: requests.Session, school_stub: dict):
     pages = []
     errors = []
 
-    queue.append(school_stub["主页链接"])
+    queue.append((school_stub["主页链接"], "school_stub"))
     for seed in build_seed_urls(sch_id):
-        queue.append(seed["链接"])
+        queue.append((seed["链接"], "seed:" + seed["名称"]))
 
     while queue:
-        current = normalize_url(queue.popleft())
+        current, source = queue.popleft()
+        current = normalize_url(current)
         if current in visited:
             continue
         visited.add(current)
 
         try:
             html = get_html(session, current)
-            payload = parse_page_payload(current, html, sch_id)
+            payload = parse_page_payload(current, html, sch_id, discovered_from=source)
             pages.append(payload)
 
-            for link in payload.get("同校栏目链接", []):
-                url = normalize_url(link["链接"])
-                if url not in visited:
-                    queue.append(url)
+            for link in payload.get("同校页面链接", []):
+                u = normalize_url(link["链接"])
+                if u not in visited:
+                    queue.append((u, current))
+
+            for link in payload.get("子详情链接", []):
+                u = normalize_url(link["链接"])
+                if u not in visited:
+                    queue.append((u, current))
 
         except Exception as e:
             errors.append({
                 "链接": current,
+                "发现来源": source,
                 "错误": repr(e),
                 "时间": iso_now(),
             })
 
     pages = sort_pages(pages)
 
+    page_count_by_type = {}
+    for p in pages:
+        pt = p.get("页面标识", {}).get("page_type", "unknown")
+        page_count_by_type[pt] = page_count_by_type.get(pt, 0) + 1
+
     return {
         "schId": sch_id,
         "学校名称": school_stub.get("学校名称", ""),
         "列表信息": school_stub,
         "详情页总数": len(pages),
+        "页面类型统计": page_count_by_type,
         "页面列表": pages,
         "错误": errors,
         "抓取时间": iso_now(),
@@ -606,7 +716,8 @@ def run():
             "抓取时间": iso_now(),
             "来源": {
                 "搜索页模板": SEARCH_URL_TEMPLATE,
-                "页面类型": list(PATTERNS.keys()),
+                "已知页面模式": list(KNOWN_PATTERNS.keys()),
+                "通用页面模式": ["generic_sch", "generic_zsgs"],
             },
             "范围": {
                 "start_min": START_MIN,
