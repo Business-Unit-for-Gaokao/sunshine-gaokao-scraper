@@ -1,0 +1,28 @@
+{
+  "抓取时间": "2026-04-13T13:34:02.484468+00:00",
+  "来源": {
+    "搜索首页": "https://gaokao.chsi.com.cn/sch/search.do",
+    "搜索页模板": "https://gaokao.chsi.com.cn/sch/search--ss-on,option-qg,searchType-1,start-{start}.dhtml",
+    "已知页面模式": [
+      "schoolInfoMain",
+      "schoolInfo",
+      "listzyjs",
+      "listdksw",
+      "listBulletin",
+      "listlqjggs",
+      "zszc"
+    ],
+    "通用页面模式": [
+      "generic_sch",
+      "generic_zsgs"
+    ]
+  },
+  "范围": {
+    "start_min": 0,
+    "start_max": 2900,
+    "page_step": 20
+  },
+  "学校总数": 0,
+  "是否覆盖已存在文件": false,
+  "是否保存原始HTML": false
+}
