@@ -23,6 +23,7 @@ START_MAX = int(os.getenv("START_MAX", "2900"))
 PAGE_STEP = int(os.getenv("PAGE_STEP", "20"))
 OVERWRITE = os.getenv("OVERWRITE", "0") == "1"
 SAVE_RAW_HTML = os.getenv("SAVE_RAW_HTML", "0") == "1"
+SAVE_DEBUG = os.getenv("SAVE_DEBUG", "0") == "1"
 PAGE_TIMEOUT = int(os.getenv("PAGE_TIMEOUT", "60000"))
 WAIT_MS = int(os.getenv("WAIT_MS", "1200"))
 
@@ -116,6 +117,19 @@ def load_json(path: Path, default=None):
     if not path.exists():
         return default
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def save_debug(page, name: str):
+    if not SAVE_DEBUG:
+        return
+    try:
+        page.screenshot(path=str(OUTPUT_DIR / f"{name}.png"), full_page=True)
+    except Exception:
+        pass
+    try:
+        (OUTPUT_DIR / f"{name}.html").write_text(page.content(), encoding="utf-8")
+    except Exception:
+        pass
 
 
 def normalize_url(url: str):
@@ -338,17 +352,6 @@ def extract_list_items(soup: BeautifulSoup, page_url: str, sch_id: str):
     return unique_keep_order(items)
 
 
-def find_school_card(anchor, school_name):
-    for parent in anchor.parents:
-        name = getattr(parent, "name", "")
-        if name not in {"div", "li", "td", "tr"}:
-            continue
-        text = clean_text(parent.get_text("\n", strip=True))
-        if school_name in text and len(text) < 1000:
-            return parent
-    return anchor.parent
-
-
 def guess_location(lines):
     for line in lines:
         if line in PROVINCES:
@@ -378,13 +381,39 @@ def guess_features(lines):
     return out
 
 
-def fetch_html(context, url: str):
+def fetch_html(context, url: str, is_list_page: bool = False):
     page = context.new_page()
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+
+        if is_list_page:
+            page.wait_for_function(
+                """
+                () => {
+                    const body = document.body ? document.body.innerText : '';
+                    const anchors = Array.from(document.querySelectorAll('a[href]'));
+                    const hasSchoolLink = anchors.some(a =>
+                        /\\/sch\\/schoolInfoMain--schId-\\d+\\.dhtml/.test(a.href || '')
+                    );
+                    return hasSchoolLink || body.includes('没有查询到相关院校') || body.includes('院校信息库') || body.includes('院校库');
+                }
+                """,
+                timeout=PAGE_TIMEOUT,
+            )
+        else:
+            page.wait_for_function(
+                """
+                () => {
+                    const body = document.body ? document.body.innerText : '';
+                    return body.replace(/\\s+/g, ' ').trim().length > 80;
+                }
+                """,
+                timeout=PAGE_TIMEOUT,
+            )
+
         page.wait_for_timeout(WAIT_MS)
-        html = page.content()
         final_url = normalize_url(page.url)
+        html = page.content()
         return final_url, html
     finally:
         page.close()
@@ -399,25 +428,76 @@ def bootstrap(context):
         page.close()
 
 
-def parse_school_list_page(html: str, page_url: str, start: int):
-    soup = soup_of(html)
+def extract_school_list_from_dom(page, start: int):
+    raw_rows = page.locator("a[href]").evaluate_all(
+        """
+        nodes => {
+            const clean = s => (s || '').replace(/\\s+/g, ' ').trim();
+            const out = [];
+
+            for (const a of nodes) {
+                const href = a.href || '';
+                if (!/\\/sch\\/schoolInfoMain--schId-\\d+\\.dhtml/.test(href)) continue;
+
+                const schoolName = clean(a.innerText);
+                if (!schoolName) continue;
+
+                let best = a;
+                let p = a.parentElement;
+
+                while (p && p !== document.body) {
+                    const txt = clean(p.innerText);
+                    if (!txt) {
+                        p = p.parentElement;
+                        continue;
+                    }
+
+                    if (txt.includes(schoolName)) {
+                        best = p;
+                    }
+
+                    if (/主管部门|教育行政主管部门|所在地|院校隶属|学校地址|通讯地址|学历层次|满意度|院校特性/.test(txt)) {
+                        best = p;
+                        break;
+                    }
+
+                    if (txt.length > 1200) {
+                        break;
+                    }
+
+                    p = p.parentElement;
+                }
+
+                out.push({
+                    href,
+                    school_name: schoolName,
+                    raw_text: clean((best && best.innerText) || a.innerText || '')
+                });
+            }
+
+            return out;
+        }
+        """
+    )
+
     schools = []
     seen = set()
+    page_url = normalize_url(page.url)
 
-    for a in soup.find_all("a", href=True):
-        href = normalize_url(urljoin(page_url, a.get("href")))
+    for item in raw_rows:
+        href = normalize_url(item.get("href", ""))
         meta = detect_page_type(href)
         if meta["page_type"] != "schoolInfoMain":
             continue
 
         sch_id = meta["schId"]
-        school_name = clean_text(a.get_text())
-        if not school_name or sch_id in seen:
+        school_name = clean_text(item.get("school_name", ""))
+        raw_text = clean_text(item.get("raw_text", ""))
+
+        if not sch_id or not school_name or sch_id in seen:
             continue
         seen.add(sch_id)
 
-        card = find_school_card(a, school_name)
-        raw_text = card.get_text("\n", strip=True) if card else a.get_text("\n", strip=True)
         lines = normalize_lines(raw_text)
         text = "\n".join(lines)
 
@@ -425,15 +505,15 @@ def parse_school_list_page(html: str, page_url: str, start: int):
             "schId": sch_id,
             "学校名称": school_name,
             "主页链接": href,
-            "搜索页": normalize_url(page_url),
+            "搜索页": page_url,
             "start": start,
             "页码": start // PAGE_STEP + 1,
             "所在地": guess_location(lines),
             "教育行政主管部门": guess_field(text, "教育行政主管部门") or guess_field(text, "主管部门"),
-            "详细地址": guess_field(text, "详细地址"),
-            "官方网址": guess_field(text, "官方网址"),
+            "详细地址": guess_field(text, "详细地址") or guess_field(text, "学校地址") or guess_field(text, "通讯地址"),
+            "官方网址": guess_field(text, "官方网址") or guess_field(text, "学校网址"),
             "招生网址": guess_field(text, "招生网址"),
-            "官方电话": guess_field(text, "官方电话"),
+            "官方电话": guess_field(text, "官方电话") or guess_field(text, "联系电话"),
             "办学层次": guess_level(text),
             "院校特性": guess_features(lines),
             "列表页原始文本": text,
@@ -534,7 +614,7 @@ def crawl_school(context, school_stub: dict):
         visited.add(current)
 
         try:
-            final_url, html = fetch_html(context, current)
+            final_url, html = fetch_html(context, current, is_list_page=False)
             payload = parse_page_payload(final_url, html, sch_id, discovered_from=source)
             pages.append(payload)
 
@@ -615,27 +695,57 @@ def build_hierarchy_by_province(schools):
 def collect_school_index(context):
     all_rows = []
     seen = set()
+    page = context.new_page()
 
-    for start in range(START_MIN, START_MAX + 1, PAGE_STEP):
-        url = SEARCH_URL_TEMPLATE.format(start=start)
-        print(f"[INFO] 列表页 start={start}")
-        final_url, html = fetch_html(context, url)
-        rows = parse_school_list_page(html, final_url, start)
-        print(f"[INFO] start={start} 学校数: {len(rows)}")
+    try:
+        for start in range(START_MIN, START_MAX + 1, PAGE_STEP):
+            url = SEARCH_URL_TEMPLATE.format(start=start)
+            print(f"[INFO] 列表页 start={start}")
 
-        for row in rows:
-            if row["schId"] in seen:
-                continue
-            seen.add(row["schId"])
-            all_rows.append(row)
+            page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+            page.wait_for_function(
+                """
+                () => {
+                    const body = document.body ? document.body.innerText : '';
+                    const anchors = Array.from(document.querySelectorAll('a[href]'));
+                    const hasSchoolLink = anchors.some(a =>
+                        /\\/sch\\/schoolInfoMain--schId-\\d+\\.dhtml/.test(a.href || '')
+                    );
+                    return hasSchoolLink || body.includes('没有查询到相关院校') || body.includes('院校信息库') || body.includes('院校库');
+                }
+                """,
+                timeout=PAGE_TIMEOUT,
+            )
+            page.wait_for_timeout(WAIT_MS)
 
-        write_partial(all_rows, [])
+            anchor_count = page.locator("a[href*='schoolInfoMain--schId-']").count()
+            print(f"[INFO] start={start} schoolInfoMain链接数: {anchor_count}")
+
+            if SAVE_DEBUG and (start == START_MIN or anchor_count == 0):
+                save_debug(page, f"school-list-{start}")
+
+            rows = extract_school_list_from_dom(page, start)
+            print(f"[INFO] start={start} 学校数: {len(rows)}")
+
+            for row in rows:
+                if row["schId"] in seen:
+                    continue
+                seen.add(row["schId"])
+                all_rows.append(row)
+
+            write_partial(all_rows, [])
+
+    finally:
+        page.close()
 
     return all_rows
 
 
 def run():
     ensure_output()
+
+    flat_index_rows = []
+    flat_school_rows = []
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -659,37 +769,36 @@ def run():
 
         try:
             bootstrap(context)
-            index_rows = collect_school_index(context)
-            write_partial(index_rows, [])
+            flat_index_rows = collect_school_index(context)
+            write_partial(flat_index_rows, [])
 
-            school_rows = []
-            total = len(index_rows)
+            total = len(flat_index_rows)
 
-            for i, school_stub in enumerate(index_rows, start=1):
+            for i, school_stub in enumerate(flat_index_rows, start=1):
                 sch_id = school_stub["schId"]
                 path = SCHOOLS_DIR / f"{sch_id}.json"
 
                 if path.exists() and not OVERWRITE:
                     data = load_json(path, {})
                     if data:
-                        school_rows.append(data)
+                        flat_school_rows.append(data)
                         print(f"[INFO] 跳过已有 {i}/{total} schId={sch_id}")
                         continue
 
                 print(f"[INFO] 抓取学校 {i}/{total} schId={sch_id} {school_stub.get('学校名称', '')}")
                 data = crawl_school(context, school_stub)
                 save_json(path, data)
-                school_rows.append(data)
+                flat_school_rows.append(data)
 
                 if i % 10 == 0 or i == total:
-                    write_partial(index_rows, school_rows)
+                    write_partial(flat_index_rows, flat_school_rows)
 
             save_json(
                 OUTPUT_DIR / "school-index.json",
                 {
                     "抓取时间": iso_now(),
-                    "数量": len(index_rows),
-                    "学校列表": index_rows,
+                    "数量": len(flat_index_rows),
+                    "学校列表": flat_index_rows,
                 },
             )
 
@@ -697,8 +806,8 @@ def run():
                 OUTPUT_DIR / "schools-flat.json",
                 {
                     "抓取时间": iso_now(),
-                    "数量": len(school_rows),
-                    "学校列表": school_rows,
+                    "数量": len(flat_school_rows),
+                    "学校列表": flat_school_rows,
                 },
             )
 
@@ -706,8 +815,8 @@ def run():
                 OUTPUT_DIR / "all.json",
                 {
                     "抓取时间": iso_now(),
-                    "数量": len(school_rows),
-                    "按所在地聚合": build_hierarchy_by_province(school_rows),
+                    "数量": len(flat_school_rows),
+                    "按所在地聚合": build_hierarchy_by_province(flat_school_rows),
                 },
             )
 
@@ -726,18 +835,22 @@ def run():
                         "start_max": START_MAX,
                         "page_step": PAGE_STEP,
                     },
-                    "学校总数": len(school_rows),
+                    "学校总数": len(flat_school_rows),
                     "是否覆盖已存在文件": OVERWRITE,
                     "是否保存原始HTML": SAVE_RAW_HTML,
+                    "是否保存调试文件": SAVE_DEBUG,
                 },
             )
 
-            print(f"school_index: {len(index_rows)}")
-            print(f"school_saved: {len(school_rows)}")
+            print(f"school_index: {len(flat_index_rows)}")
+            print(f"school_saved: {len(flat_school_rows)}")
             print(f"output_dir: {OUTPUT_DIR.resolve()}")
 
         except PlaywrightTimeoutError as e:
-            write_partial([], [])
+            write_partial(flat_index_rows, flat_school_rows)
+            raise e
+        except Exception as e:
+            write_partial(flat_index_rows, flat_school_rows)
             raise e
         finally:
             context.close()
