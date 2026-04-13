@@ -9,12 +9,12 @@ on:
         default: "30"
         type: string
       max_pages:
-        description: "列表接口最多抓多少页"
+        description: "list.action 最多抓多少页"
         required: false
-        default: "200"
+        default: "120"
         type: string
       list_step:
-        description: "列表接口分页步长"
+        description: "list.action 分页步长，当前建议 15"
         required: false
         default: "15"
         type: string
@@ -34,7 +34,7 @@ on:
         default: true
         type: boolean
       save_list_html:
-        description: "是否保存 list.action 返回片段"
+        description: "是否保存 list.action 原始返回"
         required: false
         default: true
         type: boolean
