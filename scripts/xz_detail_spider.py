@@ -2,7 +2,6 @@ import json
 import mimetypes
 import os
 import re
-import sys
 import time
 import urllib.request
 from hashlib import md5
@@ -15,11 +14,21 @@ from playwright.sync_api import sync_playwright
 
 INDEX_URL = "https://xz.chsi.com.cn/speciality/index.action"
 OUTPUT_ROOT = Path(os.getenv("XZ_OUTPUT_DIR", "output/xz_detail"))
-HEADLESS = os.getenv("HEADLESS", "1") == "1"
+
+
+def env_bool(name: str, default: bool = False) -> bool:
+    val = os.getenv(name)
+    if val is None:
+        return default
+    return str(val).strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+HEADLESS = env_bool("HEADLESS", True)
+SAVE_HTML = env_bool("XZ_SAVE_HTML", True)
+DOWNLOAD_IMAGES = env_bool("XZ_DOWNLOAD_IMAGES", True)
 MAX_PAGES = int(os.getenv("XZ_MAX_PAGES", "200"))
-MAX_DETAILS = int(os.getenv("XZ_MAX_DETAILS", "0"))  # 0 = no limit
-SAVE_HTML = os.getenv("XZ_SAVE_HTML", "1") == "1"
-DOWNLOAD_IMAGES = os.getenv("XZ_DOWNLOAD_IMAGES", "1") == "1"
+MAX_DETAILS = int(os.getenv("XZ_MAX_DETAILS", "0"))
+
 
 DEFAULT_SECTION_HEADINGS = [
     "课程统计",
@@ -52,10 +61,6 @@ TAB_TEXTS = [
 SCHOOL_NAME_RE = re.compile(
     r"(大学|学院|学校|职业大学|职业学院|高等专科学校|师范大学|师范学院|医学院|中医药大学)$"
 )
-
-
-def now_str():
-    return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 
 def iso_now():
@@ -178,7 +183,7 @@ def click_first(page, selectors):
     for sel in selectors:
         try:
             locator = page.locator(sel).first
-            if locator.count() > 0 and locator.is_visible():
+            if locator.is_visible(timeout=3000):
                 locator.click(timeout=5000)
                 return True
         except Exception:
@@ -208,12 +213,14 @@ def collect_detail_candidates_from_page(page):
 
     try:
         html = page.content()
-        matches = re.findall(r"https?://xz\.chsi\.com\.cn/speciality/detail(?:/[^\"'<> ]+|)\.action\?specId=[^\"'<> ]+", html)
-        for href in matches:
-            items.append({"url": href, "text": "", "source": "html_regex_abs"})
-        matches2 = re.findall(r"/speciality/detail(?:/[^\"'<> ]+|)\.action\?specId=[^\"'<> ]+", html)
-        for href in matches2:
-            items.append({"url": urljoin(page.url, href), "text": "", "source": "html_regex_rel"})
+        patterns = [
+            r"https?://xz\.chsi\.com\.cn/speciality/detail(?:/[^\"'<> ]+)?\.action\?specId=[^\"'<> ]+",
+            r"/speciality/detail(?:/[^\"'<> ]+)?\.action\?specId=[^\"'<> ]+",
+        ]
+        for pat in patterns:
+            for href in re.findall(pat, html):
+                href = urljoin(page.url, href)
+                items.append({"url": href, "text": "", "source": "html_regex"})
     except Exception:
         pass
 
@@ -250,16 +257,26 @@ def goto_next_page(page):
         "a:has-text('下一页')",
         "text=下一页",
     ]
-    before = page.url + "||" + clean_text(page.locator("body").inner_text(timeout=15000))[:500]
+    try:
+        before = page.url + "||" + clean_text(page.locator("body").inner_text(timeout=10000))[:500]
+    except Exception:
+        before = page.url
+
     ok = click_first(page, selectors)
     if not ok:
         return False
+
     page.wait_for_timeout(2000)
     try:
         page.wait_for_load_state("networkidle", timeout=10000)
     except Exception:
         pass
-    after = page.url + "||" + clean_text(page.locator("body").inner_text(timeout=15000))[:500]
+
+    try:
+        after = page.url + "||" + clean_text(page.locator("body").inner_text(timeout=10000))[:500]
+    except Exception:
+        after = page.url
+
     return after != before
 
 
@@ -310,16 +327,21 @@ def discover_detail_urls(context):
 
     for page_no in range(1, MAX_PAGES + 1):
         try:
-            page.wait_for_timeout(1200)
+            page.wait_for_timeout(1000)
             auto_scroll(page)
             candidates = collect_detail_candidates_from_page(page)
             discovered.extend(candidates)
+
+            try:
+                body_head = clean_text(page.locator("body").inner_text(timeout=10000))[:800]
+            except Exception:
+                body_head = ""
 
             state = {
                 "page_no": page_no,
                 "url": page.url,
                 "candidate_count": len(candidates),
-                "body_head": clean_text(page.locator("body").inner_text(timeout=15000))[:800],
+                "body_head": body_head,
             }
             state_key = md5(json.dumps(state, ensure_ascii=False).encode("utf-8")).hexdigest()
             if state_key in page_states:
@@ -336,6 +358,18 @@ def discover_detail_urls(context):
             break
 
     page.close()
+
+    for hit in network_hits:
+        url = hit["url"]
+        if "/speciality/detail" in url and "specId=" in url:
+            discovered.append({
+                "url": url,
+                "text": "",
+                "source": "network",
+                "spec_id": extract_spec_id(url),
+            })
+
+    discovered = unique_keep_order(discovered, key_func=lambda x: x["url"])
 
     by_spec = {}
     no_spec = []
@@ -423,7 +457,6 @@ def collect_tab_links(page):
 
 def detect_headings(lines, page):
     found = []
-
     for line in lines:
         if line in DEFAULT_SECTION_HEADINGS:
             found.append(line)
@@ -441,20 +474,19 @@ def detect_headings(lines, page):
     except Exception:
         pass
 
-    found = [x for x in found if x]
-    found = unique_keep_order(found, key_func=lambda x: x)
-    return found
+    return unique_keep_order([x for x in found if x], key_func=lambda x: x)
 
 
 def extract_section(lines, heading, stop_headings):
     try:
         start = lines.index(heading)
     except ValueError:
+        start = -1
         for idx, line in enumerate(lines):
             if line.startswith(heading):
                 start = idx
                 break
-        else:
+        if start < 0:
             return {"present": False, "heading": heading, "lines": [], "raw_text": ""}
 
     end = len(lines)
@@ -601,9 +633,7 @@ def parse_offering_schools(section, page):
                 metrics.append(parsed)
                 j += 1
                 continue
-            if SCHOOL_NAME_RE.search(lines[j]):
-                break
-            if lines[j] in DEFAULT_SECTION_HEADINGS:
+            if SCHOOL_NAME_RE.search(lines[j]) or lines[j] in DEFAULT_SECTION_HEADINGS:
                 break
             j += 1
 
@@ -692,9 +722,8 @@ def infer_chart_section(item):
 
 def extract_section_descriptions(lines, headings):
     result = {}
-    stop = headings[:]
     for h in headings:
-        result[h] = extract_section(lines, h, stop)
+        result[h] = extract_section(lines, h, headings)
     return result
 
 
@@ -837,6 +866,7 @@ def main():
                 "--disable-blink-features=AutomationControlled",
             ],
         )
+
         context = browser.new_context(
             viewport={"width": 1440, "height": 2200},
             locale="zh-CN",
@@ -851,7 +881,6 @@ def main():
         try:
             discovery = discover_detail_urls(context)
             details = discovery["details"]
-
             if MAX_DETAILS > 0:
                 details = details[:MAX_DETAILS]
 
