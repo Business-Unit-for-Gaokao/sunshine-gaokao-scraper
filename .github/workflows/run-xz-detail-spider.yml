@@ -8,6 +8,11 @@ on:
         required: false
         default: "20"
         type: string
+      max_pages:
+        description: "最多翻多少页结果页"
+        required: false
+        default: "200"
+        type: string
       download_images:
         description: "是否下载详情页图表图片"
         required: false
@@ -60,11 +65,13 @@ jobs:
       - name: Run xz detail spider
         env:
           XZ_MAX_DETAILS: ${{ inputs.max_details }}
+          XZ_MAX_PAGES: ${{ inputs.max_pages }}
           XZ_DOWNLOAD_IMAGES: ${{ inputs.download_images }}
           XZ_SAVE_HTML: ${{ inputs.save_html }}
           HEADLESS: ${{ inputs.headless }}
         run: |
           echo "XZ_MAX_DETAILS=$XZ_MAX_DETAILS"
+          echo "XZ_MAX_PAGES=$XZ_MAX_PAGES"
           echo "XZ_DOWNLOAD_IMAGES=$XZ_DOWNLOAD_IMAGES"
           echo "XZ_SAVE_HTML=$XZ_SAVE_HTML"
           echo "HEADLESS=$HEADLESS"
@@ -123,7 +130,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "🤖 Update xz detail spider output - $(date +%Y-%m-%d %H:%M:%S)"
+            git commit -m "🤖 Update xz detail spider output - $(date +%Y-%m-%d\ %H:%M:%S)"
             git pull --rebase origin "${GITHUB_REF_NAME}" || true
             git push origin HEAD:"${GITHUB_REF_NAME}"
           fi
