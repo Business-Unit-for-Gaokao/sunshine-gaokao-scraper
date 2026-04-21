@@ -1,121 +1,13 @@
 {
   "index": 1,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=ntql25rxwj1n193h&ssdm=&schoolType=&_t=1776677568340",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1776763100986",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [
-      {
-        "academeId": "27",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 6,
-            "rank": 3.5,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 6,
-            "rank": 3.3,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 6,
-            "rank": 3.3,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 6,
-            "rank": 2.2,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73394614",
-        "yxdm": "10030",
-        "yxmc": "北京外国语大学",
-        "yxmydList": [
-          {
-            "count": 653,
-            "rank": 4,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 796,
-            "rank": 4,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 641,
-            "rank": 3.3,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      },
-      {
-        "academeId": "28",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73394618",
-        "yxdm": "10031",
-        "yxmc": "北京第二外国语学院",
-        "yxmydList": [
-          {
-            "count": 636,
-            "rank": 4.2,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 755,
-            "rank": 4.2,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 611,
-            "rank": 4.2,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      }
-    ],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }
