@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-21T09:44:01+0000",
+  "fetched_at": "2026-04-22T09:44:21+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId=mcqr3pskfh8k2cn8",
   "spec_id": "mcqr3pskfh8k2cn8",
   "page_title": "计量测试与应用技术_专业洞察_学职平台",
@@ -96,8 +96,8 @@
       ]
     },
     "开设院校": {
-      "raw_text": "全国(2)\n山西(1)\n浙江(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n杭州职业技术大学 - 0.0 0人 5.0 1人 0.0 0人 0.0 0人\n山西同文职业技术学院 - 3.0 1人 0.0 0人 0.0 0人 3.0 1人",
-      "line_count": 10,
+      "raw_text": "全国(2)\n山西(1)\n浙江(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n合肥通用职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n杭州职业技术大学 - 0.0 0人 5.0 1人 0.0 0人 0.0 0人\n山西同文职业技术学院 - 3.0 1人 0.0 0人 0.0 0人 3.0 1人",
+      "line_count": 11,
       "lines": [
         "全国(2)",
         "山西(1)",
@@ -107,6 +107,7 @@
         "示范专科",
         "院校名称 推荐指数 专业满意度",
         "综合情况 办学条件 教学质量 就业",
+        "合肥通用职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
         "杭州职业技术大学 - 0.0 0人 5.0 1人 0.0 0人 0.0 0人",
         "山西同文职业技术学院 - 3.0 1人 0.0 0人 0.0 0人 3.0 1人"
       ]
@@ -193,6 +194,14 @@
           "办学条件",
           "教学质量",
           "就业"
+        ],
+        [
+          "合肥通用职业技术学院",
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
         ],
         [
           "杭州职业技术大学",
@@ -322,7 +331,7 @@
     }
   },
   "offering_schools": {
-    "count": 3,
+    "count": 4,
     "summary": {
       "national_total": 2,
       "province_counts": [
@@ -340,6 +349,76 @@
       ]
     },
     "items": [
+      {
+        "school_name": "合肥通用职业技术学院",
+        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1053.dhtml",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "公办",
+        "source": "api",
+        "raw": {
+          "academeId": "1053",
+          "bxxz": "公办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "73398358",
+          "yxdm": "12410",
+          "yxmc": "合肥通用职业技术学院",
+          "yxmydList": [
+            {
+              "count": 949,
+              "rank": 3.7,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 1328,
+              "rank": 3.9,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 922,
+              "rank": 3.4,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        },
+        "columns": [
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
+        ]
+      },
       {
         "school_name": "杭州职业技术大学",
         "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1346.dhtml",
@@ -457,7 +536,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1002,
+              "count": 1003,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -492,9 +571,9 @@
       }
     ],
     "sources": {
-      "dom_count": 3,
-      "api_count": 2,
-      "school_link_count": 2
+      "dom_count": 4,
+      "api_count": 3,
+      "school_link_count": 3
     }
   },
   "charts": {
@@ -530,6 +609,10 @@
   },
   "tab_links": [],
   "key_links": [
+    {
+      "text": "合肥通用职业技术学院",
+      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1053.dhtml"
+    },
     {
       "text": "杭州职业技术大学",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1346.dhtml"
@@ -583,7 +666,7 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=mcqr3pskfh8k2cn8&ssdm=&schoolType=&_t=1776764631489",
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=mcqr3pskfh8k2cn8&ssdm=&schoolType=&_t=1776851051205",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
@@ -594,7 +677,7 @@
     },
     {
       "index": 2,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1776764631503",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1776851051220",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [

@@ -1,121 +1,13 @@
 {
   "index": 1,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=qu698hbvm7mw9g23&ssdm=&schoolType=&_t=1776756363609",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1776842774726",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [
-      {
-        "academeId": "1052",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 3,
-            "rank": 4.7,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 1,
-            "rank": 5,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73398354",
-        "yxdm": "12408",
-        "yxmc": "河北政法职业学院",
-        "yxmydList": [
-          {
-            "count": 2023,
-            "rank": 4.5,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 2744,
-            "rank": 4.6,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 1952,
-            "rank": 4.4,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      },
-      {
-        "academeId": "1772",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 612,
-            "rank": 4.6,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 678,
-            "rank": 4.6,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 595,
-            "rank": 4.6,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 573,
-            "rank": 4.3,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73390996",
-        "yxdm": "13499",
-        "yxmc": "河南检察职业学院",
-        "yxmydList": [
-          {
-            "count": 1730,
-            "rank": 4.4,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 2077,
-            "rank": 4.5,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 1649,
-            "rank": 4.4,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 391,
-        "zytjRank": 4.7
-      }
-    ],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }
