@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-24T09:41:03+0000",
+  "fetched_at": "2026-04-25T09:16:54+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId=gcgs6qhrkzbx6q5m",
   "spec_id": "gcgs6qhrkzbx6q5m",
   "page_title": "市政管网智能检测与维护_专业洞察_学职平台",
@@ -90,11 +90,12 @@
       ]
     },
     "开设院校": {
-      "raw_text": "全国(6)\n上海(1)\n山东(1)\n河南(1)\n湖北(1)\n广东(2)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n广州职业技术大学 - 4.6 5人 4.1 9人 4.4 5人 4.6 5人\n武昌首义学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n广州城市职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n山东城市建设职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n鹤壁能源化工职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n上海建设管理职业技术学院 - 5.0 2人 5.0 2人 5.0 2人 5.0 2人",
-      "line_count": 17,
+      "raw_text": "全国(7)\n上海(1)\n安徽(1)\n山东(1)\n河南(1)\n湖北(1)\n广东(2)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n广州职业技术大学 - 4.6 5人 4.1 9人 4.4 5人 4.6 5人\n武昌首义学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n池州职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n广州城市职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n山东城市建设职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n鹤壁能源化工职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n上海建设管理职业技术学院 - 5.0 2人 5.0 2人 5.0 2人 5.0 2人",
+      "line_count": 19,
       "lines": [
-        "全国(6)",
+        "全国(7)",
         "上海(1)",
+        "安徽(1)",
         "山东(1)",
         "河南(1)",
         "湖北(1)",
@@ -106,6 +107,7 @@
         "综合情况 办学条件 教学质量 就业",
         "广州职业技术大学 - 4.6 5人 4.1 9人 4.4 5人 4.6 5人",
         "武昌首义学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
+        "池州职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
         "广州城市职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
         "山东城市建设职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
         "鹤壁能源化工职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
@@ -220,6 +222,14 @@
         ],
         [
           "武昌首义学院",
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
+        ],
+        [
+          "池州职业技术学院",
           "-",
           "0.0 0人",
           "0.0 0人",
@@ -370,12 +380,16 @@
     }
   },
   "offering_schools": {
-    "count": 7,
+    "count": 8,
     "summary": {
-      "national_total": 6,
+      "national_total": 7,
       "province_counts": [
         {
           "province": "上海",
+          "count": 1
+        },
+        {
+          "province": "安徽",
           "count": 1
         },
         {
@@ -447,7 +461,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3990,
+              "count": 3991,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -511,20 +525,90 @@
           "yxmc": "武昌首义学院",
           "yxmydList": [
             {
-              "count": 2095,
+              "count": 2097,
               "rank": 4.1,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2562,
+              "count": 2565,
               "rank": 4.1,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2037,
+              "count": 2039,
               "rank": 3.7,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        },
+        "columns": [
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
+        ]
+      },
+      {
+        "school_name": "池州职业技术学院",
+        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1510.dhtml",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "公办",
+        "source": "api",
+        "raw": {
+          "academeId": "1510",
+          "bxxz": "公办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "73390188",
+          "yxdm": "13060",
+          "yxmc": "池州职业技术学院",
+          "yxmydList": [
+            {
+              "count": 1430,
+              "rank": 4,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 2103,
+              "rank": 4.2,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 1375,
+              "rank": 3.6,
               "type": "1",
               "typeDesc": "生活满意度"
             }
@@ -832,9 +916,9 @@
       }
     ],
     "sources": {
-      "dom_count": 7,
-      "api_count": 6,
-      "school_link_count": 6
+      "dom_count": 8,
+      "api_count": 7,
+      "school_link_count": 7
     }
   },
   "charts": {
@@ -879,6 +963,10 @@
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1011.dhtml"
     },
     {
+      "text": "池州职业技术学院",
+      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1510.dhtml"
+    },
+    {
       "text": "广州城市职业学院",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-5292585.dhtml"
     },
@@ -915,7 +1003,7 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=gcgs6qhrkzbx6q5m&ssdm=&schoolType=&_t=1777023652968",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777108604356",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
@@ -926,7 +1014,7 @@
     },
     {
       "index": 2,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777023652982",
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=gcgs6qhrkzbx6q5m&ssdm=&schoolType=&_t=1777108604341",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
