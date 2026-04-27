@@ -1,121 +1,13 @@
 {
   "index": 2,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=u1a92qa0c2lk0qg9&ssdm=&schoolType=&_t=1777197965013",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777283354808",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [
-      {
-        "academeId": "5647304",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73393025",
-        "yxdm": "14106",
-        "yxmc": "辽宁地质工程职业学院",
-        "yxmydList": [
-          {
-            "count": 606,
-            "rank": 3.4,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 945,
-            "rank": 3.4,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 574,
-            "rank": 3.1,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      },
-      {
-        "academeId": "2721276083",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "9w6wyukd7dgmgqkb",
-        "yxdm": "14713",
-        "yxmc": "濮阳石油化工职业技术学院",
-        "yxmydList": [
-          {
-            "count": 224,
-            "rank": 4.5,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 609,
-            "rank": 4.4,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 233,
-            "rank": 4.4,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      }
-    ],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }

@@ -1,10 +1,13 @@
 {
   "index": 1,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=gc1np8cq6ct3b6fp&ssdm=&schoolType=&_t=1777198190124",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777283562081",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }
