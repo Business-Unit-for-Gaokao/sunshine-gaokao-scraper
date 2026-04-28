@@ -1,66 +1,13 @@
 {
   "index": 2,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=jibucgy3ejhen4d0&ssdm=&schoolType=&_t=1777283422324",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777371742841",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [
-      {
-        "academeId": "123",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73394972",
-        "yxdm": "10147",
-        "yxmc": "辽宁工程技术大学",
-        "yxmydList": [
-          {
-            "count": 4789,
-            "rank": 4.1,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 5625,
-            "rank": 4.1,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 4551,
-            "rank": 4,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      }
-    ],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }

@@ -1,121 +1,13 @@
 {
   "index": 2,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=7fs37xsohs6zunce&ssdm=&schoolType=&_t=1777283548318",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777371875126",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [
-      {
-        "academeId": "767",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73397350",
-        "yxdm": "11317",
-        "yxmc": "黎明职业大学",
-        "yxmydList": [
-          {
-            "count": 2323,
-            "rank": 4.4,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 3018,
-            "rank": 4.3,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 2257,
-            "rank": 4.1,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      },
-      {
-        "academeId": "1232",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 2,
-            "rank": 5,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73389152",
-        "yxdm": "12750",
-        "yxmc": "周口职业技术学院",
-        "yxmydList": [
-          {
-            "count": 2199,
-            "rank": 3.5,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 3053,
-            "rank": 3.3,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 2039,
-            "rank": 3.4,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      }
-    ],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }
