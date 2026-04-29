@@ -1,13 +1,616 @@
 {
   "index": 1,
-  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777362530007",
+  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=ow7wv1c66he4uwa1&ssdm=&schoolType=&_t=1777448540897",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": {
-      "checkin": false,
-      "finishedYhdy": false
-    },
+    "data": [
+      {
+        "academeId": "54",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 50,
+            "rank": 3.8,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 56,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 49,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 48,
+            "rank": 3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73394703",
+        "yxdm": "10061",
+        "yxmc": "天津农学院",
+        "yxmydList": [
+          {
+            "count": 1949,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2398,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1860,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "75",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 37,
+            "rank": 3.5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 39,
+            "rank": 3.7,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 37,
+            "rank": 3.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 36,
+            "rank": 3.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73394784",
+        "yxdm": "10086",
+        "yxmc": "河北农业大学",
+        "yxmydList": [
+          {
+            "count": 4416,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 5545,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 4206,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "132",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 97,
+            "rank": 3.9,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 108,
+            "rank": 3.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 91,
+            "rank": 3.9,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 88,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73395008",
+        "yxdm": "10158",
+        "yxmc": "大连海洋大学",
+        "yxmydList": [
+          {
+            "count": 2906,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3351,
+            "rank": 3.7,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2759,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 56,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "207",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 64,
+            "rank": 3.7,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 71,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 63,
+            "rank": 4.2,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 65,
+            "rank": 3.1,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73395305",
+        "yxdm": "10264",
+        "yxmc": "上海海洋大学",
+        "yxmydList": [
+          {
+            "count": 1369,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1662,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1348,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 80,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "260",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 104,
+            "rank": 3.1,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 109,
+            "rank": 3.4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 100,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 98,
+            "rank": 2.9,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73395506",
+        "yxdm": "10340",
+        "yxmc": "浙江海洋大学",
+        "yxmydList": [
+          {
+            "count": 2077,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2376,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2005,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 75,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "304",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 135,
+            "rank": 3.7,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 146,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 131,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 129,
+            "rank": 2.9,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73395664",
+        "yxdm": "10390",
+        "yxmc": "集美大学",
+        "yxmydList": [
+          {
+            "count": 8008,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 9401,
+            "rank": 4.7,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 7834,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 122,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "331",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 110,
+            "rank": 3.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 111,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 107,
+            "rank": 3.5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 109,
+            "rank": 1.9,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73395756",
+        "yxdm": "10423",
+        "yxmc": "中国海洋大学",
+        "yxmydList": [
+          {
+            "count": 3264,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3792,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3223,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 72,
+        "zytjRank": 4.4
+      },
+      {
+        "academeId": "434",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 84,
+            "rank": 3.1,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 80,
+            "rank": 3.4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 73,
+            "rank": 3.1,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 70,
+            "rank": 2.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73396169",
+        "yxdm": "10566",
+        "yxmc": "广东海洋大学",
+        "yxmydList": [
+          {
+            "count": 6239,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 7840,
+            "rank": 4.4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 6126,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 88,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "710",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 85,
+            "rank": 3.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 81,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 80,
+            "rank": 3.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 88,
+            "rank": 2.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397170",
+        "yxdm": "11066",
+        "yxmc": "烟台大学",
+        "yxmydList": [
+          {
+            "count": 4836,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 5806,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 4624,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "711",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397174",
+        "yxdm": "11067",
+        "yxmc": "潍坊学院",
+        "yxmydList": [
+          {
+            "count": 4112,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4796,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3907,
+            "rank": 4.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "729",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 23,
+            "rank": 2.8,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 31,
+            "rank": 2.9,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 23,
+            "rank": 3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 23,
+            "rank": 2.7,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397226",
+        "yxdm": "11100",
+        "yxmc": "海南热带海洋学院",
+        "yxmydList": [
+          {
+            "count": 3158,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3783,
+            "rank": 3.8,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3009,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      }
+    ],
     "flag": true,
     "msg": ""
   }

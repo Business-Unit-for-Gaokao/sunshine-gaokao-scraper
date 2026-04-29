@@ -1,66 +1,13 @@
 {
   "index": 2,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=6kj3kbglwud8bob1&ssdm=&schoolType=&_t=1777369034466",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777454966828",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [
-      {
-        "academeId": "383",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 20,
-            "rank": 3.4,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 18,
-            "rank": 3.9,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 18,
-            "rank": 3.7,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 18,
-            "rank": 3.9,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73395969",
-        "yxdm": "10486",
-        "yxmc": "武汉大学",
-        "yxmydList": [
-          {
-            "count": 6316,
-            "rank": 4.6,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 7277,
-            "rank": 4.7,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 6167,
-            "rank": 4.1,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      }
-    ],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }

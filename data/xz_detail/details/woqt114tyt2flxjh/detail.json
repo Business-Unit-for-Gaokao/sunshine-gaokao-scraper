@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-28T05:43:19+0000",
+  "fetched_at": "2026-04-29T05:38:22+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/ptbk.action?specId=woqt114tyt2flxjh",
   "spec_id": "woqt114tyt2flxjh",
   "page_title": "计算机科学与技术_专业洞察_学职平台",
@@ -19,7 +19,7 @@
       "门类名称": "工学",
       "专业类": "计算机类",
       "专业原始ID": "73384336",
-      "评价人数": 143353,
+      "评价人数": 143354,
       "综合满意度": 4.1
     }
   },
@@ -60,17 +60,17 @@
       ]
     },
     "专业满意度": {
-      "raw_text": "综合满意度\n4.1 143353人\n办学条件满意度\n4.1 153680人\n教学质量满意度\n4 139514人\n就业满意度\n4 135214人",
+      "raw_text": "综合满意度\n4.1 143354人\n办学条件满意度\n4.1 153684人\n教学质量满意度\n4 139515人\n就业满意度\n4 135215人",
       "line_count": 8,
       "lines": [
         "综合满意度",
-        "4.1 143353人",
+        "4.1 143354人",
         "办学条件满意度",
-        "4.1 153680人",
+        "4.1 153684人",
         "教学质量满意度",
-        "4 139514人",
+        "4 139515人",
         "就业满意度",
-        "4 135214人"
+        "4 135215人"
       ]
     },
     "学习投入意愿": {
@@ -131,22 +131,22 @@
         [
           "综合满意度",
           "4.1",
-          "143353人"
+          "143354人"
         ],
         [
           "办学条件满意度",
           "4.1",
-          "153680人"
+          "153684人"
         ],
         [
           "教学质量满意度",
           "4",
-          "139514人"
+          "139515人"
         ],
         [
           "就业满意度",
           "4",
-          "135214人"
+          "135215人"
         ]
       ]
     },
@@ -596,7 +596,18 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777354986731",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1777441091226",
+      "status_code": 200,
+      "resource_type": "xhr",
+      "top_keys": [
+        "data",
+        "flag",
+        "msg"
+      ]
+    },
+    {
+      "index": 2,
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=woqt114tyt2flxjh&ssdm=&schoolType=&_t=1777441091226",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
