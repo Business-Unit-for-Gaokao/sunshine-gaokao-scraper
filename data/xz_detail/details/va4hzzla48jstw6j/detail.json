@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-08T10:28:23+0000",
+  "fetched_at": "2026-05-11T11:19:22+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId=va4hzzla48jstw6j",
   "spec_id": "va4hzzla48jstw6j",
   "page_title": "运动防护_专业洞察_学职平台",
@@ -97,11 +97,12 @@
       ]
     },
     "开设院校": {
-      "raw_text": "全国(6)\n吉林(1)\n福建(1)\n河南(1)\n广东(1)\n广西(1)\n新疆(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n吉林体育学院 - 5.0 1人 4.8 4人 5.0 1人 5.0 1人\n广西体育高等专科学校 - 4.6 5人 4.3 18人 4.8 6人 4.0 5人\n广东体育职业技术学院 - 1.0 3人 2.3 6人 2.0 2人 1.0 3人\n漳州卫生职业学院 - 5.0 1人 3.0 2人 5.0 1人 5.0 1人\n阿勒泰职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n郑州体育职业学院 - 5.0 1人 5.0 2人 5.0 1人 5.0 1人",
-      "line_count": 18,
+      "raw_text": "全国(7)\n吉林(1)\n浙江(1)\n福建(1)\n河南(1)\n广东(1)\n广西(1)\n新疆(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n吉林体育学院 - 5.0 1人 4.8 4人 5.0 1人 5.0 1人\n广西体育高等专科学校 - 4.6 5人 4.3 18人 4.8 6人 4.0 5人\n广东体育职业技术学院 - 1.0 3人 2.3 6人 2.0 2人 1.0 3人\n浙江体育职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n漳州卫生职业学院 - 5.0 1人 3.0 2人 5.0 1人 5.0 1人\n阿勒泰职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n郑州体育职业学院 - 5.0 1人 5.0 2人 5.0 1人 5.0 1人",
+      "line_count": 20,
       "lines": [
-        "全国(6)",
+        "全国(7)",
         "吉林(1)",
+        "浙江(1)",
         "福建(1)",
         "河南(1)",
         "广东(1)",
@@ -115,6 +116,7 @@
         "吉林体育学院 - 5.0 1人 4.8 4人 5.0 1人 5.0 1人",
         "广西体育高等专科学校 - 4.6 5人 4.3 18人 4.8 6人 4.0 5人",
         "广东体育职业技术学院 - 1.0 3人 2.3 6人 2.0 2人 1.0 3人",
+        "浙江体育职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
         "漳州卫生职业学院 - 5.0 1人 3.0 2人 5.0 1人 5.0 1人",
         "阿勒泰职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
         "郑州体育职业学院 - 5.0 1人 5.0 2人 5.0 1人 5.0 1人"
@@ -246,6 +248,14 @@
           "2.3 6人",
           "2.0 2人",
           "1.0 3人"
+        ],
+        [
+          "浙江体育职业技术学院",
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
         ],
         [
           "漳州卫生职业学院",
@@ -383,12 +393,16 @@
     }
   },
   "offering_schools": {
-    "count": 7,
+    "count": 8,
     "summary": {
-      "national_total": 6,
+      "national_total": 7,
       "province_counts": [
         {
           "province": "吉林",
+          "count": 1
+        },
+        {
+          "province": "浙江",
           "count": 1
         },
         {
@@ -534,7 +548,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1556,
+              "count": 1557,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -625,6 +639,76 @@
           "2.3 6人",
           "2.0 2人",
           "1.0 3人"
+        ]
+      },
+      {
+        "school_name": "浙江体育职业技术学院",
+        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-6303640.dhtml",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "公办",
+        "source": "api",
+        "raw": {
+          "academeId": "6303640",
+          "bxxz": "公办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "73392172",
+          "yxdm": "13854",
+          "yxmc": "浙江体育职业技术学院",
+          "yxmydList": [
+            {
+              "count": 109,
+              "rank": 4.6,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 138,
+              "rank": 4.5,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 107,
+              "rank": 4.6,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        },
+        "columns": [
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
         ]
       },
       {
@@ -849,9 +933,9 @@
       }
     ],
     "sources": {
-      "dom_count": 7,
-      "api_count": 6,
-      "school_link_count": 6
+      "dom_count": 8,
+      "api_count": 7,
+      "school_link_count": 7
     }
   },
   "charts": {
@@ -898,6 +982,10 @@
     {
       "text": "广东体育职业技术学院",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1110.dhtml"
+    },
+    {
+      "text": "浙江体育职业技术学院",
+      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-6303640.dhtml"
     },
     {
       "text": "漳州卫生职业学院",
@@ -956,7 +1044,7 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=va4hzzla48jstw6j&ssdm=&schoolType=&_t=1778236093222",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778498352454",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
@@ -967,7 +1055,7 @@
     },
     {
       "index": 2,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778236093236",
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=va4hzzla48jstw6j&ssdm=&schoolType=&_t=1778498352439",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [

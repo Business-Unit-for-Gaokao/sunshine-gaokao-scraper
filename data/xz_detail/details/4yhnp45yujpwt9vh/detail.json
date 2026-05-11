@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-08T07:29:31+0000",
+  "fetched_at": "2026-05-11T08:26:06+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/ptbk.action?specId=4yhnp45yujpwt9vh",
   "spec_id": "4yhnp45yujpwt9vh",
   "page_title": "影视摄影与制作_专业洞察_学职平台",
@@ -162,6 +162,14 @@
           "0.0 0人"
         ],
         [
+          "中央戏剧学院",
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
+        ],
+        [
           "北京电影学院",
           "-",
           "4.7 14人",
@@ -173,7 +181,7 @@
           "河北地质大学",
           "-",
           "1.0 1人",
-          "1.0 1人",
+          "3.0 2人",
           "1.0 1人",
           "1.0 1人"
         ],
@@ -216,14 +224,6 @@
           "3.7 15人",
           "3.6 10人",
           "3.4 9人"
-        ],
-        [
-          "上海大学",
-          "-",
-          "0.0 0人",
-          "4.0 1人",
-          "0.0 0人",
-          "0.0 0人"
         ]
       ]
     },
@@ -392,7 +392,7 @@
     }
   },
   "offering_schools": {
-    "count": 90,
+    "count": 92,
     "summary": {
       "national_total": null,
       "province_counts": [],
@@ -526,6 +526,69 @@
         }
       },
       {
+        "school_name": "中央戏剧学院",
+        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-42.dhtml",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "公办",
+        "source": "api",
+        "raw": {
+          "academeId": "42",
+          "bxxz": "公办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "73394658",
+          "yxdm": "10048",
+          "yxmc": "中央戏剧学院",
+          "yxmydList": [
+            {
+              "count": 101,
+              "rank": 4.8,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 104,
+              "rank": 4.8,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 103,
+              "rank": 4.7,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        }
+      },
+      {
         "school_name": "北京电影学院",
         "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-44.dhtml",
         "recommend_index": 0,
@@ -606,8 +669,8 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1,
-              "rank": 1,
+              "count": 2,
+              "rank": 3,
               "type": "0",
               "typeDesc": "办学条件满意度"
             },
@@ -629,19 +692,19 @@
           "yxmc": "河北地质大学",
           "yxmydList": [
             {
-              "count": 4084,
+              "count": 4085,
               "rank": 4.2,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 4731,
+              "count": 4732,
               "rank": 4.2,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 3876,
+              "count": 3877,
               "rank": 4.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -698,7 +761,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3778,
+              "count": 3779,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -881,19 +944,19 @@
           "yxmc": "吉林艺术学院",
           "yxmydList": [
             {
-              "count": 1427,
+              "count": 1429,
               "rank": 4.2,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1765,
+              "count": 1766,
               "rank": 4,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1423,
+              "count": 1425,
               "rank": 3.5,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -968,7 +1031,7 @@
       },
       {
         "school_name": "上海大学",
-        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-221.dhtml",
+        "school_url": "",
         "recommend_index": 0,
         "recommend_votes": 0,
         "school_type": "公办",
@@ -1013,7 +1076,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2622,
+              "count": 2623,
               "rank": 4.3,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1070,19 +1133,19 @@
           "yxmc": "江苏师范大学",
           "yxmydList": [
             {
-              "count": 2188,
+              "count": 2189,
               "rank": 4.3,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2838,
+              "count": 2840,
               "rank": 4.3,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2104,
+              "count": 2105,
               "rank": 4.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1202,7 +1265,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1436,
+              "count": 1437,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1259,19 +1322,19 @@
           "yxmc": "安徽师范大学",
           "yxmydList": [
             {
-              "count": 5534,
+              "count": 5537,
               "rank": 4.3,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 6834,
+              "count": 6838,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 5405,
+              "count": 5408,
               "rank": 3.9,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1328,7 +1391,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1721,
+              "count": 1722,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1391,7 +1454,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 6071,
+              "count": 6072,
               "rank": 4.2,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1511,19 +1574,19 @@
           "yxmc": "长沙理工大学",
           "yxmydList": [
             {
-              "count": 5360,
+              "count": 5361,
               "rank": 4.2,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 6282,
+              "count": 6284,
               "rank": 4.3,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 5168,
+              "count": 5169,
               "rank": 3.8,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1706,7 +1769,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 7099,
+              "count": 7100,
               "rank": 4.7,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1763,19 +1826,19 @@
           "yxmc": "重庆师范大学",
           "yxmydList": [
             {
-              "count": 7429,
+              "count": 7436,
               "rank": 4.3,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 8296,
+              "count": 8309,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 7212,
+              "count": 7219,
               "rank": 4.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1826,19 +1889,19 @@
           "yxmc": "四川音乐学院",
           "yxmydList": [
             {
-              "count": 1614,
+              "count": 1615,
               "rank": 4.1,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2025,
+              "count": 2026,
               "rank": 4.2,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1552,
+              "count": 1553,
               "rank": 3.7,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1889,19 +1952,19 @@
           "yxmc": "四川美术学院",
           "yxmydList": [
             {
-              "count": 1871,
+              "count": 1873,
               "rank": 4.3,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2192,
+              "count": 2196,
               "rank": 4.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1823,
+              "count": 1826,
               "rank": 3.7,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1952,19 +2015,19 @@
           "yxmc": "云南艺术学院",
           "yxmydList": [
             {
-              "count": 1583,
+              "count": 1584,
               "rank": 3.7,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1983,
+              "count": 1985,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1473,
+              "count": 1474,
               "rank": 3.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -2015,19 +2078,19 @@
           "yxmc": "西安美术学院",
           "yxmydList": [
             {
-              "count": 1447,
+              "count": 1448,
               "rank": 3.8,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1761,
+              "count": 1762,
               "rank": 3.8,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1417,
+              "count": 1418,
               "rank": 3.2,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -2084,7 +2147,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 882,
+              "count": 883,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -2336,7 +2399,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3634,
+              "count": 3636,
               "rank": 4.7,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -2393,19 +2456,19 @@
           "yxmc": "北京城市学院",
           "yxmydList": [
             {
-              "count": 1892,
+              "count": 1893,
               "rank": 3.8,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2385,
+              "count": 2387,
               "rank": 3.7,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1839,
+              "count": 1840,
               "rank": 3.4,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -2462,7 +2525,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1147,
+              "count": 1149,
               "rank": 4.3,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -2519,19 +2582,19 @@
           "yxmc": "浙江传媒学院",
           "yxmydList": [
             {
-              "count": 1714,
+              "count": 1715,
               "rank": 4.2,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1923,
+              "count": 1925,
               "rank": 4.2,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1660,
+              "count": 1661,
               "rank": 4.2,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -2588,7 +2651,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3935,
+              "count": 3936,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -2645,19 +2708,19 @@
           "yxmc": "汉口学院",
           "yxmydList": [
             {
-              "count": 1722,
+              "count": 1723,
               "rank": 3.6,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2242,
+              "count": 2244,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1647,
+              "count": 1648,
               "rank": 3.4,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -2777,7 +2840,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3175,
+              "count": 3177,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -2897,19 +2960,19 @@
           "yxmc": "华南农业大学珠江学院",
           "yxmydList": [
             {
-              "count": 2285,
+              "count": 2286,
               "rank": 3,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2597,
+              "count": 2598,
               "rank": 2.7,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2212,
+              "count": 2213,
               "rank": 2.5,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -3218,7 +3281,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3326,
+              "count": 3327,
               "rank": 4.2,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -3527,13 +3590,13 @@
           "yxmc": "青岛黄海学院",
           "yxmydList": [
             {
-              "count": 3426,
+              "count": 3427,
               "rank": 3.7,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 4411,
+              "count": 4414,
               "rank": 3.8,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -3659,7 +3722,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1055,
+              "count": 1056,
               "rank": 4.2,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -3716,13 +3779,13 @@
           "yxmc": "河南开封科技传媒学院",
           "yxmydList": [
             {
-              "count": 1818,
+              "count": 1819,
               "rank": 4.1,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2398,
+              "count": 2399,
               "rank": 4.1,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -3730,6 +3793,69 @@
             {
               "count": 1695,
               "rank": 3.9,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        }
+      },
+      {
+        "school_name": "北海艺术设计学院",
+        "school_url": "",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "民办",
+        "source": "api",
+        "raw": {
+          "academeId": "1794",
+          "bxxz": "民办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "73391076",
+          "yxdm": "13524",
+          "yxmc": "北海艺术设计学院",
+          "yxmydList": [
+            {
+              "count": 983,
+              "rank": 4.2,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 1603,
+              "rank": 4.3,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 963,
+              "rank": 4.1,
               "type": "1",
               "typeDesc": "生活满意度"
             }
@@ -3779,19 +3905,19 @@
           "yxmc": "山西工学院",
           "yxmydList": [
             {
-              "count": 1025,
+              "count": 1026,
               "rank": 3.7,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1387,
+              "count": 1388,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 998,
+              "count": 999,
               "rank": 3.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -3905,19 +4031,19 @@
           "yxmc": "重庆外语外事学院",
           "yxmydList": [
             {
-              "count": 1911,
+              "count": 1913,
               "rank": 3.5,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2506,
+              "count": 2509,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1839,
+              "count": 1841,
               "rank": 3.4,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -4220,19 +4346,19 @@
           "yxmc": "吉林师范大学博达学院",
           "yxmydList": [
             {
-              "count": 901,
+              "count": 902,
               "rank": 4,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1114,
+              "count": 1116,
               "rank": 3.9,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 868,
+              "count": 869,
               "rank": 3.9,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -4478,7 +4604,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 8079,
+              "count": 8081,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -4661,19 +4787,19 @@
           "yxmc": "四川传媒学院",
           "yxmydList": [
             {
-              "count": 2185,
+              "count": 2187,
               "rank": 4.3,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2923,
+              "count": 2925,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2092,
+              "count": 2094,
               "rank": 4.3,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -4919,7 +5045,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2700,
+              "count": 2701,
               "rank": 4.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -4982,7 +5108,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2293,
+              "count": 2294,
               "rank": 3.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -5045,7 +5171,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1110,
+              "count": 1112,
               "rank": 3.8,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -5234,7 +5360,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1437,
+              "count": 1438,
               "rank": 3.9,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -5291,19 +5417,19 @@
           "yxmc": "聊城大学东昌学院",
           "yxmydList": [
             {
-              "count": 1842,
+              "count": 1843,
               "rank": 4.1,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2157,
+              "count": 2159,
               "rank": 4.1,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1735,
+              "count": 1736,
               "rank": 3.9,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -5360,7 +5486,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2501,
+              "count": 2503,
               "rank": 4.3,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -5549,7 +5675,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2679,
+              "count": 2680,
               "rank": 3.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -5646,8 +5772,8 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 4,
-              "rank": 4,
+              "count": 5,
+              "rank": 3.4,
               "type": "0",
               "typeDesc": "办学条件满意度"
             },
@@ -5658,7 +5784,7 @@
               "typeDesc": "教学质量满意度"
             },
             {
-              "count": 2,
+              "count": 3,
               "rank": 3,
               "type": "2",
               "typeDesc": "就业满意度"
@@ -5669,19 +5795,19 @@
           "yxmc": "河北东方学院",
           "yxmydList": [
             {
-              "count": 1216,
+              "count": 1217,
               "rank": 3,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2017,
+              "count": 2023,
               "rank": 3.2,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1148,
+              "count": 1150,
               "rank": 2.8,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -6019,7 +6145,7 @@
     ],
     "sources": {
       "dom_count": 1,
-      "api_count": 89,
+      "api_count": 91,
       "school_link_count": 10
     }
   },
@@ -6029,12 +6155,12 @@
       {
         "index": 1,
         "section": "图表",
-        "src": "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/l62z577dk8zo133d.jpeg",
+        "src": "https://t4.chei.com.cn/xzpt/survey/cdn/showimg/l62z577dk8zo133d.jpeg",
         "alt": "",
         "title": "",
         "width": 706,
         "height": 344,
-        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/04fd956f4d10.jpeg",
+        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/797e0cffcd54.jpeg",
         "file_size": 16998,
         "content_type": "image/png",
         "error": ""
@@ -6042,12 +6168,12 @@
       {
         "index": 2,
         "section": "图表",
-        "src": "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/4uwiitrl3cuqcq6f.jpeg",
+        "src": "https://t4.chei.com.cn/xzpt/survey/cdn/showimg/4uwiitrl3cuqcq6f.jpeg",
         "alt": "",
         "title": "",
         "width": 860,
         "height": 260,
-        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/3a31276a86d0.jpeg",
+        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/b13d3256ae84.jpeg",
         "file_size": 14339,
         "content_type": "image/png",
         "error": ""
@@ -6055,12 +6181,12 @@
       {
         "index": 3,
         "section": "图表",
-        "src": "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/6bxa5e8qp0d0oj50.jpeg",
+        "src": "https://t4.chei.com.cn/xzpt/survey/cdn/showimg/6bxa5e8qp0d0oj50.jpeg",
         "alt": "",
         "title": "",
         "width": 860,
         "height": 260,
-        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/6d984fd4fe07.jpeg",
+        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/0cafa9bf8826.jpeg",
         "file_size": 16145,
         "content_type": "image/png",
         "error": ""
@@ -6068,12 +6194,12 @@
       {
         "index": 4,
         "section": "图表",
-        "src": "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/86ste2hx8nk5qpbe.jpeg",
+        "src": "https://t4.chei.com.cn/xzpt/survey/cdn/showimg/86ste2hx8nk5qpbe.jpeg",
         "alt": "",
         "title": "",
         "width": 240,
         "height": 86,
-        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/db9ec0bde1fb.jpeg",
+        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/699310b65e05.jpeg",
         "file_size": 38765,
         "content_type": "image/jpeg",
         "error": ""
@@ -6081,12 +6207,12 @@
       {
         "index": 5,
         "section": "图表",
-        "src": "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/ifnanakjkyxfh59z.jpeg",
+        "src": "https://t4.chei.com.cn/xzpt/survey/cdn/showimg/ifnanakjkyxfh59z.jpeg",
         "alt": "",
         "title": "",
         "width": 240,
         "height": 86,
-        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/ba2efb494f1f.jpeg",
+        "local_path": "output/xz_detail/details/4yhnp45yujpwt9vh/images/c8a75a6e4ce1.jpeg",
         "file_size": 24561,
         "content_type": "image/jpeg",
         "error": ""
@@ -6102,6 +6228,10 @@
     {
       "text": "中央美术学院",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-41.dhtml"
+    },
+    {
+      "text": "中央戏剧学院",
+      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-42.dhtml"
     },
     {
       "text": "北京电影学院",
@@ -6130,10 +6260,6 @@
     {
       "text": "上海戏剧学院",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-220.dhtml"
-    },
-    {
-      "text": "上海大学",
-      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-221.dhtml"
     },
     {
       "text": "戏剧学",
@@ -6178,7 +6304,7 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778225360059",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778487953433",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
@@ -6189,7 +6315,7 @@
     },
     {
       "index": 2,
-      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=4yhnp45yujpwt9vh&ssdm=&schoolType=&_t=1778225360059",
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=4yhnp45yujpwt9vh&ssdm=&schoolType=&_t=1778487953433",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [

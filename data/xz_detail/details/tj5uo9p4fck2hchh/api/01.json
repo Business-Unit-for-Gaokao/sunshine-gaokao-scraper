@@ -1,13 +1,286 @@
 {
   "index": 1,
-  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778230544118",
+  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=tj5uo9p4fck2hchh&ssdm=&schoolType=&_t=1778492888937",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": {
-      "checkin": false,
-      "finishedYhdy": false
-    },
+    "data": [
+      {
+        "academeId": "774",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 10,
+            "rank": 3.6,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 9,
+            "rank": 3.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 9,
+            "rank": 3.8,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 9,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397370",
+        "yxdm": "11329",
+        "yxmc": "河南工学院",
+        "yxmydList": [
+          {
+            "count": 3523,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4418,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3351,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "894",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 23,
+            "rank": 4.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 28,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 24,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 21,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397802",
+        "yxdm": "11733",
+        "yxmc": "上海出版印刷高等专科学校",
+        "yxmydList": [
+          {
+            "count": 617,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 800,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 589,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 59,
+        "zytjRank": 4.5
+      },
+      {
+        "academeId": "3737264614",
+        "bxxz": "其它",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73391036",
+        "yxdm": "13510",
+        "yxmc": "兰州石化职业技术大学",
+        "yxmydList": [
+          {
+            "count": 879,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 939,
+            "rank": 3.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 781,
+            "rank": 3.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "2079",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 14,
+            "rank": 4.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 15,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 14,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 14,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392156",
+        "yxdm": "13850",
+        "yxmc": "安徽新闻出版职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1251,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1574,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1199,
+            "rank": 4.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 39,
+        "zytjRank": 4.3
+      },
+      {
+        "academeId": "3737264614",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "7gvlwzpo2dzne6ng",
+        "yxdm": "16209",
+        "yxmc": "兰州石化职业技术大学",
+        "yxmydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      }
+    ],
     "flag": true,
     "msg": ""
   }

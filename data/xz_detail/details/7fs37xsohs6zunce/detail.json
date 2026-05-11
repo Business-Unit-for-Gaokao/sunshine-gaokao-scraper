@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-08T10:02:52+0000",
+  "fetched_at": "2026-05-11T10:53:47+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId=7fs37xsohs6zunce",
   "spec_id": "7fs37xsohs6zunce",
   "page_title": "纺织材料与应用_专业洞察_学职平台",
@@ -97,19 +97,21 @@
       ]
     },
     "开设院校": {
-      "raw_text": "全国(2)\n福建(1)\n河南(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n黎明职业大学 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n周口职业技术学院 - 0.0 0人 5.0 2人 0.0 0人 0.0 0人",
-      "line_count": 10,
+      "raw_text": "全国(3)\n福建(1)\n河南(1)\n广东(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n黎明职业大学 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n周口职业技术学院 - 0.0 0人 5.0 2人 0.0 0人 0.0 0人\n汕头职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
+      "line_count": 12,
       "lines": [
-        "全国(2)",
+        "全国(3)",
         "福建(1)",
         "河南(1)",
+        "广东(1)",
         "专科高校：",
         "骨干专科",
         "示范专科",
         "院校名称 推荐指数 专业满意度",
         "综合情况 办学条件 教学质量 就业",
         "黎明职业大学 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
-        "周口职业技术学院 - 0.0 0人 5.0 2人 0.0 0人 0.0 0人"
+        "周口职业技术学院 - 0.0 0人 5.0 2人 0.0 0人 0.0 0人",
+        "汕头职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人"
       ]
     },
     "开设课程": {
@@ -232,6 +234,14 @@
           "5.0 2人",
           "0.0 0人",
           "0.0 0人"
+        ],
+        [
+          "汕头职业技术学院",
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
         ]
       ]
     },
@@ -345,9 +355,9 @@
     }
   },
   "offering_schools": {
-    "count": 3,
+    "count": 4,
     "summary": {
-      "national_total": 2,
+      "national_total": 3,
       "province_counts": [
         {
           "province": "福建",
@@ -355,6 +365,10 @@
         },
         {
           "province": "河南",
+          "count": 1
+        },
+        {
+          "province": "广东",
           "count": 1
         }
       ],
@@ -504,6 +518,76 @@
         ]
       },
       {
+        "school_name": "汕头职业技术学院",
+        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1426.dhtml",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "公办",
+        "source": "api",
+        "raw": {
+          "academeId": "1426",
+          "bxxz": "公办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "73389864",
+          "yxdm": "12954",
+          "yxmc": "汕头职业技术学院",
+          "yxmydList": [
+            {
+              "count": 1575,
+              "rank": 3.5,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 1979,
+              "rank": 3.4,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 1487,
+              "rank": 3.1,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        },
+        "columns": [
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
+        ]
+      },
+      {
         "school_name": "综合情况",
         "school_url": "",
         "columns": [
@@ -515,9 +599,9 @@
       }
     ],
     "sources": {
-      "dom_count": 3,
-      "api_count": 2,
-      "school_link_count": 2
+      "dom_count": 4,
+      "api_count": 3,
+      "school_link_count": 3
     }
   },
   "charts": {
@@ -526,12 +610,12 @@
       {
         "index": 1,
         "section": "图表",
-        "src": "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/86ste2hx8nk5qpbe.jpeg",
+        "src": "https://t3.chei.com.cn/xzpt/survey/cdn/showimg/86ste2hx8nk5qpbe.jpeg",
         "alt": "",
         "title": "",
         "width": 240,
         "height": 86,
-        "local_path": "output/xz_detail/details/7fs37xsohs6zunce/images/db9ec0bde1fb.jpeg",
+        "local_path": "output/xz_detail/details/7fs37xsohs6zunce/images/e0cdde5b9d25.jpeg",
         "file_size": 38765,
         "content_type": "image/jpeg",
         "error": ""
@@ -539,12 +623,12 @@
       {
         "index": 2,
         "section": "图表",
-        "src": "https://t1.chei.com.cn/xzpt/survey/cdn/showimg/ifnanakjkyxfh59z.jpeg",
+        "src": "https://t3.chei.com.cn/xzpt/survey/cdn/showimg/ifnanakjkyxfh59z.jpeg",
         "alt": "",
         "title": "",
         "width": 240,
         "height": 86,
-        "local_path": "output/xz_detail/details/7fs37xsohs6zunce/images/ba2efb494f1f.jpeg",
+        "local_path": "output/xz_detail/details/7fs37xsohs6zunce/images/fb592bf2e80d.jpeg",
         "file_size": 24561,
         "content_type": "image/jpeg",
         "error": ""
@@ -560,6 +644,10 @@
     {
       "text": "周口职业技术学院",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1232.dhtml"
+    },
+    {
+      "text": "汕头职业技术学院",
+      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-1426.dhtml"
     },
     {
       "text": "服装设计与工艺",
@@ -606,7 +694,7 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=7fs37xsohs6zunce&ssdm=&schoolType=&_t=1778234561892",
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=7fs37xsohs6zunce&ssdm=&schoolType=&_t=1778496817369",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
@@ -617,7 +705,7 @@
     },
     {
       "index": 2,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778234561907",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778496817383",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [

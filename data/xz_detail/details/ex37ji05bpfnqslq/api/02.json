@@ -1,13 +1,3531 @@
 {
   "index": 2,
-  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778222382555",
+  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=ex37ji05bpfnqslq&ssdm=&schoolType=&_t=1778485046448",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": {
-      "checkin": false,
-      "finishedYhdy": false
-    },
+    "data": [
+      {
+        "academeId": "110",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 23,
+            "rank": 4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 21,
+            "rank": 3.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 20,
+            "rank": 3.8,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 20,
+            "rank": 3.2,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73394920",
+        "yxdm": "10129",
+        "yxmc": "内蒙古农业大学",
+        "yxmydList": [
+          {
+            "count": 5305,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 6483,
+            "rank": 4.4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 5101,
+            "rank": 3.8,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "456",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 5,
+            "rank": 1.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 1,
+            "rank": 1,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 1,
+            "rank": 1,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73396257",
+        "yxdm": "10596",
+        "yxmc": "桂林理工大学",
+        "yxmydList": [
+          {
+            "count": 2910,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3972,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2786,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "634",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 38,
+            "rank": 4.7,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 45,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 37,
+            "rank": 4.6,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 35,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73396897",
+        "yxdm": "10849",
+        "yxmc": "江苏建筑职业技术学院",
+        "yxmydList": [
+          {
+            "count": 2819,
+            "rank": 4.6,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3427,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2675,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 75,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "645",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 72,
+            "rank": 4.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 80,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 67,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 62,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73396937",
+        "yxdm": "10862",
+        "yxmc": "广东水利电力职业技术学院",
+        "yxmydList": [
+          {
+            "count": 3082,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4047,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3002,
+            "rank": 3.8,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 88,
+        "zytjRank": 4.4
+      },
+      {
+        "academeId": "654",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 45,
+            "rank": 4.5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 49,
+            "rank": 4.4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 45,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 43,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73396973",
+        "yxdm": "10871",
+        "yxmc": "内蒙古建筑职业技术大学",
+        "yxmydList": [
+          {
+            "count": 1809,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2239,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1706,
+            "rank": 3.5,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 57,
+        "zytjRank": 4.3
+      },
+      {
+        "academeId": "656",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 75,
+            "rank": 4.6,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 76,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 75,
+            "rank": 4.6,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 74,
+            "rank": 4.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73396981",
+        "yxdm": "10873",
+        "yxmc": "河北工业职业技术学院",
+        "yxmydList": [
+          {
+            "count": 2356,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2826,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2218,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "668",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 14,
+            "rank": 3.8,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 17,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 16,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 14,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397026",
+        "yxdm": "10920",
+        "yxmc": "湖北理工学院",
+        "yxmydList": [
+          {
+            "count": 2650,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3164,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2556,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 22,
+        "zytjRank": 4.4
+      },
+      {
+        "academeId": "681",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 5,
+            "rank": 4.6,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 12,
+            "rank": 4.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 7,
+            "rank": 4.7,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 5,
+            "rank": 4.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397070",
+        "yxdm": "10966",
+        "yxmc": "陕西农林职业技术大学",
+        "yxmydList": [
+          {
+            "count": 3070,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4332,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2788,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 45,
+        "zytjRank": 4.7
+      },
+      {
+        "academeId": "720",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 104,
+            "rank": 4.1,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 101,
+            "rank": 3.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 99,
+            "rank": 3.9,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 98,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397210",
+        "yxdm": "11078",
+        "yxmc": "广州大学",
+        "yxmydList": [
+          {
+            "count": 4232,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4986,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 4084,
+            "rank": 3.8,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 63,
+        "zytjRank": 4.5
+      },
+      {
+        "academeId": "734",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 179,
+            "rank": 4.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 184,
+            "rank": 4.4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 179,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 177,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397242",
+        "yxdm": "11113",
+        "yxmc": "深圳职业技术大学",
+        "yxmydList": [
+          {
+            "count": 5868,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 6822,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 5706,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 42,
+        "zytjRank": 4.9
+      },
+      {
+        "academeId": "765",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 92,
+            "rank": 4.6,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 103,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 90,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 87,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397342",
+        "yxdm": "11314",
+        "yxmc": "漳州职业技术学院",
+        "yxmydList": [
+          {
+            "count": 2845,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3380,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2692,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 49,
+        "zytjRank": 4.7
+      },
+      {
+        "academeId": "820",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 111,
+            "rank": 4.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 112,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 108,
+            "rank": 4.2,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 106,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397554",
+        "yxdm": "11481",
+        "yxmc": "浙江水利水电学院",
+        "yxmydList": [
+          {
+            "count": 1560,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1799,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1513,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "827",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 38,
+            "rank": 4.2,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 42,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 35,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 33,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73393810",
+        "yxdm": "11500",
+        "yxmc": "辽宁省交通高等专科学校",
+        "yxmydList": [
+          {
+            "count": 1942,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2364,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1857,
+            "rank": 4.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 73,
+        "zytjRank": 4.4
+      },
+      {
+        "academeId": "853",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 105,
+            "rank": 4.2,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 115,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 99,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 90,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397674",
+        "yxdm": "11557",
+        "yxmc": "昆明冶金职业大学",
+        "yxmydList": [
+          {
+            "count": 3467,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4893,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3253,
+            "rank": 3.9,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 48,
+        "zytjRank": 4.5
+      },
+      {
+        "academeId": "864",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 27,
+            "rank": 4.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 33,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 26,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 22,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73397702",
+        "yxdm": "11608",
+        "yxmc": "广西水利电力职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1490,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2428,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1443,
+            "rank": 3.8,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 43,
+        "zytjRank": 4.7
+      },
+      {
+        "academeId": "961",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 92,
+            "rank": 4.5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 98,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 92,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 91,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398042",
+        "yxdm": "12053",
+        "yxmc": "黑龙江建筑职业技术学院",
+        "yxmydList": [
+          {
+            "count": 3580,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4009,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3395,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 127,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "966",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 51,
+            "rank": 4.5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 54,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 43,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 43,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398062",
+        "yxdm": "12058",
+        "yxmc": "黄河水利职业技术大学",
+        "yxmydList": [
+          {
+            "count": 5722,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 7225,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 5449,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 74,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "980",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 54,
+            "rank": 3.9,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 59,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 53,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 51,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398110",
+        "yxdm": "12073",
+        "yxmc": "安徽水利水电职业技术学院",
+        "yxmydList": [
+          {
+            "count": 2826,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3773,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2702,
+            "rank": 3.9,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 65,
+        "zytjRank": 4.5
+      },
+      {
+        "academeId": "1000",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 1,
+            "rank": 4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 1,
+            "rank": 5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 1,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398170",
+        "yxdm": "12222",
+        "yxmc": "贵州交通职业大学",
+        "yxmydList": [
+          {
+            "count": 2588,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3610,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2398,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1033",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 4,
+            "rank": 4.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3,
+            "rank": 3.7,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 3,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 3,
+            "rank": 3.3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398290",
+        "yxdm": "12356",
+        "yxmc": "广西交通职业技术学院",
+        "yxmydList": [
+          {
+            "count": 2219,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3355,
+            "rank": 3.8,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2104,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1042",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 27,
+            "rank": 4.7,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 25,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 25,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 24,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398326",
+        "yxdm": "12389",
+        "yxmc": "河北建材职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1339,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1904,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1253,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 54,
+        "zytjRank": 4.4
+      },
+      {
+        "academeId": "1064",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1,
+            "rank": 1,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398394",
+        "yxdm": "12448",
+        "yxmc": "北京农业职业学院",
+        "yxmydList": [
+          {
+            "count": 555,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 776,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 539,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1077",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4,
+            "rank": 1.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 2,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 2,
+            "rank": 2.5,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398430",
+        "yxdm": "12495",
+        "yxmc": "上海城建职业学院",
+        "yxmydList": [
+          {
+            "count": 1069,
+            "rank": 3.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1471,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1036,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1078",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 1,
+            "rank": 5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1,
+            "rank": 5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 1,
+            "rank": 5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398434",
+        "yxdm": "12497",
+        "yxmc": "上海交通职业技术学院",
+        "yxmydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1082",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 13,
+            "rank": 4.5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 11,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 9,
+            "rank": 4.8,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 7,
+            "rank": 4.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398450",
+        "yxdm": "12511",
+        "yxmc": "甘肃建筑职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1144,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1751,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1039,
+            "rank": 3.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 40,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "602377171",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "425190634",
+        "yxdm": "12582",
+        "yxmc": "河南水利与环境职业学院",
+        "yxmydList": [
+          {
+            "count": 848,
+            "rank": 3.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1631,
+            "rank": 3.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 817,
+            "rank": 3.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1147",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73398738",
+        "yxdm": "12638",
+        "yxmc": "四川水利职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1936,
+            "rank": 3.3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2434,
+            "rank": 3.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1885,
+            "rank": 2.5,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1220",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 1,
+            "rank": 1,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1,
+            "rank": 1,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 1,
+            "rank": 1,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 1,
+            "rank": 1,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73389104",
+        "yxdm": "12738",
+        "yxmc": "武汉工程职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1718,
+            "rank": 3.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2262,
+            "rank": 3.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1595,
+            "rank": 3.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1246",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 112,
+            "rank": 4.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 114,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 104,
+            "rank": 4.6,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 103,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73389204",
+        "yxdm": "12764",
+        "yxmc": "四川建筑职业技术学院",
+        "yxmydList": [
+          {
+            "count": 3843,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4816,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3671,
+            "rank": 3.8,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 90,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "1256",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 86,
+            "rank": 4.2,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 85,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 82,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 81,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73389244",
+        "yxdm": "12775",
+        "yxmc": "山西建筑职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1985,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2202,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1810,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1296",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73389404",
+        "yxdm": "12815",
+        "yxmc": "民办合肥经济技术职业学院",
+        "yxmydList": [
+          {
+            "count": 463,
+            "rank": 3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 442,
+            "rank": 2.8,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 436,
+            "rank": 2.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1301",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 62,
+            "rank": 4.2,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 69,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 60,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 59,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73393826",
+        "yxdm": "12820",
+        "yxmc": "重庆建筑科技职业学院",
+        "yxmydList": [
+          {
+            "count": 1076,
+            "rank": 3.3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1619,
+            "rank": 3.3,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1065,
+            "rank": 2.8,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 49,
+        "zytjRank": 4.2
+      },
+      {
+        "academeId": "1336",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 205,
+            "rank": 4.5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 221,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 200,
+            "rank": 4.5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 197,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73389556",
+        "yxdm": "12862",
+        "yxmc": "浙江建设职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1852,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2093,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1751,
+            "rank": 3.9,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1418",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 8,
+            "rank": 4.8,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 11,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 7,
+            "rank": 4.7,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 7,
+            "rank": 4.7,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73389844",
+        "yxdm": "12946",
+        "yxmc": "山东水利职业学院",
+        "yxmydList": [
+          {
+            "count": 2057,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2747,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1930,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 50,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "1489",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 7,
+            "rank": 4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 12,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 8,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 7,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73390112",
+        "yxdm": "13031",
+        "yxmc": "长沙环境保护职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1017,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1447,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 972,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 19,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "1500",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 42,
+            "rank": 4.5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 52,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 42,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 40,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73390148",
+        "yxdm": "13044",
+        "yxmc": "湖南城建职业技术学院",
+        "yxmydList": [
+          {
+            "count": 2550,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3170,
+            "rank": 3.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2435,
+            "rank": 2.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 67,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "1538",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 16,
+            "rank": 4.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 13,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 12,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 11,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73390284",
+        "yxdm": "13107",
+        "yxmc": "徐州工业职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1278,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1818,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1209,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 34,
+        "zytjRank": 4.6
+      },
+      {
+        "academeId": "1548",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 3,
+            "rank": 2.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3,
+            "rank": 3.7,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 2,
+            "rank": 3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 2,
+            "rank": 3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73390324",
+        "yxdm": "13124",
+        "yxmc": "西安城市建设职业学院",
+        "yxmydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1559",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 55,
+            "rank": 4.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 75,
+            "rank": 4.4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 54,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 49,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73390340",
+        "yxdm": "13138",
+        "yxmc": "广西建设职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1617,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2547,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1530,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 80,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "1560",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 99,
+            "rank": 4.2,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 101,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 98,
+            "rank": 4.2,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 92,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73390344",
+        "yxdm": "13151",
+        "yxmc": "宁夏建设职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1035,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1335,
+            "rank": 3.7,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 966,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1659",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 15,
+            "rank": 4.7,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 15,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 12,
+            "rank": 4.7,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 12,
+            "rank": 4.3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73390664",
+        "yxdm": "13324",
+        "yxmc": "山东协和学院",
+        "yxmydList": [
+          {
+            "count": 4234,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 5541,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3958,
+            "rank": 3.4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1812",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 52,
+            "rank": 4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 55,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 48,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 48,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73391144",
+        "yxdm": "13562",
+        "yxmc": "新疆建设职业技术学院",
+        "yxmydList": [
+          {
+            "count": 945,
+            "rank": 3.5,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1431,
+            "rank": 3.4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 933,
+            "rank": 2.9,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1816",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 101,
+            "rank": 4.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 107,
+            "rank": 4.4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 97,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 95,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73391156",
+        "yxdm": "13566",
+        "yxmc": "陕西铁路工程职业技术学院",
+        "yxmydList": [
+          {
+            "count": 3294,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4450,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3105,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 109,
+        "zytjRank": 4.4
+      },
+      {
+        "academeId": "1987",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 5,
+            "rank": 4.4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 5,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 4,
+            "rank": 4.3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 4,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73391800",
+        "yxdm": "13748",
+        "yxmc": "无锡城市职业技术学院",
+        "yxmydList": [
+          {
+            "count": 713,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1070,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 687,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 18,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "1998",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 23,
+            "rank": 3.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 24,
+            "rank": 3,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 21,
+            "rank": 3.1,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 20,
+            "rank": 3.3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73391844",
+        "yxdm": "13759",
+        "yxmc": "云南城市建设职业学院",
+        "yxmydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 50,
+        "zytjRank": 3.9
+      },
+      {
+        "academeId": "5123576",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392312",
+        "yxdm": "13903",
+        "yxmc": "成都锦城学院",
+        "yxmydList": [
+          {
+            "count": 3282,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 4044,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 3193,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "6241861",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1,
+            "rank": 5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392352",
+        "yxdm": "13915",
+        "yxmc": "乌海职业技术学院",
+        "yxmydList": [
+          {
+            "count": 687,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 909,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 651,
+            "rank": 3.2,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "5292585",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1,
+            "rank": 5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392404",
+        "yxdm": "13929",
+        "yxmc": "广州城市职业学院",
+        "yxmydList": [
+          {
+            "count": 2210,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2895,
+            "rank": 3.7,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2113,
+            "rank": 3.4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "5187496",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 37,
+            "rank": 4.2,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 45,
+            "rank": 3.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 37,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 37,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392444",
+        "yxdm": "13939",
+        "yxmc": "湖南水利水电职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1280,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1654,
+            "rank": 3.7,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1213,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 69,
+        "zytjRank": 4.3
+      },
+      {
+        "academeId": "398547",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 21,
+            "rank": 4.8,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 34,
+            "rank": 4.6,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 21,
+            "rank": 4.8,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 21,
+            "rank": 4.8,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392452",
+        "yxdm": "13941",
+        "yxmc": "湖南高速铁路职业技术学院",
+        "yxmydList": [
+          {
+            "count": 1322,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2028,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1241,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 36,
+        "zytjRank": 4.8
+      },
+      {
+        "academeId": "5571559",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 5,
+            "rank": 4,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 9,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 5,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 5,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392568",
+        "yxdm": "13973",
+        "yxmc": "厦门城市职业学院",
+        "yxmydList": [
+          {
+            "count": 1036,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1464,
+            "rank": 4.4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1009,
+            "rank": 3.9,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "5303298",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 85,
+            "rank": 4.6,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 84,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 81,
+            "rank": 4.6,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 79,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73392932",
+        "yxdm": "14080",
+        "yxmc": "山东城市建设职业学院",
+        "yxmydList": [
+          {
+            "count": 2282,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2704,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2150,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 156,
+        "zytjRank": 4.7
+      },
+      {
+        "academeId": "6155215",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 6,
+            "rank": 3.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 6,
+            "rank": 3.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 5,
+            "rank": 3.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 5,
+            "rank": 3.4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73393101",
+        "yxdm": "14127",
+        "yxmc": "广西工程职业学院",
+        "yxmydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "6459010",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 55,
+            "rank": 4.6,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 62,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 51,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 49,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73393221",
+        "yxdm": "14181",
+        "yxmc": "河南建筑职业技术学院",
+        "yxmydList": [
+          {
+            "count": 2844,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 3679,
+            "rank": 4.1,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2680,
+            "rank": 3.7,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 75,
+        "zytjRank": 4.7
+      },
+      {
+        "academeId": "6178578",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73393229",
+        "yxdm": "14183",
+        "yxmc": "重庆建筑工程职业学院",
+        "yxmydList": [
+          {
+            "count": 1044,
+            "rank": 3.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1558,
+            "rank": 3.4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1015,
+            "rank": 2.9,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "6178828",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 42,
+            "rank": 4.2,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 45,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 42,
+            "rank": 4.2,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 40,
+            "rank": 4,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73393249",
+        "yxdm": "14189",
+        "yxmc": "辽宁建筑职业学院",
+        "yxmydList": [
+          {
+            "count": 1399,
+            "rank": 4.2,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1845,
+            "rank": 4.2,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1298,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "52473537",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 11,
+            "rank": 3.7,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 19,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 11,
+            "rank": 3.9,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 11,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "143520204",
+        "yxdm": "14288",
+        "yxmc": "辽宁城市建设职业技术学院",
+        "yxmydList": [
+          {
+            "count": 466,
+            "rank": 3.9,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 671,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 437,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "52333945",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 107,
+            "rank": 4.1,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 123,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 106,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 108,
+            "rank": 3.6,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "105431446",
+        "yxdm": "14311",
+        "yxmc": "广东环境保护工程职业学院",
+        "yxmydList": [
+          {
+            "count": 2049,
+            "rank": 3.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2799,
+            "rank": 3.6,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 2025,
+            "rank": 2.8,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 87,
+        "zytjRank": 4.1
+      },
+      {
+        "academeId": "1800408822",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 3,
+            "rank": 3.7,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 8,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 4,
+            "rank": 3,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 4,
+            "rank": 3,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "439478279",
+        "yxdm": "14476",
+        "yxmc": "江西水利职业学院",
+        "yxmydList": [
+          {
+            "count": 518,
+            "rank": 3.3,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1010,
+            "rank": 3.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 486,
+            "rank": 3.3,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 40,
+        "zytjRank": 4.5
+      },
+      {
+        "academeId": "989137558",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 9,
+            "rank": 4.3,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 20,
+            "rank": 4,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 8,
+            "rank": 4.4,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 8,
+            "rank": 4.5,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "965320974",
+        "yxdm": "14516",
+        "yxmc": "贵州建设职业技术学院",
+        "yxmydList": [
+          {
+            "count": 760,
+            "rank": 3.7,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1490,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 720,
+            "rank": 3.5,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 34,
+        "zytjRank": 4.9
+      },
+      {
+        "academeId": "1668760912",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 5,
+            "rank": 4.8,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 1,
+            "rank": 5,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 1,
+            "rank": 2,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "p0jqtmupquh809qr",
+        "yxdm": "14543",
+        "yxmc": "江苏城乡建设职业学院",
+        "yxmydList": [
+          {
+            "count": 240,
+            "rank": 4.1,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 631,
+            "rank": 4.3,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 241,
+            "rank": 4,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1673454007",
+        "bxxz": "民办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "s60iedw94hili6v3",
+        "yxdm": "14567",
+        "yxmc": "吉林职业技术学院",
+        "yxmydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1674117393",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 2,
+            "rank": 5,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 6,
+            "rank": 5,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 3,
+            "rank": 4.7,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 2,
+            "rank": 5,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "ia58atzhfev6c0nc",
+        "yxdm": "14584",
+        "yxmc": "云南水利水电职业学院",
+        "yxmydList": [
+          {
+            "count": 452,
+            "rank": 3.8,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 1142,
+            "rank": 3.9,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 446,
+            "rank": 3.6,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      },
+      {
+        "academeId": "1801",
+        "bxxz": "公办",
+        "mydList": [
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "3",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "0",
+            "typeDesc": "办学条件满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "1",
+            "typeDesc": "教学质量满意度"
+          },
+          {
+            "count": 0,
+            "rank": 0,
+            "type": "2",
+            "typeDesc": "就业满意度"
+          }
+        ],
+        "schId": "73391100",
+        "yxdm": "16201",
+        "yxmc": "山西工程科技职业大学",
+        "yxmydList": [
+          {
+            "count": 1994,
+            "rank": 4.4,
+            "type": "2",
+            "typeDesc": "综合满意度"
+          },
+          {
+            "count": 2747,
+            "rank": 4.5,
+            "type": "0",
+            "typeDesc": "院校环境满意度"
+          },
+          {
+            "count": 1900,
+            "rank": 4.1,
+            "type": "1",
+            "typeDesc": "生活满意度"
+          }
+        ],
+        "zytjCount": 0,
+        "zytjRank": 0
+      }
+    ],
     "flag": true,
     "msg": ""
   }

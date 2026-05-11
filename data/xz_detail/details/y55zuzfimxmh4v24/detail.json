@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-08T09:29:55+0000",
+  "fetched_at": "2026-05-11T10:20:41+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId=y55zuzfimxmh4v24",
   "spec_id": "y55zuzfimxmh4v24",
   "page_title": "木业智能装备应用技术_专业洞察_学职平台",
@@ -97,17 +97,19 @@
       ]
     },
     "开设院校": {
-      "raw_text": "全国(1)\n湖北(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n湖北生态工程职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
-      "line_count": 8,
+      "raw_text": "全国(2)\n河南(1)\n湖北(1)\n专科高校：\n骨干专科\n示范专科\n院校名称 推荐指数 专业满意度\n综合情况 办学条件 教学质量 就业\n湖北生态工程职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人\n信阳艺术职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
+      "line_count": 10,
       "lines": [
-        "全国(1)",
+        "全国(2)",
+        "河南(1)",
         "湖北(1)",
         "专科高校：",
         "骨干专科",
         "示范专科",
         "院校名称 推荐指数 专业满意度",
         "综合情况 办学条件 教学质量 就业",
-        "湖北生态工程职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人"
+        "湖北生态工程职业技术学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人",
+        "信阳艺术职业学院 - 0.0 0人 0.0 0人 0.0 0人 0.0 0人"
       ]
     },
     "开设课程": {
@@ -200,6 +202,14 @@
         ],
         [
           "湖北生态工程职业技术学院",
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
+        ],
+        [
+          "信阳艺术职业学院",
           "-",
           "0.0 0人",
           "0.0 0人",
@@ -318,10 +328,14 @@
     }
   },
   "offering_schools": {
-    "count": 2,
+    "count": 3,
     "summary": {
-      "national_total": 1,
+      "national_total": 2,
       "province_counts": [
+        {
+          "province": "河南",
+          "count": 1
+        },
         {
           "province": "湖北",
           "count": 1
@@ -403,6 +417,76 @@
         ]
       },
       {
+        "school_name": "信阳艺术职业学院",
+        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-3156244781.dhtml",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "公办",
+        "source": "api",
+        "raw": {
+          "academeId": "3156244781",
+          "bxxz": "公办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "04zgfg3ji88lug5h",
+          "yxdm": "14752",
+          "yxmc": "信阳艺术职业学院",
+          "yxmydList": [
+            {
+              "count": 365,
+              "rank": 4.3,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 885,
+              "rank": 4.4,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 363,
+              "rank": 4.2,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        },
+        "columns": [
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
+        ]
+      },
+      {
         "school_name": "综合情况",
         "school_url": "",
         "columns": [
@@ -414,9 +498,9 @@
       }
     ],
     "sources": {
-      "dom_count": 2,
-      "api_count": 1,
-      "school_link_count": 1
+      "dom_count": 3,
+      "api_count": 2,
+      "school_link_count": 2
     }
   },
   "charts": {
@@ -455,6 +539,10 @@
     {
       "text": "湖北生态工程职业技术学院",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-2040.dhtml"
+    },
+    {
+      "text": "信阳艺术职业学院",
+      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-3156244781.dhtml"
     },
     {
       "text": "经济林培育与利用",
@@ -501,7 +589,7 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778232585532",
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=y55zuzfimxmh4v24&ssdm=&schoolType=&_t=1778494831360",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
@@ -512,7 +600,7 @@
     },
     {
       "index": 2,
-      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=y55zuzfimxmh4v24&ssdm=&schoolType=&_t=1778232585516",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778494831374",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
