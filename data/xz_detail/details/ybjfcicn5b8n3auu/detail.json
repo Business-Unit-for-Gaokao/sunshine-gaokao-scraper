@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-11T10:17:02+0000",
+  "fetched_at": "2026-05-20T10:41:39+0000",
   "url": "https://xz.chsi.com.cn/speciality/detail/ptbk.action?specId=ybjfcicn5b8n3auu",
   "spec_id": "ybjfcicn5b8n3auu",
   "page_title": "精算学_专业洞察_学职平台",
@@ -164,10 +164,10 @@
         [
           "对外经济贸易大学",
           "-",
-          "3.1 8人",
-          "4.0 9人",
-          "2.2 6人",
-          "1.6 5人"
+          "3.3 9人",
+          "4.1 10人",
+          "2.6 7人",
+          "2.2 6人"
         ],
         [
           "南开大学",
@@ -176,6 +176,14 @@
           "2.6 7人",
           "2.3 6人",
           "1.8 6人"
+        ],
+        [
+          "内蒙古财经大学",
+          "-",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人",
+          "0.0 0人"
         ],
         [
           "上海外国语大学",
@@ -216,14 +224,6 @@
           "0.0 0人",
           "0.0 0人",
           "0.0 0人"
-        ],
-        [
-          "西南财经大学",
-          "-",
-          "3.0 3人",
-          "2.7 3人",
-          "3.0 3人",
-          "2.3 3人"
         ]
       ]
     },
@@ -353,7 +353,7 @@
     }
   },
   "offering_schools": {
-    "count": 21,
+    "count": 22,
     "summary": {
       "national_total": null,
       "province_counts": [],
@@ -407,7 +407,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1507,
+              "count": 1508,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -470,7 +470,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1529,
+              "count": 1530,
               "rank": 3.7,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -498,26 +498,26 @@
           "bxxz": "公办",
           "mydList": [
             {
-              "count": 8,
-              "rank": 3.1,
+              "count": 9,
+              "rank": 3.3,
               "type": "3",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 9,
-              "rank": 4,
+              "count": 10,
+              "rank": 4.1,
               "type": "0",
               "typeDesc": "办学条件满意度"
             },
             {
-              "count": 6,
-              "rank": 2.2,
+              "count": 7,
+              "rank": 2.6,
               "type": "1",
               "typeDesc": "教学质量满意度"
             },
             {
-              "count": 5,
-              "rank": 1.6,
+              "count": 6,
+              "rank": 2.2,
               "type": "2",
               "typeDesc": "就业满意度"
             }
@@ -527,19 +527,19 @@
           "yxmc": "对外经济贸易大学",
           "yxmydList": [
             {
-              "count": 911,
+              "count": 913,
               "rank": 4.5,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1087,
+              "count": 1090,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 887,
+              "count": 889,
               "rank": 4.3,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -590,19 +590,82 @@
           "yxmc": "南开大学",
           "yxmydList": [
             {
-              "count": 3046,
+              "count": 3049,
               "rank": 4.6,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3519,
+              "count": 3524,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 3041,
+              "count": 3044,
+              "rank": 4.1,
+              "type": "1",
+              "typeDesc": "生活满意度"
+            }
+          ],
+          "zytjCount": 0,
+          "zytjRank": 0
+        }
+      },
+      {
+        "school_name": "内蒙古财经大学",
+        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-115.dhtml",
+        "recommend_index": 0,
+        "recommend_votes": 0,
+        "school_type": "公办",
+        "source": "api",
+        "raw": {
+          "academeId": "115",
+          "bxxz": "公办",
+          "mydList": [
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "3",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "0",
+              "typeDesc": "办学条件满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "1",
+              "typeDesc": "教学质量满意度"
+            },
+            {
+              "count": 0,
+              "rank": 0,
+              "type": "2",
+              "typeDesc": "就业满意度"
+            }
+          ],
+          "schId": "73394940",
+          "yxdm": "10139",
+          "yxmc": "内蒙古财经大学",
+          "yxmydList": [
+            {
+              "count": 3573,
+              "rank": 4.3,
+              "type": "2",
+              "typeDesc": "综合满意度"
+            },
+            {
+              "count": 4020,
+              "rank": 4.2,
+              "type": "0",
+              "typeDesc": "院校环境满意度"
+            },
+            {
+              "count": 3456,
               "rank": 4.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -716,19 +779,19 @@
           "yxmc": "江西财经大学",
           "yxmydList": [
             {
-              "count": 4595,
+              "count": 4596,
               "rank": 4.5,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 5149,
+              "count": 5151,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 4394,
+              "count": 4395,
               "rank": 4.2,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -779,19 +842,19 @@
           "yxmc": "山东财经大学",
           "yxmydList": [
             {
-              "count": 6766,
+              "count": 6770,
               "rank": 4.5,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 7500,
+              "count": 7504,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 6478,
+              "count": 6482,
               "rank": 4.2,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -842,19 +905,19 @@
           "yxmc": "中南财经政法大学",
           "yxmydList": [
             {
-              "count": 3180,
+              "count": 3181,
               "rank": 4.5,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3846,
+              "count": 3849,
               "rank": 4.5,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 3177,
+              "count": 3178,
               "rank": 4.3,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -905,19 +968,19 @@
           "yxmc": "湖南大学",
           "yxmydList": [
             {
-              "count": 3936,
+              "count": 3943,
               "rank": 4.4,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 4502,
+              "count": 4511,
               "rank": 4.4,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 3818,
+              "count": 3825,
               "rank": 4.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -929,7 +992,7 @@
       },
       {
         "school_name": "西南财经大学",
-        "school_url": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-503.dhtml",
+        "school_url": "",
         "recommend_index": 0,
         "recommend_votes": 0,
         "school_type": "公办",
@@ -968,19 +1031,19 @@
           "yxmc": "西南财经大学",
           "yxmydList": [
             {
-              "count": 3050,
+              "count": 3059,
               "rank": 4.5,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3430,
+              "count": 3441,
               "rank": 4.6,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2938,
+              "count": 2947,
               "rank": 4.6,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1031,19 +1094,19 @@
           "yxmc": "云南财经大学",
           "yxmydList": [
             {
-              "count": 2815,
+              "count": 2817,
               "rank": 3.8,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3563,
+              "count": 3566,
               "rank": 3.9,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2678,
+              "count": 2680,
               "rank": 3.6,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1100,7 +1163,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3579,
+              "count": 3582,
               "rank": 4.1,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1163,7 +1226,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1549,
+              "count": 1551,
               "rank": 3.7,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1226,7 +1289,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3172,
+              "count": 3174,
               "rank": 4.1,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1283,19 +1346,19 @@
           "yxmc": "河北金融学院",
           "yxmydList": [
             {
-              "count": 2224,
+              "count": 2226,
               "rank": 4.2,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2610,
+              "count": 2614,
               "rank": 4.3,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2142,
+              "count": 2144,
               "rank": 3.9,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1346,19 +1409,19 @@
           "yxmc": "广东金融学院",
           "yxmydList": [
             {
-              "count": 2847,
+              "count": 2848,
               "rank": 4.1,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3145,
+              "count": 3147,
               "rank": 4.1,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2751,
+              "count": 2752,
               "rank": 4.1,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1478,7 +1541,7 @@
               "typeDesc": "综合满意度"
             },
             {
-              "count": 2399,
+              "count": 2402,
               "rank": 4.1,
               "type": "0",
               "typeDesc": "院校环境满意度"
@@ -1535,19 +1598,19 @@
           "yxmc": "安阳学院",
           "yxmydList": [
             {
-              "count": 2756,
+              "count": 2760,
               "rank": 3.6,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 3758,
+              "count": 3765,
               "rank": 3.8,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 2598,
+              "count": 2602,
               "rank": 3.5,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1598,19 +1661,19 @@
           "yxmc": "西交利物浦大学",
           "yxmydList": [
             {
-              "count": 1262,
+              "count": 1263,
               "rank": 4.7,
               "type": "2",
               "typeDesc": "综合满意度"
             },
             {
-              "count": 1707,
+              "count": 1708,
               "rank": 4.8,
               "type": "0",
               "typeDesc": "院校环境满意度"
             },
             {
-              "count": 1250,
+              "count": 1251,
               "rank": 4.4,
               "type": "1",
               "typeDesc": "生活满意度"
@@ -1633,7 +1696,7 @@
     ],
     "sources": {
       "dom_count": 1,
-      "api_count": 20,
+      "api_count": 21,
       "school_link_count": 10
     }
   },
@@ -1700,6 +1763,10 @@
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-48.dhtml"
     },
     {
+      "text": "内蒙古财经大学",
+      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-115.dhtml"
+    },
+    {
       "text": "上海外国语大学",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-212.dhtml"
     },
@@ -1718,10 +1785,6 @@
     {
       "text": "湖南大学",
       "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-410.dhtml"
-    },
-    {
-      "text": "西南财经大学",
-      "href": "https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-503.dhtml"
     },
     {
       "text": "金融数学",
@@ -1758,7 +1821,7 @@
   "network_json_summaries": [
     {
       "index": 1,
-      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1778494611699",
+      "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1779273688508",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [
@@ -1769,7 +1832,7 @@
     },
     {
       "index": 2,
-      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=ybjfcicn5b8n3auu&ssdm=&schoolType=&_t=1778494611699",
+      "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=ybjfcicn5b8n3auu&ssdm=&schoolType=&_t=1779273688508",
       "status_code": 200,
       "resource_type": "xhr",
       "top_keys": [

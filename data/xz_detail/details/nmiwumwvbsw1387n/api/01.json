@@ -1,121 +1,13 @@
 {
   "index": 1,
-  "url": "https://xz.chsi.com.cn/speciality/ksyx.action?specId=nmiwumwvbsw1387n&ssdm=&schoolType=&_t=1778495003652",
+  "url": "https://xz.chsi.com.cn/ajax/getuserstatus.action?_t=1779274076714",
   "status_code": 200,
   "resource_type": "xhr",
   "json": {
-    "data": [
-      {
-        "academeId": "1141",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "73398706",
-        "yxdm": "12629",
-        "yxmc": "厦门海洋职业技术学院",
-        "yxmydList": [
-          {
-            "count": 1944,
-            "rank": 4.2,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 2296,
-            "rank": 4.2,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 1849,
-            "rank": 4.1,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      },
-      {
-        "academeId": "3156259880",
-        "bxxz": "公办",
-        "mydList": [
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "3",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "0",
-            "typeDesc": "办学条件满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "1",
-            "typeDesc": "教学质量满意度"
-          },
-          {
-            "count": 0,
-            "rank": 0,
-            "type": "2",
-            "typeDesc": "就业满意度"
-          }
-        ],
-        "schId": "5yojf4rc438wr9q7",
-        "yxdm": "14762",
-        "yxmc": "防城港职业技术学院",
-        "yxmydList": [
-          {
-            "count": 171,
-            "rank": 4,
-            "type": "2",
-            "typeDesc": "综合满意度"
-          },
-          {
-            "count": 469,
-            "rank": 3.9,
-            "type": "0",
-            "typeDesc": "院校环境满意度"
-          },
-          {
-            "count": 179,
-            "rank": 3.9,
-            "type": "1",
-            "typeDesc": "生活满意度"
-          }
-        ],
-        "zytjCount": 0,
-        "zytjRank": 0
-      }
-    ],
+    "data": {
+      "checkin": false,
+      "finishedYhdy": false
+    },
     "flag": true,
     "msg": ""
   }
