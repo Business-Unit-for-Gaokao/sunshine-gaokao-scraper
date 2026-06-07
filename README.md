@@ -186,14 +186,32 @@ MIT
 <!-- target-crawl-links:start -->
 ## Target Crawl Links
 
-This crawler targets 阳光高考 / CHSI.
+This crawler targets 阳光高考 / CHSI, with additional 学职平台 / XZ speciality detail scripts found in source.
+
+### 阳光高考 / CHSI
 
 | Data | Link |
 | --- | --- |
 | 阳光高考根域名 | `https://gaokao.chsi.com.cn` |
 | 专业库首页 | `https://gaokao.chsi.com.cn/zyk/zybk/` |
+| 专业目录页 | `https://gaokao.chsi.com.cn/zyk/zybk/catalog.shtml` |
+| 专业详情页模板 | `https://gaokao.chsi.com.cn/zyk/zybk/specialtyDetail.action?specialtyId={id}` |
+| 专业开设院校页模板 | `https://gaokao.chsi.com.cn/zyk/zybk/schoolSpecialty.action?specialtyId={id}` |
 | 院校列表分页 | `https://gaokao.chsi.com.cn/sch/search--ss-on,option-qg,searchType-1,start-{start}.dhtml` |
 | 专业开设院校页 | `https://gaokao.chsi.com.cn/zyk/zybk/ksyxPage?specId={spec_id}` |
 | 院校主页模板 | `https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-{schId}.dhtml` |
 | 专业解读页模板 | `https://gaokao.chsi.com.cn/zyk/zybk/zyjd/viewPage/{id}` |
+| 研招专业详情页线索 | `https://yz.chsi.com.cn/zyk/specialityDetail.do` |
+
+### 学职平台 / XZ
+
+| Data | Link |
+| --- | --- |
+| 专业入口 | `https://xz.chsi.com.cn/speciality/index.action` |
+| 专业列表接口 | `https://xz.chsi.com.cn/speciality/list.action` |
+| 专业子类接口 | `https://xz.chsi.com.cn/speciality/subcategory.action` |
+| 普通本科详情页 | `https://xz.chsi.com.cn/speciality/detail/ptbk.action?specId={spec_id}` |
+| 本科职业教育详情页 | `https://xz.chsi.com.cn/speciality/detail/bkzyjy.action?specId={spec_id}` |
+| 职业教育详情页 | `https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId={spec_id}` |
+| 通用专业详情页 | `https://xz.chsi.com.cn/speciality/detail.action?specId={spec_id}` |
 <!-- target-crawl-links:end -->
