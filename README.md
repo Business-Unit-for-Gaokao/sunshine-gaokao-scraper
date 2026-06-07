@@ -182,3 +182,18 @@ A: GitHub Actions 的 IP 可能被 WAF 拦截。建议：
 ## License
 
 MIT
+
+<!-- target-crawl-links:start -->
+## Target Crawl Links
+
+This crawler targets 阳光高考 / CHSI.
+
+| Data | Link |
+| --- | --- |
+| 阳光高考根域名 | `https://gaokao.chsi.com.cn` |
+| 专业库首页 | `https://gaokao.chsi.com.cn/zyk/zybk/` |
+| 院校列表分页 | `https://gaokao.chsi.com.cn/sch/search--ss-on,option-qg,searchType-1,start-{start}.dhtml` |
+| 专业开设院校页 | `https://gaokao.chsi.com.cn/zyk/zybk/ksyxPage?specId={spec_id}` |
+| 院校主页模板 | `https://gaokao.chsi.com.cn/sch/schoolInfoMain--schId-{schId}.dhtml` |
+| 专业解读页模板 | `https://gaokao.chsi.com.cn/zyk/zybk/zyjd/viewPage/{id}` |
+<!-- target-crawl-links:end -->
