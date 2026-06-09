@@ -215,3 +215,36 @@ This crawler targets 阳光高考 / CHSI, with additional 学职平台 / XZ spec
 | 职业教育详情页 | `https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId={spec_id}` |
 | 通用专业详情页 | `https://xz.chsi.com.cn/speciality/detail.action?specId={spec_id}` |
 <!-- target-crawl-links:end -->
+
+<!-- crawl-sources:start -->
+## 爬取链接 / 数据源
+
+> 维护说明：本节只记录源码中实际请求的源站/接口；爬取结果文件（data/results/output/json/csv/xlsx 等）不纳入统计。
+
+### 阳光高考专业库
+
+- `https://gaokao.chsi.com.cn/zyk/zybk/catalog.shtml`
+- `https://gaokao.chsi.com.cn/zyk/zybk/specialtyDetail.action?specialtyId={id}`
+- `https://gaokao.chsi.com.cn/zyk/zybk/schoolSpecialty.action?specialtyId={id}`
+- `https://gaokao.chsi.com.cn/zyk/zybk/`
+- `https://gaokao.chsi.com.cn/zyk/zybk/ksyxPage?specId={spec_id}`
+
+### 阳光高考院校搜索
+
+- `https://gaokao.chsi.com.cn/sch/search.do`
+- `https://gaokao.chsi.com.cn/sch/search--ss-on,option-qg,searchType-1,start-{start}.dhtml`
+
+### 学职平台专业详情
+
+- `https://xz.chsi.com.cn/speciality/index.action`
+- `https://xz.chsi.com.cn/speciality/list.action`
+- `https://xz.chsi.com.cn/speciality/subcategory.action`
+- `https://xz.chsi.com.cn/speciality/detail.action?specId={spec_id}`
+- `https://xz.chsi.com.cn/speciality/detail/ptbk.action?specId={spec_id}`
+- `https://xz.chsi.com.cn/speciality/detail/bkzyjy.action?specId={spec_id}`
+- `https://xz.chsi.com.cn/speciality/detail/zyjy.action?specId={spec_id}`
+
+### 研招网相关检查
+
+- `https://yz.chsi.com.cn/zyk/specialityDetail.do`
+<!-- crawl-sources:end -->
